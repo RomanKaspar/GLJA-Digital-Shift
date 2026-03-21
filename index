@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLJA Dashboard | Diamond Baseline v1.0</title>
+
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #9d50bb;
+            --bg: #0b0e14;
+            --card: #161b22;
+            --text: #c9d1d9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            padding: 25px 20px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .status-badge {
+            background: #238636;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 20px;
+            transition: 0.3s transform, 0.3s border-color;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .scales {
+            font-size: 50px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 35px;
+            font-size: 0.8em;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>GLJA: Global Level of Justice Auditor</h1>
+    <p>Diamond Baseline v1.0 (LOCKED)</p>
+</header>
+
+<div class="container">
+
+    <div class="status-badge">DIAMOND BASELINE LOCKED</div>
+
+    <div class="card">
+        <h2>⚖️ Misky Pravdy (Consistency Index)</h2>
+        <div class="scales">⚖️</div>
+        <p>Aktuální stav integrity procesů: <strong>100%</strong></p>
+        <p>Federated Trust Graph: <strong>AKTIVNÍ</strong> (Gemini × Copilot)</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>📂 Evidence Layer</h3>
+            <p>Klíčové důkazy a právní fixace (Diamond Baseline v1.0).</p>
+            Audit-Evidence-Znojmo-Precedent.pdfZobrazit Důkazy</a>
+        </div>
+
+        <div class="card">
+            <h3>💎 Whitepaper</h3>
+            <p>Technická dokumentace a investiční rámec verze 1.0.</p>
+            GLJA-Whitepaper-v1.0-Diamond.pdfČíst Whitepaper</a>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <h3>🚀 Investiční Analýza (AI Synthesis)</h3>
+        <p>Global Impact Index: <strong>9.1 / 10</strong></p>
+        <p>SaaS Export Potential: <strong>9.3 / 10</strong></p>
+    </div>
+
+</div>
+
+<div class="footer">
+    Powered by Federated Trust Graph | Architekt: Roman Mužný Kašpar | 2026
+</div>
+
+</body>
+</html>
