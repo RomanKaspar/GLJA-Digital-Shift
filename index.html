@@ -3,985 +3,566 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PROJECT GLJA | Diamond Baseline v2.0 | Locked & Loaded</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<title>GLJA v2.1 | The Znojmo Precedent | Locked & Loaded</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --neon: #00ff41;
-  --neon-dim: #00aa2b;
-  --neon-glow: rgba(0,255,65,0.3);
-  --bg: #0a0b10;
-  --panel: #0d1017;
-  --panel2: #111520;
-  --border: #1a2030;
-  --red: #ff3e3e;
-  --red-glow: rgba(255,62,62,0.3);
-  --orange: #ffab00;
-  --orange-glow: rgba(255,171,0,0.25);
-  --blue: #00d4ff;
-  --blue-glow: rgba(0,212,255,0.2);
-  --text: #c9d1d9;
-  --dim: #4a5568;
-  --gold: #ffd700;
+  --neon:#00ff41;--neon-dim:#00aa2b;--neon-glow:rgba(0,255,65,0.25);
+  --bg:#080910;--bg2:#0d0f18;--panel:#0f1219;--panel2:#131720;
+  --border:#1c2030;--border2:#242838;
+  --red:#ff3e3e;--red-dim:#cc1a1a;--red-glow:rgba(255,62,62,0.2);
+  --orange:#ffab00;--orange-glow:rgba(255,171,0,0.2);
+  --blue:#00d4ff;--blue-glow:rgba(0,212,255,0.15);
+  --gold:#ffd700;--text:#c9d1d9;--text2:#8b949e;--dim:#3d4a5c;
+  --mono:'Share Tech Mono',monospace;--orbit:'Orbitron',sans-serif;--body:'Inter',sans-serif;
 }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;overflow-x:hidden;line-height:1.6;}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,255,65,0.012) 3px,rgba(0,255,65,0.012) 4px);pointer-events:none;z-index:9000;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--neon-dim);border-radius:2px;}
+.mono{font-family:var(--mono);}
+.orbit{font-family:var(--orbit);}
+.label{font-family:var(--mono);font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:3px;margin-bottom:8px;}
+.section-title{font-family:var(--orbit);font-size:clamp(13px,2vw,15px);font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:24px;}
 
-* { margin:0; padding:0; box-sizing:border-box; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:48px;background:rgba(8,9,16,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:8000;}
+.nav-brand{font-family:var(--orbit);font-size:13px;font-weight:900;color:var(--neon);letter-spacing:3px;text-shadow:0 0 12px var(--neon-glow);}
+.nav-links{display:flex;gap:20px;list-style:none;}
+.nav-links a{font-family:var(--mono);font-size:11px;color:var(--text2);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--neon);}
+.nav-status{font-family:var(--mono);font-size:10px;color:var(--neon);border:1px solid var(--neon-dim);padding:4px 12px;border-radius:2px;background:rgba(0,255,65,0.05);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.6}}
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+/* TICKER */
+.ticker{position:fixed;top:48px;left:0;right:0;height:30px;background:rgba(0,255,65,0.03);border-bottom:1px solid var(--border);overflow:hidden;display:flex;align-items:center;z-index:7000;}
+.ticker-tag{font-family:var(--mono);font-size:10px;color:var(--neon);background:rgba(0,255,65,0.1);border-right:1px solid var(--neon-dim);padding:0 14px;height:100%;display:flex;align-items:center;letter-spacing:2px;white-space:nowrap;flex-shrink:0;}
+.ticker-inner{display:flex;animation:tickerMove 40s linear infinite;white-space:nowrap;}
+.ticker-inner span{font-family:var(--mono);font-size:10px;color:var(--text2);padding:0 24px;letter-spacing:1px;}
+.t-g{color:var(--neon)!important;} .t-r{color:var(--red)!important;} .t-o{color:var(--orange)!important;} .t-b{color:var(--blue)!important;}
+@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* Scanline overlay */
-body::before {
-  content:'';
-  position:fixed;
-  top:0; left:0; right:0; bottom:0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,255,65,0.015) 2px,
-    rgba(0,255,65,0.015) 4px
-  );
-  pointer-events:none;
-  z-index:999;
-}
+/* MAIN */
+main{padding-top:90px;}
 
-/* ── HEADER ── */
-header {
-  width:100%;
-  padding: 50px 40px 40px;
-  background: linear-gradient(180deg, #0d1320 0%, var(--bg) 100%);
-  border-bottom: 1px solid var(--neon-dim);
-  box-shadow: 0 0 60px var(--neon-glow);
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
+/* HERO */
+.hero{width:100%;padding:80px 40px 60px;background:radial-gradient(ellipse at 50% 0%,#0f1a0f 0%,var(--bg) 70%);border-bottom:1px solid var(--border);text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--neon),transparent);}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;color:var(--text2);letter-spacing:5px;text-transform:uppercase;margin-bottom:20px;}
+.hero-title{font-family:var(--orbit);font-size:clamp(2.2rem,8vw,5.5rem);font-weight:900;color:var(--neon);text-shadow:0 0 30px var(--neon-glow),0 0 80px rgba(0,255,65,0.1);letter-spacing:6px;line-height:1;margin-bottom:12px;}
+.hero-sub{font-family:var(--orbit);font-size:clamp(11px,2vw,16px);color:var(--text2);letter-spacing:4px;margin-bottom:28px;}
+.hero-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
+.badge{font-family:var(--mono);font-size:11px;padding:6px 16px;border-radius:3px;text-transform:uppercase;letter-spacing:2px;border:1px solid;}
+.badge-g{color:var(--neon);border-color:var(--neon-dim);background:rgba(0,255,65,0.06);animation:blink 2s infinite;}
+.badge-r{color:var(--red);border-color:var(--red-dim);background:rgba(255,62,62,0.06);}
+.badge-b{color:var(--blue);border-color:rgba(0,212,255,0.4);background:rgba(0,212,255,0.05);}
+.badge-o{color:var(--orange);border-color:rgba(255,171,0,0.4);background:rgba(255,171,0,0.05);}
+.linkedin-counter{display:inline-flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--border2);border-radius:8px;padding:14px 28px;margin:0 auto;}
+.li-icon{width:32px;height:32px;background:#0077B5;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--orbit);font-size:14px;font-weight:900;color:white;}
+.li-num{font-family:var(--orbit);font-size:22px;font-weight:900;color:var(--neon);text-shadow:0 0 10px var(--neon-glow);}
+.li-label{font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:2px;text-transform:uppercase;}
 
-header::before {
-  content:'';
-  position:absolute;
-  top:0; left:-100%;
-  width:300%;
-  height:1px;
-  background: linear-gradient(90deg, transparent, var(--neon), transparent);
-  animation: scanH 4s linear infinite;
-}
-@keyframes scanH { to { left:100%; } }
+/* CONTAINER */
+.container{max-width:1300px;margin:0 auto;padding:48px 24px;display:flex;flex-direction:column;gap:48px;}
 
-.header-tag {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  color: var(--neon-dim);
-  letter-spacing:4px;
-  text-transform:uppercase;
-  margin-bottom:16px;
-  opacity:0.7;
-}
+/* CARDS */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:28px;position:relative;overflow:hidden;transition:border-color .3s;cursor:default;}
+.card:hover{border-color:var(--border2);}
+.card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent);}
+.card-r{border-left:3px solid var(--red);}
+.card-g{border-left:3px solid var(--neon);}
+.card-o{border-left:3px solid var(--orange);}
+.card-b{border-left:3px solid var(--blue);}
+.card-gold{border-top:3px solid var(--gold);}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;}
 
-h1 {
-  font-family:'Orbitron', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.8rem);
-  font-weight:900;
-  color: var(--neon);
-  letter-spacing:12px;
-  text-transform:uppercase;
-  text-shadow: 0 0 20px var(--neon), 0 0 60px var(--neon-glow);
-  line-height:1;
-  margin-bottom:10px;
-}
+/* METRICS */
+.big-num{font-family:var(--orbit);font-weight:900;line-height:1;margin-bottom:6px;}
+.num-r{color:var(--red);text-shadow:0 0 20px var(--red-glow);}
+.num-g{color:var(--neon);text-shadow:0 0 20px var(--neon-glow);}
+.num-o{color:var(--orange);}
+.num-b{color:var(--blue);}
+.num-gold{color:var(--gold);}
 
-.header-sub {
-  font-family:'Share Tech Mono', monospace;
-  font-size:13px;
-  color: var(--dim);
-  letter-spacing:3px;
-  margin-bottom:30px;
-}
+/* BARS */
+.bar-wrap{margin:10px 0;}
+.bar-info{display:flex;justify-content:space-between;margin-bottom:5px;}
+.bar-info span{font-family:var(--mono);font-size:10px;color:var(--text2);}
+.bar-track{height:4px;background:var(--border2);border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:2px;transform-origin:left;animation:fillBar 1.8s ease-out forwards;}
+@keyframes fillBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.bf-g{background:var(--neon);box-shadow:0 0 8px var(--neon-glow);}
+.bf-r{background:var(--red);box-shadow:0 0 8px var(--red-glow);}
+.bf-o{background:var(--orange);}
 
-.status-row {
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  flex-wrap:wrap;
-}
+/* PARADOX */
+.paradox-eq{background:var(--panel2);border:1px solid var(--border2);border-radius:8px;padding:24px;text-align:center;margin:16px 0;}
+.eq-line{font-family:var(--mono);font-size:13px;color:var(--text2);margin-bottom:8px;}
+.eq-result{font-family:var(--orbit);font-size:clamp(28px,5vw,48px);font-weight:900;color:var(--red);text-shadow:0 0 20px var(--red-glow);margin:12px 0;}
+.eq-verdict{font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:2px;text-transform:uppercase;}
 
-.badge {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  padding:7px 18px;
-  border-radius:3px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-}
-.badge-green {
-  border:1px solid var(--neon);
-  color: var(--neon);
-  background: rgba(0,255,65,0.07);
-  animation: pulse 2s infinite;
-}
-.badge-red {
-  border:1px solid var(--red);
-  color: var(--red);
-  background: rgba(255,62,62,0.07);
-}
-.badge-blue {
-  border:1px solid var(--blue);
-  color: var(--blue);
-  background: rgba(0,212,255,0.07);
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+/* STOVE */
+.stove-box{display:flex;align-items:center;gap:16px;background:rgba(255,171,0,0.05);border:1px solid rgba(255,171,0,0.2);border-radius:8px;padding:16px 20px;margin:16px 0;}
+.stove-icon{font-size:36px;filter:drop-shadow(0 0 8px var(--orange));}
+.stove-title{font-family:var(--orbit);font-size:13px;color:var(--orange);font-weight:700;margin-bottom:4px;}
+.stove-text{font-family:var(--mono);font-size:11px;color:var(--orange);line-height:1.8;}
 
-/* ── MAIN GRID ── */
-.container {
-  max-width:1280px;
-  margin:0 auto;
-  padding:40px 24px 60px;
-  display:flex;
-  flex-direction:column;
-  gap:30px;
-}
+/* TIMELINE */
+.timeline{position:relative;padding-left:32px;}
+.timeline::before{content:'';position:absolute;left:10px;top:10px;bottom:10px;width:1px;background:linear-gradient(180deg,var(--neon),var(--orange),var(--red));}
+.tl-item{position:relative;margin-bottom:28px;cursor:pointer;transition:opacity .2s;}
+.tl-item:hover{opacity:.85;}
+.tl-dot{position:absolute;left:-27px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid;}
+.tl-dot-g{background:var(--neon);border-color:var(--neon);box-shadow:0 0 8px var(--neon);}
+.tl-dot-o{background:var(--orange);border-color:var(--orange);box-shadow:0 0 8px var(--orange);animation:blink 1.5s infinite;}
+.tl-dot-r{background:var(--red);border-color:var(--red);box-shadow:0 0 8px var(--red);animation:blink 1s infinite;}
+.tl-dot-d{background:var(--dim);border-color:var(--dim);}
+.tl-date{font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:2px;margin-bottom:4px;}
+.tl-title{font-family:var(--orbit);font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.tl-desc{font-family:var(--mono);font-size:11px;color:var(--text2);line-height:1.6;}
+.tl-ref{font-family:var(--mono);font-size:10px;color:var(--neon-dim);margin-top:4px;}
 
-/* ── TICKER ── */
-.ticker-wrap {
-  border:1px solid var(--border);
-  background: var(--panel);
-  overflow:hidden;
-  height:36px;
-  display:flex;
-  align-items:center;
-  border-radius:4px;
-}
-.ticker-label {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  color: var(--neon);
-  background: rgba(0,255,65,0.1);
-  padding:0 16px;
-  height:100%;
-  display:flex;
-  align-items:center;
-  border-right:1px solid var(--neon-dim);
-  white-space:nowrap;
-  letter-spacing:2px;
-}
-.ticker-track {
-  display:flex;
-  animation: ticker 28s linear infinite;
-  white-space:nowrap;
-}
-.ticker-track span {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  color: var(--dim);
-  padding:0 30px;
-  letter-spacing:1px;
-}
-.ticker-track span.hi { color:var(--neon); }
-.ticker-track span.warn { color:var(--red); }
-.ticker-track span.info { color:var(--orange); }
-@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+/* LEGAL */
+.legal-doc{background:var(--panel2);border:1px solid var(--border2);border-radius:8px;padding:28px;font-family:var(--body);}
+.legal-title{font-family:var(--orbit);font-size:14px;font-weight:700;color:var(--neon);letter-spacing:2px;margin-bottom:8px;}
+.legal-meta{font-family:var(--mono);font-size:10px;color:var(--text2);line-height:2;border-bottom:1px solid var(--border2);padding-bottom:16px;margin-bottom:20px;}
+.legal-para{font-size:13px;color:var(--text);line-height:1.8;margin-bottom:16px;text-align:justify;}
+.legal-para strong{color:var(--orange);font-weight:600;}
+.legal-para .law{color:var(--neon);font-family:var(--mono);font-size:12px;}
+.legal-h{font-family:var(--orbit);font-size:11px;font-weight:700;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
 
-/* ── GRID LAYOUTS ── */
-.grid-3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px; }
-.grid-2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); gap:24px; }
+/* VIOLATION TABLE */
+.vtable{width:100%;border-collapse:collapse;}
+.vtable th{font-family:var(--mono);font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:2px;padding:8px 12px;border-bottom:1px solid var(--border2);text-align:left;}
+.vtable td{font-family:var(--mono);font-size:11px;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.vtable tr{cursor:pointer;}
+.vtable tr:hover td{background:rgba(255,255,255,0.015);}
+.vtable tr:last-child td{border-bottom:none;}
+.sev-c{color:var(--red);font-weight:700;}
+.sev-s{color:var(--orange);}
 
-/* ── CARDS ── */
-.card {
-  background: var(--panel);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:28px;
-  position:relative;
-  overflow:hidden;
-}
-.card::before {
-  content:'';
-  position:absolute;
-  top:0; left:0; right:0;
-  height:1px;
-  background: linear-gradient(90deg, transparent, var(--neon-dim), transparent);
-  opacity:0.4;
-}
+/* SOLVIT */
+.solvit-banner{background:linear-gradient(135deg,rgba(0,212,255,0.04),rgba(0,255,65,0.04));border:1px solid rgba(0,212,255,0.2);border-radius:12px;padding:32px;text-align:center;position:relative;overflow:hidden;}
+.solvit-ref{font-family:var(--orbit);font-size:clamp(24px,5vw,42px);font-weight:900;color:var(--blue);text-shadow:0 0 20px var(--blue-glow);margin:12px 0;}
+.solvit-status{font-family:var(--mono);font-size:11px;color:var(--neon);letter-spacing:3px;text-transform:uppercase;}
 
-.card-red { border-left:3px solid var(--red); }
-.card-red::before { background: linear-gradient(90deg, transparent, var(--red), transparent); }
+/* VALUATION */
+.val-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border);gap:12px;}
+.val-row:last-child{border:none;}
+.val-market{font-family:var(--mono);font-size:11px;color:var(--text2);letter-spacing:2px;flex:1;}
+.val-mega{font-family:var(--orbit);font-weight:900;line-height:1;text-align:right;}
 
-.card-green { border-left:3px solid var(--neon); }
-.card-orange { border-left:3px solid var(--orange); }
-.card-orange::before { background: linear-gradient(90deg, transparent, var(--orange), transparent); }
-.card-blue { border-left:3px solid var(--blue); }
-.card-blue::before { background: linear-gradient(90deg, transparent, var(--blue), transparent); }
-.card-gold { border-top:3px solid var(--gold); }
-.card-gold::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+/* HASH */
+.hash-block{background:var(--panel2);border:1px solid var(--border);border-radius:6px;padding:16px 20px;}
+.hash-val{font-family:var(--mono);font-size:11px;color:var(--neon);word-break:break-all;line-height:1.8;}
 
-.card-label {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color: var(--dim);
-  text-transform:uppercase;
-  letter-spacing:3px;
-  margin-bottom:12px;
-}
-.card h2 {
-  font-family:'Orbitron', sans-serif;
-  font-size:14px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  margin-bottom:20px;
-}
-.card-red h2 { color:var(--red); text-shadow:0 0 10px var(--red-glow); }
-.card-green h2 { color:var(--neon); text-shadow:0 0 10px var(--neon-glow); }
-.card-orange h2 { color:var(--orange); }
-.card-blue h2 { color:var(--blue); }
-.card-gold h2 { color:var(--gold); }
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--panel);border:1px solid var(--border2);border-radius:14px;padding:32px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;position:relative;}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text2);font-size:20px;cursor:pointer;font-family:var(--mono);transition:color .2s;}
+.modal-close:hover{color:var(--red);}
+.modal-title{font-family:var(--orbit);font-size:14px;font-weight:700;color:var(--neon);letter-spacing:2px;margin-bottom:20px;}
+.modal-content{font-family:var(--mono);font-size:12px;color:var(--text);line-height:2;}
+.modal-content .hi{color:var(--neon);}
+.modal-content .warn{color:var(--red);}
+.modal-content .info{color:var(--orange);}
 
-/* ── METRIC BLOCKS ── */
-.metric { margin-bottom:16px; }
-.metric-label {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color: var(--dim);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  margin-bottom:5px;
-}
-.metric-value {
-  font-family:'Share Tech Mono', monospace;
-  font-size:26px;
-  font-weight:700;
-  line-height:1;
-}
-.metric-value.red { color:var(--red); text-shadow:0 0 12px var(--red-glow); }
-.metric-value.green { color:var(--neon); text-shadow:0 0 12px var(--neon-glow); }
-.metric-value.orange { color:var(--orange); }
-.metric-value.blue { color:var(--blue); }
-.metric-value.gold { color:var(--gold); }
-.metric-sub {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  color: var(--dim);
-  margin-top:3px;
-}
-
-/* ── PROGRESS BARS ── */
-.bar-wrap { margin:10px 0 18px; }
-.bar-label {
-  display:flex;
-  justify-content:space-between;
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color:var(--dim);
-  margin-bottom:5px;
-}
-.bar-track {
-  height:4px;
-  background: var(--border);
-  border-radius:2px;
-  overflow:hidden;
-}
-.bar-fill {
-  height:100%;
-  border-radius:2px;
-  animation: fillBar 1.5s ease-out forwards;
-  transform-origin: left;
-}
-@keyframes fillBar { from{transform:scaleX(0)} to{transform:scaleX(1)} }
-.bar-green { background:var(--neon); box-shadow:0 0 8px var(--neon-glow); }
-.bar-red { background:var(--red); box-shadow:0 0 8px var(--red-glow); }
-.bar-orange { background:var(--orange); }
-.bar-blue { background:var(--blue); }
-
-/* ── FRONT STATUS TABLE ── */
-.front-table { width:100%; border-collapse:collapse; }
-.front-table th {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color:var(--dim);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  padding:8px 12px;
-  text-align:left;
-  border-bottom:1px solid var(--border);
-}
-.front-table td {
-  font-family:'Share Tech Mono', monospace;
-  font-size:12px;
-  padding:10px 12px;
-  border-bottom:1px solid var(--border);
-  vertical-align:middle;
-}
-.front-table tr:last-child td { border-bottom:none; }
-.front-table tr:hover td { background:rgba(255,255,255,0.02); }
-
-.status-dot {
-  display:inline-block;
-  width:8px; height:8px;
-  border-radius:50%;
-  margin-right:8px;
-}
-.dot-green { background:var(--neon); box-shadow:0 0 6px var(--neon); animation:pulse 2s infinite; }
-.dot-yellow { background:var(--orange); box-shadow:0 0 6px var(--orange); }
-.dot-red { background:var(--red); box-shadow:0 0 6px var(--red); }
-
-/* ── AI AGENTS ── */
-.agent-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-.agent-card {
-  background: var(--panel2);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:16px 12px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  transition: border-color 0.3s;
-}
-.agent-card:hover { border-color:var(--neon-dim); }
-.agent-icon {
-  width:48px; height:48px;
-  margin:0 auto 10px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-}
-.agent-icon-glja { background:rgba(0,255,65,0.1); border:1px solid var(--neon); }
-.agent-icon-gemini { background:rgba(0,212,255,0.1); border:1px solid var(--blue); }
-.agent-icon-claude { background:rgba(255,171,0,0.1); border:1px solid var(--orange); }
-.agent-icon-copilot { background:rgba(120,120,255,0.1); border:1px solid #7878ff; }
-.agent-name {
-  font-family:'Orbitron', sans-serif;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1px;
-  margin-bottom:4px;
-}
-.agent-role {
-  font-family:'Share Tech Mono', monospace;
-  font-size:9px;
-  color:var(--dim);
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:8px;
-}
-.agent-status {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  padding:3px 8px;
-  border-radius:2px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-.agent-ok { color:var(--neon); background:rgba(0,255,65,0.1); border:1px solid var(--neon-dim); }
-.agent-partial { color:var(--orange); background:rgba(255,171,0,0.1); border:1px solid var(--orange); }
-.consensus-bar {
-  margin-top:20px;
-  text-align:center;
-}
-.consensus-pct {
-  font-family:'Orbitron', sans-serif;
-  font-size:32px;
-  font-weight:900;
-  color:var(--neon);
-  text-shadow:0 0 20px var(--neon-glow);
-}
-.consensus-label {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color:var(--dim);
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-top:4px;
-}
-
-/* ── VALUATION ── */
-.val-row {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
-  border-bottom:1px solid var(--border);
-}
-.val-row:last-child { border-bottom:none; }
-.val-market {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  color:var(--dim);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  flex:1;
-}
-.val-range {
-  font-family:'Orbitron', monospace;
-  font-size:18px;
-  font-weight:700;
-  text-align:right;
-}
-.val-flag {
-  font-family:'Share Tech Mono', monospace;
-  font-size:9px;
-  padding:3px 8px;
-  border-radius:2px;
-  margin-left:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  white-space:nowrap;
-}
-
-/* ── TIMELINE ── */
-.timeline { position:relative; padding-left:24px; }
-.timeline::before {
-  content:'';
-  position:absolute;
-  left:5px; top:8px; bottom:8px;
-  width:1px;
-  background:linear-gradient(180deg, var(--neon), var(--neon-dim), var(--border));
-}
-.tl-item {
-  position:relative;
-  margin-bottom:20px;
-}
-.tl-item::before {
-  content:'';
-  position:absolute;
-  left:-20px; top:5px;
-  width:8px; height:8px;
-  border-radius:50%;
-  background:var(--neon);
-  box-shadow:0 0 8px var(--neon);
-}
-.tl-item.done::before { background:var(--neon); }
-.tl-item.pending::before { background:var(--orange); box-shadow:0 0 8px var(--orange); }
-.tl-item.standby::before { background:var(--dim); box-shadow:none; }
-.tl-time {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color:var(--dim);
-  letter-spacing:1px;
-  margin-bottom:3px;
-}
-.tl-text {
-  font-family:'Share Tech Mono', monospace;
-  font-size:12px;
-  color:var(--text);
-}
-.tl-ref {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color:var(--neon-dim);
-  margin-top:2px;
-}
-
-/* ── HASH BLOCK ── */
-.hash-block {
-  background:var(--panel2);
-  border:1px solid var(--border);
-  border-radius:6px;
-  padding:16px 20px;
-  margin-top:16px;
-}
-.hash-label {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color:var(--dim);
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-.hash-value {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  color:var(--neon);
-  word-break:break-all;
-  line-height:1.6;
-}
-
-/* ── FOOTER ── */
-footer {
-  width:100%;
-  padding:30px 40px;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.footer-left {
-  font-family:'Share Tech Mono', monospace;
-  font-size:11px;
-  color:var(--dim);
-  letter-spacing:2px;
-}
-.footer-left span { color:var(--neon); }
-.footer-right {
-  font-family:'Share Tech Mono', monospace;
-  font-size:10px;
-  color:var(--dim);
-  text-align:right;
-  line-height:1.8;
-}
-
-/* Responsive */
-@media(max-width:700px) {
-  h1 { letter-spacing:4px; }
-  .agent-grid { grid-template-columns:repeat(2,1fr); }
-  .grid-2 { grid-template-columns:1fr; }
-  footer { flex-direction:column; text-align:center; }
-  .footer-right { text-align:center; }
-}
+/* FOOTER */
+footer{background:var(--panel);border-top:1px solid var(--border);padding:40px 24px;text-align:center;}
+.footer-glja{font-family:var(--orbit);font-size:28px;font-weight:900;color:var(--neon);text-shadow:0 0 20px var(--neon-glow);letter-spacing:8px;margin-bottom:12px;}
+.footer-meta{font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:2px;line-height:2.2;}
+.footer-meta span{color:var(--neon);}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:8px 0;}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 10px var(--neon-glow);}50%{box-shadow:0 0 30px var(--neon-glow),0 0 60px rgba(0,255,65,0.1);}}
+.glow-pulse{animation:glowPulse 3s infinite;}
+@media(max-width:768px){nav{padding:0 16px;}.nav-links{display:none;}.hero{padding:60px 20px 40px;}.container{padding:32px 16px;}.g3,.g2{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="header-tag">// GLJA AUDIT TERMINAL · DIAMOND BASELINE v2.0 · CLASSIFIED</div>
-  <h1>PROJECT GLJA</h1>
-  <div class="header-sub">Global Level of Justice Auditor · Node_11 · System Promulgate</div>
-  <div class="status-row">
-    <span class="badge badge-green">● LOCKED & LOADED</span>
-    <span class="badge badge-red">▲ 8 VIOLATIONS CONFIRMED</span>
-    <span class="badge badge-blue">◉ SOLVIT 2362/26/CZ ACTIVE</span>
+<nav>
+  <div class="nav-brand">GLJA v2.1</div>
+  <ul class="nav-links">
+    <li><a href="#paradox">Paradox</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#legal">Legal</a></li>
+    <li><a href="#violations">Audit</a></li>
+    <li><a href="#solvit">SOLVIT</a></li>
+    <li><a href="#valuation">Valuation</a></li>
+  </ul>
+  <div class="nav-status">● NODE_12 · ACTIVE</div>
+</nav>
+
+<div class="ticker">
+  <div class="ticker-tag">LIVE</div>
+  <div class="ticker-inner">
+    <span class="t-g">SOLVIT 2362/26/CZ → EU COMMISSION ACTIVE</span><span>·····</span>
+    <span class="t-r">186 CZK INCOME vs 6,630 CZK ENERGY DEBT · SYSTEMIC FAILURE</span><span>·····</span>
+    <span class="t-o">LATENCY 29 DAYS · §88 SŘ · ZNOJMO PRECEDENT</span><span>·····</span>
+    <span class="t-b">MPSV 1668255062 · MV 1668255059 · DELIVERED 12:09</span><span>·····</span>
+    <span class="t-g">SHA-256: 5ff066c8...dffd1 · VERIFIED · GLJA-Q1</span><span>·····</span>
+    <span class="t-r">8 VIOLATIONS · 5 CRITICAL · §329 TZ RESERVE</span><span>·····</span>
+    <span class="t-o">24.3.2026 · KFC CONTRACT · §11 ZPHN PROOF INCOMING</span><span>·····</span>
+    <span class="t-g">BURN RATE: 0 CZK · ZERO CAPITAL GIANT</span><span>·····</span>
+    <span class="t-g">SOLVIT 2362/26/CZ → EU COMMISSION ACTIVE</span><span>·····</span>
+    <span class="t-r">186 CZK INCOME vs 6,630 CZK ENERGY DEBT · SYSTEMIC FAILURE</span><span>·····</span>
+    <span class="t-o">LATENCY 29 DAYS · §88 SŘ · ZNOJMO PRECEDENT</span><span>·····</span>
+    <span class="t-b">MPSV 1668255062 · MV 1668255059 · DELIVERED 12:09</span><span>·····</span>
+    <span class="t-g">SHA-256: 5ff066c8...dffd1 · VERIFIED · GLJA-Q1</span><span>·····</span>
+    <span class="t-r">8 VIOLATIONS · 5 CRITICAL · §329 TZ RESERVE</span><span>·····</span>
+    <span class="t-o">24.3.2026 · KFC CONTRACT · §11 ZPHN PROOF INCOMING</span><span>·····</span>
+    <span class="t-g">BURN RATE: 0 CZK · ZERO CAPITAL GIANT</span><span>·····</span>
   </div>
-</header>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">// GLJA · Global Level of Justice Auditor · Diamond Baseline v2.1</div>
+  <h1 class="hero-title">THE ZNOJMO<br>PRECEDENT</h1>
+  <div class="hero-sub">Process Integrity Audit · Case GLJA-2026-001 · Node_12</div>
+  <div class="hero-badges">
+    <span class="badge badge-g">● LOCKED &amp; LOADED</span>
+    <span class="badge badge-r">▲ 8 VIOLATIONS</span>
+    <span class="badge badge-b">◉ SOLVIT 2362/26/CZ</span>
+    <span class="badge badge-o">⚡ 29-DAY LATENCY</span>
+  </div>
+  <div class="linkedin-counter">
+    <div class="li-icon">in</div>
+    <div class="li-text">
+      <div class="li-num" id="liCounter">+0%</div>
+      <div class="li-label">LinkedIn Visibility · Institutional Reach</div>
+    </div>
+  </div>
+</section>
 
 <div class="container">
 
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-label">LIVE FEED</div>
-    <div class="ticker-track">
-      <span class="hi">SOLVIT 2362/26/CZ → EU COMMISSION ACTIVE</span>
-      <span>·····</span>
-      <span class="warn">LATENCY: 2,505,600s · ZNOJMO PRECEDENT</span>
-      <span>·····</span>
-      <span class="info">MPSV ISDS 1668255062 · DELIVERED 12:09:42</span>
-      <span>·····</span>
-      <span class="info">MV ISDS 1668255059 · DELIVERED 12:09:41</span>
-      <span>·····</span>
-      <span class="hi">SHA-256: 5ff066c8...dffd1 · VERIFIED ✓</span>
-      <span>·····</span>
-      <span class="warn">INCOME AT FILING: 186 CZK · SYSTEMIC FAILURE CONFIRMED</span>
-      <span>·····</span>
-      <span class="hi">PIPELINE: Claude→Copilot→Gemini→QES · NODE_11 SEALED</span>
-      <span>·····</span>
-      <!-- duplicate for seamless loop -->
-      <span class="hi">SOLVIT 2362/26/CZ → EU COMMISSION ACTIVE</span>
-      <span>·····</span>
-      <span class="warn">LATENCY: 2,505,600s · ZNOJMO PRECEDENT</span>
-      <span>·····</span>
-      <span class="info">MPSV ISDS 1668255062 · DELIVERED 12:09:42</span>
-      <span>·····</span>
-      <span class="info">MV ISDS 1668255059 · DELIVERED 12:09:41</span>
-      <span>·····</span>
-      <span class="hi">SHA-256: 5ff066c8...dffd1 · VERIFIED ✓</span>
-      <span>·····</span>
-      <span class="warn">INCOME AT FILING: 186 CZK · SYSTEMIC FAILURE CONFIRMED</span>
-      <span>·····</span>
-      <span class="hi">PIPELINE: Claude→Copilot→Gemini→QES · NODE_11 SEALED</span>
-      <span>·····</span>
+<!-- SECTION 1: PARADOX -->
+<section id="paradox">
+  <div class="section-title" style="color:var(--red)">// 01 · The Asphalt Dashboard · Příjmový Paradox</div>
+  <div class="g3">
+
+    <div class="card card-r" onclick="openModal('m-income')" style="cursor:pointer">
+      <div class="label">// KARTA A · Příjmový paradox · klikni pro detail</div>
+      <div class="section-title" style="color:var(--red);font-size:13px;margin-bottom:16px">Úředně uznaný příjem</div>
+      <div class="big-num num-r" style="font-size:clamp(52px,8vw,72px)">186</div>
+      <div style="font-family:var(--mono);font-size:13px;color:var(--red);margin-bottom:16px">CZK / měsíc únor 2026</div>
+      <div class="divider"></div>
+      <div style="margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--text2);line-height:1.9">
+        Čl. 30 LZPS · Právo na pomoc v hmotné nouzi<br>
+        § 3 odst. 1 písm. a) ZPHN · Definice hmotné nouze<br>
+        <span style="color:var(--red)">STATUS: Porušeno · P-03 CRITICAL</span>
+      </div>
+    </div>
+
+    <div class="card card-o" onclick="openModal('m-energy')" style="cursor:pointer">
+      <div class="label">// KARTA B · Energetický dluh · CRITICAL</div>
+      <div class="section-title" style="color:var(--orange);font-size:13px;margin-bottom:16px">E.ON · Planned Disconnection</div>
+      <div class="big-num num-o" style="font-size:clamp(52px,8vw,72px)">6,630</div>
+      <div style="font-family:var(--mono);font-size:13px;color:var(--orange);margin-bottom:16px">CZK · hrozba demontáže plynoměru</div>
+      <div class="stove-box">
+        <div class="stove-icon">🔥</div>
+        <div>
+          <div class="stove-title">MANUAL OVERRIDE · 21st Century</div>
+          <div class="stove-text">Vařič na kartuše jako záložní řešení.<br>Systém selhal — člověk improvizuje.</div>
+        </div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-info"><span>Krytí dluhu z HN</span><span style="color:var(--red)">11%</span></div>
+        <div class="bar-track"><div class="bar-fill bf-r" style="width:11%"></div></div>
+      </div>
+    </div>
+
+    <div class="card card-r" onclick="openModal('m-math')" style="cursor:pointer">
+      <div class="label">// KARTA C · Matematická anomálie</div>
+      <div class="section-title" style="color:var(--red);font-size:13px;margin-bottom:12px">Fiktivní přebytek</div>
+      <div class="paradox-eq">
+        <div class="eq-line">HN (příspěvek): 4,420 CZK</div>
+        <div class="eq-line">Životní minimum: 3,694 CZK</div>
+        <div class="eq-line" style="color:var(--text2)">──────────────────</div>
+        <div class="eq-line">Fiktivní přebytek:</div>
+        <div class="eq-result">726 CZK</div>
+        <div class="eq-verdict">= 10.95% energetického dluhu</div>
+      </div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--red);line-height:1.8;margin-top:10px">
+        § 21 ZPHN: HN = na jídlo, NE na energii.<br>
+        MOP (§ 2/5 ZPHN) = správný nástroj. Ignorováno.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2: TIMELINE -->
+<section id="timeline">
+  <div class="section-title" style="color:var(--blue)">// 02 · Timeline · Cesta k soběstačnosti</div>
+  <div class="g2">
+
+    <div class="card card-b">
+      <div class="label">// COMPLETED MILESTONES</div>
+      <div class="timeline">
+        <div class="tl-item" onclick="openModal('m-solvit')">
+          <div class="tl-dot tl-dot-g"></div>
+          <div class="tl-date">23.3.2026 · 10:46</div>
+          <div class="tl-title">SOLVIT Filed · EU Commission Active</div>
+          <div class="tl-desc">Stížnost čl. 9 Nař. EU 260/2012. Případ u Evropské komise.</div>
+          <div class="tl-ref">REF: 2362/26/CZ · solvit@mpo.cz</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-g"></div>
+          <div class="tl-date">23.3.2026 · 12:09:41–42</div>
+          <div class="tl-title">MPSV + MV Delivered · Both Fronts Active</div>
+          <div class="tl-desc">Sloučený dokument doručen MPSV (sc9aavg) a MV (6bnaawp) simultánně.</div>
+          <div class="tl-ref">ISDS: 1668255062 · 1668255059</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-g"></div>
+          <div class="tl-date">23.3.2026 · Master Audit QES</div>
+          <div class="tl-title">Asfaltové vyjádření · §36 SŘ</div>
+          <div class="tl-desc">Master Audit Report v3 — ZealID + MojeID. SHA-256 verified.</div>
+          <div class="tl-ref">SHA-256: 5ff066c8...dffd1 · GLJA-Q1</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-o">
+      <div class="label">// UPCOMING · CRITICAL PATH</div>
+      <div class="timeline">
+        <div class="tl-item" onclick="openModal('m-kfc')">
+          <div class="tl-dot tl-dot-o"></div>
+          <div class="tl-date">24.3.2026 · 14:00 ← ZÍTRA</div>
+          <div class="tl-title">AmRest/KFC · Podpis smlouvy DPC</div>
+          <div class="tl-desc">Václav Kočka · od 1.4.2026. §11 ZPHN — aktivní snaha PROKÁZÁNA. Pohřbení P-02.</div>
+          <div class="tl-ref">Lékařský posudek 500 CZK = 270% příjmu · doložen</div>
+        </div>
+        <div class="tl-item" onclick="openModal('m-plyn')">
+          <div class="tl-dot tl-dot-r"></div>
+          <div class="tl-date">Hrozba · Plombování plynu</div>
+          <div class="tl-title">⚠ Evidence of Systemic Failure</div>
+          <div class="tl-desc">Systém odmítl MOP, odepřel IBAN, sankcionoval práci = uvádí žadatele do energetické krize.</div>
+          <div class="tl-ref">§ 2 odst. 5 ZPHN · MOP odmítnuta · Kauzální nexus</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-d"></div>
+          <div class="tl-date">11.4.2026 · Deadline MPSV</div>
+          <div class="tl-title">Decision Deadline · §79 sřs Standby</div>
+          <div class="tl-desc">Lhůta 30 dní. Bez výsledku → žaloba na nečinnost KS Brno. Pravděp. 90-95%.</div>
+          <div class="tl-ref">Den 11/30 k 23.3.2026</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 3: LEGAL -->
+<section id="legal">
+  <div class="section-title" style="color:var(--orange)">// 03 · Vyjádření k podkladům · §36 odst. 3 SŘ</div>
+  <div class="legal-doc">
+    <div class="legal-title">VYJÁDŘENÍ K PODKLADŮM ROZHODNUTÍ</div>
+    <div class="legal-meta">
+      Ve věci: UP/737470/2024/HN · č.j. MPSV-2026/63249-750/1 · Datum: 24.3.2026<br>
+      Podatel: Roman Mužný Kašpar (zmocněnec) · DS: tk8btak · GLJA-2026-001
+    </div>
+    <div class="legal-h">I. §21 ZPHN vs. energetický dluh — klíčová anomálie</div>
+    <div class="legal-para">Správní orgán de facto vytváří situaci, v níž je žadatel nucen hradit energetický dluh <strong>(6,630 CZK)</strong> z příspěvku na živobytí, jehož zákonným účelem dle <span class="law">§ 21 odst. 1 ZPHN</span> je výživa a ostatní základní osobní potřeby. Správným nástrojem je <strong>MOP dle § 2 odst. 5 ZPHN</strong> — žádost podána, dosud nerozhodnuto.</div>
+    <div class="legal-h">II. Kauzální nexus — pochybení → energetická krize</div>
+    <div class="legal-para">Žadatel dokládá přímou příčinnou souvislost: <strong>P-01</strong> — sankce za DPP → snížení příjmu; <strong>P-05+P-07</strong> — odmítnutí IBAN → prodleva výplat; latence 29 dní dle <span class="law">§ 88 SŘ</span> → prodloužení bez plné dávky. Součet pochybení přímo vedl k akumulaci energetického dluhu.</div>
+    <div class="legal-h">III. SOLVIT 2362/26/CZ — EU dimenze</div>
+    <div class="legal-para">Dne 23.3.2026 podána stížnost SOLVIT pro porušení <span class="law">čl. 9 Nařízení EU č. 260/2012</span> (SEPA). Ref. <strong>2362/26/CZ</strong>. Pochybení dosahuje úrovně porušení práva EU — nikoli pouze vnitrostátní procesní vady.</div>
+    <div class="legal-h">IV. Návrh výroku</div>
+    <div class="legal-para"><strong>(1)</strong> Zrušit napadená rozhodnutí; <strong>(2)</strong> doplatit zadržené dávky; <strong>(3)</strong> nařídit výplatu na IBAN NL06 BUNQ; <strong>(4)</strong> přednostně rozhodnout o MOP s ohledem na hrozící odpojení energií.</div>
+  </div>
+</section>
+
+<!-- SECTION 4: VIOLATIONS -->
+<section id="violations">
+  <div class="section-title" style="color:var(--red)">// 04 · Violation Matrix · 8 Confirmed</div>
+  <div class="card">
+    <div class="label">// GLJA-2026-001 · klikni na řádek pro detail</div>
+    <table class="vtable">
+      <thead><tr><th>ID</th><th>Violation</th><th>Severity</th><th>Legal Basis</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr onclick="openModal('m-p01')"><td style="color:var(--red)">P-01</td><td>Sanctions for Legal Barrier (DPP)</td><td class="sev-c">CRITICAL</td><td style="color:var(--text2)">§5/1 ZPHN · §25/1/b z.435</td><td style="color:var(--neon)">● Confirmed</td></tr>
+        <tr onclick="openModal('m-p02')"><td style="color:var(--orange)">P-02</td><td>Active Income Effort Ignored</td><td class="sev-s">SERIOUS</td><td style="color:var(--text2)">§11 ZPHN · §3/1 ZPHN</td><td style="color:var(--neon)">● Confirmed</td></tr>
+        <tr onclick="openModal('m-p03')"><td style="color:var(--red)">P-03</td><td>Internal Logical Contradiction</td><td class="sev-c">CRITICAL</td><td style="color:var(--text2)">§68/3 SŘ · čl.30 LZPS</td><td style="color:var(--neon)">● Confirmed</td></tr>
+        <tr onclick="openModal('m-p04')"><td style="color:var(--orange)">P-04</td><td>Existential Hardship Ignored</td><td class="sev-s">SERIOUS</td><td style="color:var(--text2)">§3/4 SŘ · §2/3 SŘ</td><td style="color:var(--neon)">● Confirmed</td></tr>
+        <tr onclick="openModal('m-p0507')"><td style="color:var(--red)">P-05+07</td><td>SEPA Breach + Forced Payment Change</td><td class="sev-c">CRITICAL · EU</td><td style="color:var(--text2)">čl.9 EU 260/2012</td><td style="color:var(--blue)">◉ SOLVIT</td></tr>
+        <tr onclick="openModal('m-p06')"><td style="color:var(--orange)">P-06</td><td>54-Second Machine Rejection</td><td class="sev-s">SERIOUS</td><td style="color:var(--text2)">§14 SŘ · §68/3 SŘ</td><td style="color:var(--neon)">● Confirmed</td></tr>
+        <tr onclick="openModal('m-p08')"><td style="color:var(--red)">P-08</td><td>False Domicile Statement</td><td class="sev-c">CRITICAL</td><td style="color:var(--text2)">§4 SŘ · §329 TZ</td><td style="color:var(--red)">▲ Escalated</td></tr>
+      </tbody>
+    </table>
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+      <div style="text-align:center"><div class="big-num num-r" style="font-size:48px">5</div><div class="label">Critical</div></div>
+      <div style="text-align:center"><div class="big-num num-o" style="font-size:48px">3</div><div class="label">Serious</div></div>
+      <div style="text-align:center"><div class="big-num num-g" style="font-size:48px">8</div><div class="label">Total</div></div>
+      <div style="text-align:center"><div class="big-num num-b" style="font-size:48px">4</div><div class="label">Fronts</div></div>
     </div>
   </div>
+</section>
 
-  <!-- ROW 1: KEY METRICS -->
-  <div class="grid-3">
-
-    <!-- Znojmo Precedent -->
-    <div class="card card-red">
-      <div class="card-label">// CRITICAL · P-03 + P-07 + P-08</div>
-      <h2>⚠ The Znojmo Precedent</h2>
-
-      <div class="metric">
-        <div class="metric-label">Processing Latency</div>
-        <div class="metric-value red">2,505,600</div>
-        <div class="metric-sub">seconds · 29 days · §88 SŘ violation</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-label">Income vs. Rejection</div>
-        <div class="metric-value red">186 CZK</div>
-        <div class="metric-sub">monthly income · excluded from subsistence aid</div>
-      </div>
-
-      <div class="metric">
-        <div class="metric-label">Art. 30 LZPS Violation</div>
-        <div class="metric-value red" style="font-size:18px">CONFIRMED</div>
-        <div class="metric-sub">Constitutional right to assistance denied</div>
-      </div>
-
-      <div class="bar-wrap">
-        <div class="bar-label"><span>Violation Severity</span><span>CRITICAL</span></div>
-        <div class="bar-track"><div class="bar-fill bar-red" style="width:95%"></div></div>
-      </div>
+<!-- SECTION 5: SOLVIT -->
+<section id="solvit">
+  <div class="section-title" style="color:var(--blue)">// 05 · EU Escalation · SOLVIT Active</div>
+  <div class="solvit-banner glow-pulse">
+    <div class="label" style="color:var(--blue)">// EUROPEAN COMMISSION · SOLVIT CENTRE CZ · MPO Praha</div>
+    <div style="font-family:var(--mono);font-size:11px;color:var(--text2);margin-bottom:8px">Art. 9 · Regulation (EU) No 260/2012 · SEPA · Internal Market Violation</div>
+    <div class="solvit-ref">2362/26/CZ</div>
+    <div class="solvit-status">● EU Commission Active · Filed 23.3.2026 · 10 Weeks SLA</div>
+    <div style="margin-top:20px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;">
+      <div style="text-align:center"><div style="font-family:var(--orbit);font-size:24px;color:var(--neon)">75%+</div><div class="label">Escalation prob.</div></div>
+      <div style="text-align:center"><div style="font-family:var(--orbit);font-size:24px;color:var(--orange)">35%</div><div class="label">Jackpot scenario</div></div>
+      <div style="text-align:center"><div style="font-family:var(--orbit);font-size:24px;color:var(--blue)">10 wks</div><div class="label">Max SLA</div></div>
     </div>
+  </div>
+</section>
 
-    <!-- AI Trust Graph -->
-    <div class="card card-green">
-      <div class="card-label">// FEDERATED PIPELINE · NODE_11</div>
-      <h2>🛡 Federated Trust Graph</h2>
-
-      <div class="agent-grid">
-        <div class="agent-card">
-          <div class="agent-icon agent-icon-glja">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <polygon points="13,2 24,8 24,18 13,24 2,18 2,8" stroke="#00ff41" stroke-width="1.5" fill="none"/>
-              <polygon points="13,7 19,10 19,16 13,19 7,16 7,10" stroke="#00ff41" stroke-width="1" fill="rgba(0,255,65,0.15)"/>
-              <circle cx="13" cy="13" r="2.5" fill="#00ff41"/>
-            </svg>
-          </div>
-          <div class="agent-name" style="color:var(--neon)">GLJA</div>
-          <div class="agent-role">Architect</div>
-          <div class="agent-status agent-ok">QES ✓</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon agent-icon-gemini">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <path d="M13 3 C13 3 20 13 13 23 C6 13 13 3 13 3Z" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.15)"/>
-              <path d="M3 13 C3 13 13 6 23 13 C13 20 3 13 3 13Z" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.1)"/>
-            </svg>
-          </div>
-          <div class="agent-name" style="color:var(--blue)">GEMINI</div>
-          <div class="agent-role">Strategist</div>
-          <div class="agent-status agent-ok">9/10 ✓</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon agent-icon-claude">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <circle cx="13" cy="13" r="10" stroke="#ffab00" stroke-width="1.5" fill="rgba(255,171,0,0.1)"/>
-              <path d="M8 13 Q13 6 18 13 Q13 20 8 13Z" stroke="#ffab00" stroke-width="1" fill="rgba(255,171,0,0.2)"/>
-            </svg>
-          </div>
-          <div class="agent-name" style="color:var(--orange)">CLAUDE</div>
-          <div class="agent-role">Synthesis</div>
-          <div class="agent-status agent-ok">c.3 ✓</div>
-        </div>
-        <div class="agent-card">
-          <div class="agent-icon agent-icon-copilot">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <rect x="4" y="4" width="18" height="18" rx="4" stroke="#7878ff" stroke-width="1.5" fill="rgba(120,120,255,0.1)"/>
-              <circle cx="9" cy="13" r="2" fill="#7878ff"/>
-              <circle cx="17" cy="13" r="2" fill="#7878ff"/>
-              <path d="M9 17 Q13 20 17 17" stroke="#7878ff" stroke-width="1" fill="none"/>
-            </svg>
-          </div>
-          <div class="agent-name" style="color:#7878ff">COPILOT</div>
-          <div class="agent-role">Legal</div>
-          <div class="agent-status agent-partial">Partial</div>
-        </div>
-      </div>
-
-      <div class="consensus-bar">
-        <div class="consensus-pct">99.9%</div>
-        <div class="consensus-label">Consensus Agreement · Pipeline Integrity</div>
-      </div>
-    </div>
-
-    <!-- Market Valuation -->
+<!-- SECTION 6: VALUATION -->
+<section id="valuation">
+  <div class="section-title" style="color:var(--gold)">// 06 · AI Market Valuation · Justice-as-a-Service</div>
+  <div class="g2">
     <div class="card card-gold">
-      <div class="card-label">// AI MARKET VALUATION · GLJA v1.0</div>
-      <h2>💰 Market Valuation</h2>
-
+      <div class="label">// MARKET TIERS · CZK</div>
       <div class="val-row">
-        <div class="val-market">🇨🇿 Market ČR</div>
-        <div class="val-range" style="color:var(--neon)">150–250M</div>
-        <div class="val-flag" style="color:var(--neon);background:rgba(0,255,65,0.1);border:1px solid var(--neon-dim)">CZK</div>
+        <div class="val-market">🇨🇿 Market ČR · Local PoC</div>
+        <div class="val-mega" style="font-size:clamp(18px,3vw,26px);color:var(--neon)">150–250M</div>
+        <span class="badge badge-g" style="font-size:9px;padding:4px 10px">CZK</span>
       </div>
-      <div class="bar-wrap" style="margin-top:-8px">
-        <div class="bar-track"><div class="bar-fill bar-green" style="width:18%"></div></div>
-      </div>
-
+      <div class="bar-wrap"><div class="bar-track"><div class="bar-fill bf-g" style="width:15%"></div></div></div>
       <div class="val-row">
-        <div class="val-market">🇪🇺 Market EU</div>
-        <div class="val-range" style="color:var(--orange)">1.2–2.5B</div>
-        <div class="val-flag" style="color:var(--orange);background:rgba(255,171,0,0.1);border:1px solid var(--orange)">CZK</div>
+        <div class="val-market">🇪🇺 Market EU · Export</div>
+        <div class="val-mega" style="font-size:clamp(18px,3vw,26px);color:var(--orange)">1.2–2.5B</div>
+        <span class="badge badge-o" style="font-size:9px;padding:4px 10px">CZK</span>
       </div>
-      <div class="bar-wrap" style="margin-top:-8px">
-        <div class="bar-track"><div class="bar-fill bar-orange" style="width:65%"></div></div>
-      </div>
-
+      <div class="bar-wrap"><div class="bar-track"><div class="bar-fill bf-o" style="width:60%"></div></div></div>
       <div class="val-row">
         <div class="val-market">🌍 Global Impact</div>
-        <div class="val-range" style="color:var(--gold)">∞</div>
-        <div class="val-flag" style="color:var(--gold);background:rgba(255,215,0,0.1);border:1px solid var(--gold)">PRIME</div>
+        <div class="val-mega" style="font-size:clamp(18px,3vw,26px);color:var(--gold)">Undiluted Prime</div>
+        <span class="badge" style="font-size:9px;padding:4px 10px;color:var(--gold);border-color:var(--gold);background:rgba(255,215,0,0.08)">ASSET</span>
       </div>
-      <div class="bar-wrap" style="margin-top:-8px">
-        <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--gold),var(--neon));"></div></div>
+      <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--gold),var(--neon))"></div></div></div>
+    </div>
+    <div class="card card-g" style="background:linear-gradient(135deg,#0f1219,#0a1208)">
+      <div class="label">// ZERO CAPITAL MODEL</div>
+      <div style="text-align:center;padding:16px 0;">
+        <div class="label">Burn Rate</div>
+        <div class="big-num num-g" style="font-size:64px">0</div>
+        <div style="font-family:var(--mono);font-size:14px;color:var(--neon);margin-bottom:16px">CZK invested</div>
+        <div class="divider"></div>
+        <div style="margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--text2);line-height:2">
+          Tradiční startup: <span style="color:var(--red)">2,500,000 CZK + 6 měsíců</span><br>
+          GLJA v1.0: <span style="color:var(--neon)">0 CZK + 24 hodin</span><br>
+          Founder income: <span style="color:var(--orange)">186 CZK / měsíc</span>
+        </div>
       </div>
-
-      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
-        <div class="metric-label">Burn Rate · Zero Capital Model</div>
-        <div style="font-family:'Orbitron',sans-serif;font-size:28px;color:var(--neon);text-shadow:0 0 12px var(--neon-glow)">0 CZK</div>
-        <div class="metric-sub">Built with 186 CZK income · Proof of Efficiency</div>
+      <div style="background:rgba(0,255,65,0.05);border:1px solid var(--neon-dim);border-radius:6px;padding:14px;text-align:center">
+        <div style="font-family:var(--orbit);font-size:13px;color:var(--neon);letter-spacing:2px">ZERO CAPITAL GIANT</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text2);margin-top:4px">"S 0 Kč porazil systém, s 1M EUR ho ovládne." — Gemini c.2</div>
+      </div>
+      <div style="margin-top:16px">
+        <div class="bar-wrap">
+          <div class="bar-info"><span>Gemini Rating</span><span style="color:var(--gold)">9.5 / 10</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:95%;background:var(--gold)"></div></div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-info"><span>Model 85/15 Protection</span><span style="color:var(--neon)">Active</span></div>
+          <div class="bar-track"><div class="bar-fill bf-g" style="width:100%"></div></div>
+        </div>
       </div>
     </div>
-
   </div>
+</section>
 
-  <!-- ROW 2: FRONTS + VIOLATIONS -->
-  <div class="grid-2">
-
-    <!-- Active Fronts -->
-    <div class="card card-green">
-      <div class="card-label">// DEPLOYMENT STATUS · ALL FRONTS</div>
-      <h2>⚔ Active Legal Fronts</h2>
-      <table class="front-table">
-        <thead>
-          <tr>
-            <th>Front</th>
-            <th>Status</th>
-            <th>Reference</th>
-            <th>Deadline</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="status-dot dot-green"></span>F1 · EU / SOLVIT</td>
-            <td style="color:var(--neon)">ACTIVE</td>
-            <td style="color:var(--blue)">2362/26/CZ</td>
-            <td style="color:var(--dim)">10 weeks</td>
-          </tr>
-          <tr>
-            <td><span class="status-dot dot-green"></span>F2 · MPSV</td>
-            <td style="color:var(--neon)">ACTIVE</td>
-            <td style="color:var(--dim)">1668255062</td>
-            <td style="color:var(--orange)">11.4.2026</td>
-          </tr>
-          <tr>
-            <td><span class="status-dot dot-yellow"></span>F3 · Court KS Brno</td>
-            <td style="color:var(--orange)">STANDBY</td>
-            <td style="color:var(--dim)">§65+82+79</td>
-            <td style="color:var(--dim)">post 11.4</td>
-          </tr>
-          <tr>
-            <td><span class="status-dot dot-green"></span>F4 · MV Inspekce</td>
-            <td style="color:var(--neon)">ACTIVE</td>
-            <td style="color:var(--dim)">1668255059</td>
-            <td style="color:var(--orange)">30.3.2026</td>
-          </tr>
-          <tr>
-            <td><span class="status-dot dot-red"></span>F5 · Criminal §329</td>
-            <td style="color:var(--red)">RESERVE</td>
-            <td style="color:var(--dim)">TZ záloha</td>
-            <td style="color:var(--dim)">if needed</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;">
-        <div>
-          <div class="metric-value green" style="font-size:32px">3</div>
-          <div class="metric-sub">Active</div>
-        </div>
-        <div>
-          <div class="metric-value orange" style="font-size:32px">1</div>
-          <div class="metric-sub">Standby</div>
-        </div>
-        <div>
-          <div class="metric-value red" style="font-size:32px">1</div>
-          <div class="metric-sub">Reserve</div>
-        </div>
+<!-- SECTION 7: SEAL -->
+<section>
+  <div class="section-title" style="color:var(--neon)">// 07 · Cryptographic Seal · GLJA-Q1</div>
+  <div class="card card-g" style="background:linear-gradient(135deg,#0d1017,#0a1208)">
+    <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;justify-content:center;padding:20px 0;text-align:center">
+      <div>
+        <div class="label">Seal Level</div>
+        <div style="font-family:var(--orbit);font-size:52px;font-weight:900;color:var(--neon);text-shadow:0 0 30px var(--neon-glow)">GLJA-Q1</div>
+      </div>
+      <div>
+        <div class="label">QES Sigs</div>
+        <div class="big-num num-g" style="font-size:48px">2</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text2)">ZealID · MojeID</div>
+      </div>
+      <div>
+        <div class="label">Hash Match</div>
+        <div class="big-num num-g" style="font-size:36px">TRUE</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text2)">SHA-256</div>
+      </div>
+      <div>
+        <div class="label">Pipeline</div>
+        <div class="big-num num-g" style="font-size:48px">12</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text2)">Nodes</div>
       </div>
     </div>
-
-    <!-- Violation Matrix -->
-    <div class="card card-red">
-      <div class="card-label">// VIOLATION MATRIX · GLJA-2026-001</div>
-      <h2>⚖ 8 Confirmed Violations</h2>
-
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--red);min-width:36px">P-01</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">Sanctions for Legal Barrier (DPP)</span><span style="color:var(--red)">CRITICAL</span></div>
-            <div class="bar-track"><div class="bar-fill bar-red" style="width:95%"></div></div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--orange);min-width:36px">P-02</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">Active Income Effort Ignored</span><span style="color:var(--orange)">SERIOUS</span></div>
-            <div class="bar-track"><div class="bar-fill bar-orange" style="width:75%"></div></div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--red);min-width:36px">P-03</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">Internal Logical Contradiction</span><span style="color:var(--red)">CRITICAL</span></div>
-            <div class="bar-track"><div class="bar-fill bar-red" style="width:98%"></div></div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--orange);min-width:36px">P-04</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">Existential Hardship Ignored</span><span style="color:var(--orange)">SERIOUS</span></div>
-            <div class="bar-track"><div class="bar-fill bar-orange" style="width:72%"></div></div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--red);min-width:36px">P-05</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">SEPA Breach · Art.9 EU 260/2012</span><span style="color:var(--red)">EU LEVEL</span></div>
-            <div class="bar-track"><div class="bar-fill bar-red" style="width:100%"></div></div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--orange);min-width:36px">P-06</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">54 Seconds · Machine Rejection</span><span style="color:var(--orange)">SERIOUS</span></div>
-            <div class="bar-track"><div class="bar-fill bar-orange" style="width:80%"></div></div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--red);min-width:36px">P-07</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">Forced Payment Change · Coercion</span><span style="color:var(--red)">CRITICAL</span></div>
-            <div class="bar-track"><div class="bar-fill bar-red" style="width:95%"></div></div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--red);min-width:36px">P-08</span>
-          <div style="flex:1">
-            <div class="bar-label"><span style="color:var(--text)">False Domicile Statement</span><span style="color:var(--red)">CRITICAL</span></div>
-            <div class="bar-track"><div class="bar-fill bar-red" style="width:92%"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top:20px;display:flex;gap:16px;justify-content:center;">
-        <div style="text-align:center">
-          <div class="metric-value red" style="font-size:36px">5</div>
-          <div class="metric-sub">Critical</div>
-        </div>
-        <div style="text-align:center">
-          <div class="metric-value orange" style="font-size:36px">3</div>
-          <div class="metric-sub">Serious</div>
-        </div>
-        <div style="text-align:center">
-          <div class="metric-value green" style="font-size:36px">8</div>
-          <div class="metric-sub">Total</div>
-        </div>
-      </div>
+    <div class="hash-block">
+      <div class="label">SHA-256 · Archive Hash · GLJA-2026-001</div>
+      <div class="hash-val">5ff066c8e68c5014e47a38eb372086a7f1f7bf053c93a1da9d9c78e3bdedffd1</div>
     </div>
-
+    <div style="text-align:center;margin-top:24px">
+      <div style="font-family:var(--orbit);font-size:20px;color:var(--neon);text-shadow:0 0 15px var(--neon-glow);letter-spacing:5px;animation:blink 2s infinite">ALL SYSTEMS GO</div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--text2);letter-spacing:3px;margin-top:8px">THE ZNOJMO PRECEDENT IS DEPLOYED · PIPELINE COMPLETE</div>
+    </div>
   </div>
-
-  <!-- ROW 3: TIMELINE + SEAL -->
-  <div class="grid-2">
-
-    <!-- Timeline -->
-    <div class="card card-blue">
-      <div class="card-label">// DEPLOYMENT TIMELINE · 23.3.2026</div>
-      <h2>📡 Mission Timeline</h2>
-      <div class="timeline">
-        <div class="tl-item done">
-          <div class="tl-time">06:12 · 23.3.2026</div>
-          <div class="tl-text">Screenshot Jenda captured · IBAN technically supported</div>
-          <div class="tl-ref">Evidence P-07 secured</div>
-        </div>
-        <div class="tl-item done">
-          <div class="tl-time">10:46 · 23.3.2026</div>
-          <div class="tl-text">SOLVIT complaint filed · EU Commission notified</div>
-          <div class="tl-ref">Ref: 2362/26/CZ · Art.9 EU 260/2012</div>
-        </div>
-        <div class="tl-item done">
-          <div class="tl-time">10:54 · 23.3.2026</div>
-          <div class="tl-text">Combined MPSV+MV document signed via MojeID</div>
-          <div class="tl-ref">ID: 0240924b...f760</div>
-        </div>
-        <div class="tl-item done">
-          <div class="tl-time">12:09:41 · 23.3.2026</div>
-          <div class="tl-text">MV Inspekce VS delivered</div>
-          <div class="tl-ref">ISDS: 1668255059 · DS: 6bnaawp</div>
-        </div>
-        <div class="tl-item done">
-          <div class="tl-time">12:09:42 · 23.3.2026</div>
-          <div class="tl-text">MPSV appeal supplement delivered</div>
-          <div class="tl-ref">ISDS: 1668255062 · DS: sc9aavg</div>
-        </div>
-        <div class="tl-item pending">
-          <div class="tl-time">14:00 · 24.3.2026</div>
-          <div class="tl-text">AmRest/KFC contract signing · §11 ZPHN proof</div>
-          <div class="tl-ref">Václav Kočka · DPC from 1.4.2026</div>
-        </div>
-        <div class="tl-item standby">
-          <div class="tl-time">DEADLINE · 11.4.2026</div>
-          <div class="tl-text">MPSV decision deadline · §79 sřs standby</div>
-          <div class="tl-ref">Day 11/30 as of 23.3.2026</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Seal Block -->
-    <div class="card" style="border:1px solid var(--neon-dim);background:linear-gradient(135deg,#0d1017 0%,#0a1208 100%)">
-      <div class="card-label">// CRYPTOGRAPHIC SEAL · GLJA-Q1</div>
-      <h2 style="color:var(--neon)">🔐 System Seal</h2>
-
-      <div style="text-align:center;padding:20px 0;">
-        <div style="font-family:'Orbitron',sans-serif;font-size:11px;color:var(--dim);letter-spacing:3px;margin-bottom:8px">SEAL LEVEL</div>
-        <div style="font-family:'Orbitron',sans-serif;font-size:42px;font-weight:900;color:var(--neon);text-shadow:0 0 30px var(--neon-glow);line-height:1">GLJA-Q1</div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--dim);margin-top:8px">eIDAS · EU Regulation 910/2014 · ZealID + MojeID</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
-        <div style="background:var(--panel2);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;">
-          <div class="metric-label">QES Signatures</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:24px;color:var(--neon)">2</div>
-          <div class="metric-sub">ZealID + MojeID</div>
-        </div>
-        <div style="background:var(--panel2);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;">
-          <div class="metric-label">Hash Match</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:24px;color:var(--neon)">TRUE</div>
-          <div class="metric-sub">SHA-256 verified</div>
-        </div>
-        <div style="background:var(--panel2);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;">
-          <div class="metric-label">Pipeline Nodes</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:24px;color:var(--neon)">12</div>
-          <div class="metric-sub">Node_0 → Node_12</div>
-        </div>
-        <div style="background:var(--panel2);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center;">
-          <div class="metric-label">Valuation</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:20px;color:var(--gold)">9.5/10</div>
-          <div class="metric-sub">Gemini c.2 rating</div>
-        </div>
-      </div>
-
-      <div class="hash-block">
-        <div class="hash-label">SHA-256 · Archive Hash · GLJA-2026-001</div>
-        <div class="hash-value">5ff066c8e68c5014e47a38eb372086a7f1f7bf053c93a1da9d9c78e3bdedffd1</div>
-      </div>
-
-      <div style="margin-top:16px;text-align:center;">
-        <div style="font-family:'Orbitron',sans-serif;font-size:14px;color:var(--neon);text-shadow:0 0 12px var(--neon-glow);animation:pulse 2s infinite;letter-spacing:3px">
-          ALL SYSTEMS GO
-        </div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--dim);margin-top:6px;letter-spacing:2px">
-          THE ZNOJMO PRECEDENT IS DEPLOYED
-        </div>
-      </div>
-    </div>
-
-  </div>
+</section>
 
 </div>
+</main>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-left">
-    ARCHITECT: <span>ROMAN MUŽNÝ KAŠPAR</span> · PROJECT <span>GLJA v2.0</span> · GROUND ZERO ISDS: <span>1667902322</span>
-  </div>
-  <div class="footer-right">
-    SOLVIT 2362/26/CZ · MPSV ISDS 1668255062 · MV ISDS 1668255059<br>
-    NODE_11 SEALED · 23.03.2026 · DIAMOND BASELINE v2.0
+  <div class="footer-glja">PROJECT GLJA</div>
+  <div class="footer-meta">
+    ARCHITECT: <span>ROMAN MUŽNÝ KAŠPAR</span> · RC: 9106082590 · DS: tk8btak<br>
+    SOLVIT: <span>2362/26/CZ</span> · MPSV: <span>1668255062</span> · MV: <span>1668255059</span><br>
+    SHA-256: <span>5ff066c8...dffd1</span> · GLJA-Q1 · NODE_12 · 24.3.2026<br>
+    <span>Global Level of Justice Auditor · Justice-as-a-Service · Diamond Baseline v2.1</span>
   </div>
 </footer>
 
+<!-- MODALS -->
+<div class="modal-overlay" id="m-income"><div class="modal"><button class="modal-close" onclick="closeModal('m-income')">✕</button><div class="modal-title">P-03 · Příjmový paradox · 186 CZK</div><div class="modal-content"><span class="hi">PŘÍJEM: 186 CZK / únor 2026</span><br><br>Správní orgán přesto vydal Oznámení č.j. 12833/2026/ZNO:<br>(A) ZVYŠUJE HN na 4,420 CZK<br>(B) VYLUČUJE z hmotné nouze<br><br><span class="warn">Absolutní logický rozpor v jednom dokumentu.</span><br><br><span class="info">§ 68/3 SŘ · čl. 30 LZPS · NSS 9 As 40/2010</span></div></div></div>
+
+<div class="modal-overlay" id="m-energy"><div class="modal"><button class="modal-close" onclick="closeModal('m-energy')">✕</button><div class="modal-title">Energetický dluh · 6,630 CZK</div><div class="modal-content"><span class="warn">DLUH E.ON: 6,630 CZK</span><br>Hrozba demontáže plynoměru.<br><br><span class="hi">MOP (§ 2/5 ZPHN) = zákonný nástroj.</span><br>Žádost podána. ÚP nerozhodl.<br><br><span class="info">§ 21 ZPHN:</span> HN = na jídlo. NE na energii.<br>ÚP nutí žadatele platit energii z dávky na výživu.<br><br><span class="warn">🔥 Vařič na kartuše = fyzický důkaz selhání systému.</span></div></div></div>
+
+<div class="modal-overlay" id="m-math"><div class="modal"><button class="modal-close" onclick="closeModal('m-math')">✕</button><div class="modal-title">Matematická anomálie · 10.95%</div><div class="modal-content">HN 4,420 − Životní min. 3,694 = <span class="warn">726 CZK</span><br><br>726 CZK = <span class="warn">10.95% dluhu 6,630 CZK</span><br><br>I při maximálním použití "přebytku" zbyde 89% dluhu.<br><span class="hi">MOP = správný nástroj. Byl ignorován.</span></div></div></div>
+
+<div class="modal-overlay" id="m-solvit"><div class="modal"><button class="modal-close" onclick="closeModal('m-solvit')">✕</button><div class="modal-title">SOLVIT · 2362/26/CZ</div><div class="modal-content"><span class="hi">REF: 2362/26/CZ · 23.3.2026 · 10:46</span><br>Centrum: solvit@mpo.cz (MPO Praha)<br><br><span class="info">Čl. 9 EU 260/2012 (SEPA):</span> Zákaz diskriminace IBAN.<br><br><span class="hi">P-07 — Screenshot Jenda 06:12:</span><br>Systém IBAN podporuje. "Vybrat" aktivní.<br>Technická překážka = NEEXISTUJE.<br><br><span class="warn">Pravděpodobnost eskalace DG Justice: 75%+</span><br><span class="hi">Jackpot scénář: 35%</span></div></div></div>
+
+<div class="modal-overlay" id="m-kfc"><div class="modal"><button class="modal-close" onclick="closeModal('m-kfc')">✕</button><div class="modal-title">AmRest/KFC · 24.3.2026 · 14:00</div><div class="modal-content"><span class="hi">DPC od 1.4.2026 · Václav Kočka</span><br><br><span class="info">§ 11 ZPHN:</span> Aktivní snaha o příjem PROKÁZÁNA.<br><br>Lékařská prohlídka 500 CZK = 270% příjmu 186 CZK.<br><span class="warn">Pohřbení P-02 definitivně.</span><br><br>Po podpisu: ISDS 14:30 → MPSV Část II.</div></div></div>
+
+<div class="modal-overlay" id="m-plyn"><div class="modal"><button class="modal-close" onclick="closeModal('m-plyn')">✕</button><div class="modal-title">⚠ Hrozba plombování · Evidence of Systemic Failure</div><div class="modal-content"><span class="warn">Kauzální nexus pochybení → energetická krize:</span><br><br>1. P-01 → neoprávněné snížení příjmu<br>2. P-05/P-07 → odmítnutí IBAN → prodleva<br>3. 29denní latence → bez plné dávky<br><br><span class="info">MOP (§ 2/5 ZPHN) = zákonný nástroj.</span><br><span class="warn">ÚP nerozhodl. 🔥 Vařič = důkaz.</span></div></div></div>
+
+<div class="modal-overlay" id="m-p01"><div class="modal"><button class="modal-close" onclick="closeModal('m-p01')">✕</button><div class="modal-title">P-01 · Sankce za zákonnou překážku DPP</div><div class="modal-content">DPP PNS 30.10.2025–20.1.2026 = zákonná překážka evidence.<br><span class="warn">ÚP sankcionoval zákonné chování → snížení HN.</span><br><br><span class="info">§ 5/1 ZPHN · § 25/1/b z.435/2004</span><br><span class="hi">NSS 4 Ads 118/2011</span></div></div></div>
+
+<div class="modal-overlay" id="m-p02"><div class="modal"><button class="modal-close" onclick="closeModal('m-p02')">✕</button><div class="modal-title">P-02 · Ignorování aktivní snahy</div><div class="modal-content"><span class="hi">Důkazy:</span><br>· Lékařská prohlídka 500 CZK (13.3.2026)<br>· E-mail KFC 15.3.2026<br>· Smlouva DPC od 1.4.2026 ← ZÍTRA<br><br><span class="info">§ 11 ZPHN · NSS 6 Ads 56/2013</span></div></div></div>
+
+<div class="modal-overlay" id="m-p03"><div class="modal"><button class="modal-close" onclick="closeModal('m-p03')">✕</button><div class="modal-title">P-03 · Vnitřní logický rozpor</div><div class="modal-content">Oznámení 12833/2026/ZNO:<br><span class="hi">(A) ZVYŠUJE HN na 4,420 CZK</span><br><span class="warn">(B) VYLUČUJE z hmotné nouze</span><br><br>Příjem: <span class="warn">186 CZK</span><br><br><span class="info">§ 68/3 SŘ · čl. 30 LZPS</span><br><span class="hi">NSS 9 As 40/2010 — u soudu neobhajitelné.</span></div></div></div>
+
+<div class="modal-overlay" id="m-p04"><div class="modal"><button class="modal-close" onclick="closeModal('m-p04')">✕</button><div class="modal-title">P-04 · Ignorování existenční nouze</div><div class="modal-content"><span class="warn">E.ON: 6,630 CZK · Bunq: 0.00 EUR</span><br>Hrozba odpojení energií.<br><br>ÚP měl zohlednit při rozhodování.<br><span class="info">§ 3/4 SŘ · NSS 2 As 103/2015</span></div></div></div>
+
+<div class="modal-overlay" id="m-p0507"><div class="modal"><button class="modal-close" onclick="closeModal('m-p0507')">✕</button><div class="modal-title">P-05+P-07 · SEPA Breach + Nucená změna</div><div class="modal-content"><span class="warn">IBAN NL06 BUNQ odmítnut.</span> č.j. UPCR-BM-2026/71703<br><br><span class="hi">Screenshot Jenda 23.3.2026 06:12:</span><br>Systém eviduje IBAN. "Vybrat" aktivní.<br>Technická překážka NEEXISTUJE.<br><br>DSSP na stejný IBAN: ✓ funguje<br><span class="warn">Vynucený souhlas = neplatný (§ 4 SŘ)</span><br><br><span class="info">Čl. 9 EU 260/2012 · SOLVIT 2362/26/CZ</span></div></div></div>
+
+<div class="modal-overlay" id="m-p06"><div class="modal"><button class="modal-close" onclick="closeModal('m-p06')">✕</button><div class="modal-title">P-06 · 54 sekund · Strojové zamítnutí</div><div class="modal-content">Usnesení: <span class="hi">10:20:49</span> a <span class="hi">10:21:43</span><br><span class="warn">Rozestup: 54 sekund.</span><br><br>Fyzicky vylučuje řádný přezkum.<br>Nadřízený hodnotil podřízenou = strukturální podjatost.<br><br><span class="info">§ 14 SŘ · NSS 2 As 173/2014</span></div></div></div>
+
+<div class="modal-overlay" id="m-p08"><div class="modal"><button class="modal-close" onclick="closeModal('m-p08')">✕</button><div class="modal-title">P-08 · Lživý pobyt · Účelová šikana</div><div class="modal-content"><span class="warn">Vavrys:</span> "neznámý pobyt"<br><span class="hi">Dvořáková:</span> doručuje na tutéž adresu<br><br><span class="warn">Interní rozpor = lživé tvrzení prokázáno.</span><br><br><span class="info">§ 4 SŘ · § 131 SŘ · § 329 TZ (záloha)</span><br><span class="hi">"Z omylu na prokazatelnou šikanu." — Gemini c.2</span></div></div></div>
+
+<script>
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.modal-overlay').forEach(el=>{el.addEventListener('click',e=>{if(e.target===el)closeModal(el.id);});});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.open').forEach(el=>closeModal(el.id));}});
+let t=22100,c=0,el=document.getElementById('liCounter');
+const iv=setInterval(()=>{c=Math.min(c+Math.ceil(t/60),t);el.textContent='+'+c.toLocaleString('cs-CZ')+'%';if(c>=t)clearInterval(iv);},30);
+</script>
 </body>
 </html>
