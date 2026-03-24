@@ -3,223 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLJA v1.0 | Diamond Baseline</title>
-
+    <title>PROJECT GLJA | Global Level of Justice Auditor | v1.0 Locked</title>
     <style>
+        /* CORE DIAMOND DESIGN SYSTEM */
         :root {
             --neon-green: #00ff41;
-            --dark-bg: #0a0a0a;
-            --panel-bg: rgba(0, 255, 65, 0.05);
-            --soft-text: #e0e0e0;
+            --dark-bg: #0a0b10;
+            --card-bg: #11141b;
+            --border-glow: rgba(0, 255, 65, 0.2);
+            --danger-red: #ff3e3e;
+            --text-gray: #8b949e;
+            --text-white: #c9d1d9;
         }
 
         body {
             background-color: var(--dark-bg);
-            color: var(--soft-text);
-            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: var(--text-white);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .dashboard-container {
-            width: 100%;
-            max-width: 900px;
-            background: #111;
-            padding: 30px;
-            border-radius: 14px;
-            border: 1px solid #333;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
-        }
-
-        .header {
-            text-align: center;
-            border-bottom: 2px solid var(--neon-green);
-            padding-bottom: 10px;
-            margin-bottom: 28px;
-        }
-
-        .header h1 {
-            color: var(--neon-green);
-            margin: 0;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-        }
-
-        .header span {
-            font-size: 12px;
-            color: #888;
-            text-transform: uppercase;
-        }
-
-        .analysis-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 22px;
-        }
-
-        .card {
-            background: var(--panel-bg);
-            border: 1px solid #333;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .green-border {
-            border: 1px solid var(--neon-green);
-            box-shadow: inset 0 0 15px rgba(0, 255, 65, 0.1);
-        }
-
-        .llm-logos-container {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            justify-content: center;
-            margin: 18px 0;
-        }
-
-        .llm-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 4px;
-            object-fit: contain;
-        }
-
-        .glja-core {
-            border: 1px solid var(--neon-green);
-            background: rgba(0, 255, 65, 0.15);
-            padding: 8px;
-            text-align: center;
-            border-radius: 8px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .glja-core img {
-            width: 32px;
-            height: 32px;
-            filter: drop-shadow(0 0 4px var(--neon-green));
-        }
-
-        .status-success {
-            color: var(--neon-green);
+        /* HEADER SECTION */
+        header {
+            width: 100%;
+            padding: 60px 0 40px 0;
+            background: radial-gradient(circle at center, #161b22 0%, var(--dark-bg) 100%);
+            border-bottom: 1px solid #30363d;
             text-align: center;
-            font-size: 13px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-            letter-spacing: 1px;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.45; }
-            100% { opacity: 1; }
-        }
-
-        .discrepancy-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .discrepancy-list li {
-            margin-bottom: 12px;
-            padding-left: 20px;
             position: relative;
         }
 
-        .discrepancy-list li::before {
-            content: "✖";
+        header::after {
+            content: "";
             position: absolute;
-            left: 0;
-            color: #ff4141;
-            font-weight: bold;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 2px;
+            background: var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green);
         }
 
-        .footer {
-            margin-top: 38px;
-            text-align: center;
-            font-size: 11px;
-            color: #666;
+        header h1 {
+            color: var(--neon-green);
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+        }
+
+        header p {
+            color: var(--text-gray);
+            letter-spacing: 3px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1100px;
+            width: 90%;
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .status-badge {
+            border: 1px solid var(--neon-green);
+            background: rgba(0, 255, 65, 0.05);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: var(--neon-green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px var(--border-glow);
+        }
+
+        /* ANALYSIS GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 35px;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-green);
+        }
+
+        .card-alert { border-left: 6px solid var(--danger-red); }
+        .card-trust { border-left: 6px solid var(--neon-green); }
+
+        h2 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 1.4em;
             letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* DISCREPANCY LIST */
+        .data-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .data-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #21262d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .data-item:last-child { border-bottom: none; }
+
+        .label { color: var(--text-gray); font-size: 0.9em; }
+        .value { font-weight: bold; letter-spacing: 1px; }
+        .val-danger { color: var(--danger-red); }
+        .val-success { color: var(--neon-green); }
+
+        /* FEDERATED ENGINE VISUALS */
+        .engine-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .icon-stack {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .icon-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-box img {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
+            transition: filter 0.3s ease;
+        }
+
+        .icon-box:hover img {
+            filter: drop-shadow(0 0 10px var(--neon-green));
+        }
+
+        .icon-label { font-size: 10px; color: var(--text-gray); font-weight: bold; }
+
+        .agreement-bar {
+            width: 100%;
+            height: 4px;
+            background: #21262d;
+            border-radius: 2px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agreement-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--neon-green);
+            width: 99.9%;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .agreement-text {
+            text-align: center;
+            color: var(--neon-green);
+            font-size: 1.1em;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        /* EVIDENCE LAYER */
+        .evidence-card {
+            width: 100%;
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            border: 1px solid #30363d;
+            padding: 40px;
+            border-radius: 12px;
+            box-sizing: border-box;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .node-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #21262d;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .node-count { font-size: 24px; color: var(--neon-green); font-weight: bold; display: block; }
+        .node-text { font-size: 11px; color: var(--text-gray); text-transform: uppercase; }
+
+        /* FOOTER */
+        footer {
+            width: 100%;
+            padding: 60px 0;
+            border-top: 1px solid #21262d;
+            text-align: center;
+            background: #0d1117;
+        }
+
+        .footer-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .footer-line { color: #484f58; font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; }
+        .footer-legal { color: #30363d; font-size: 10px; text-transform: uppercase; }
+
+        @keyframes pulse {
+            0% { opacity: 1; text-shadow: 0 0 5px var(--neon-green); }
+            50% { opacity: 0.5; text-shadow: 0 0 2px var(--neon-green); }
+            100% { opacity: 1; text-shadow: 0 0 5px var(--neon-green); }
+        }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 1.8em; letter-spacing: 4px; }
         }
     </style>
 </head>
-
 <body>
 
-<div class="dashboard-container">
+    <header>
+        <h1>PROJECT GLJA</h1>
+        <p>Global Level of Justice Auditor | Diamond Baseline v1.0</p>
+    </header>
 
-    <div class="header">
-        <h1>PROJECT GLJA v1.0</h1>
-        <span>Diamond Baseline Architecture (LOCKED)</span>
-    </div>
-
-    <div class="analysis-grid">
-
-        <div class="card">
-            <h3 style="color: #ff4141; margin-top: 0;">IDENTIFIED DISCREPANCY</h3>
-            <ul class="discrepancy-list">
-                <li>Systemic Latency: 29 Days (Znojmo Precedent)</li>
-                <li>Income Mismatch: 186 CZK vs Support Rejection</li>
-                <li>Procedural Error: 100% Process Stalling</li>
-            </ul>
+    <div class="container">
+        <div class="status-header">
+            <div class="status-badge">● SYSTEM AUDIT: LOCKED & ACTIVE</div>
         </div>
 
-        <div class="card green-border">
-            <h3 style="text-align: center; margin-top: 0; font-size: 16px; color: var(--neon-green);">
-                FEDERATED TRUST GRAPH
-            </h3>
-
-            <div class="llm-logos-container">
-
-                <div class="glja-core">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="GLJA">
-                    <div style="font-size: 9px; font-weight: bold; color: var(--neon-green); margin-top: 4px;">
-                        GLJA
+        <div class="grid">
+            <div class="card card-alert">
+                <h2><span>⚖️</span> Systemic Discrepancy</h2>
+                <div class="data-list">
+                    <div class="data-item">
+                        <span class="label">Reference Case:</span>
+                        <span class="value">The Znojmo Precedent</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Measured Latency:</span>
+                        <span class="value val-danger">2,505,600 Seconds</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Economic Variance:</span>
+                        <span class="value val-danger">186 CZK vs Support</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Process Integrity:</span>
+                        <span class="value">0.00% Response Rate</span>
                     </div>
                 </div>
-
-                <span style="color: var(--neon-green); font-weight: bold; font-size: 18px;">+</span>
-
-                <img src="https://www.gstatic.com/lamda/images/favicon_v1_150160d13936554c2.png" class="llm-icon" alt="Gemini">
-
-                <img src="https://anthropic.com/images/icons/apple-touch-icon.png" class="llm-icon" alt="Claude">
-
-                <img src="https://github.githubassets.com/images/modules/site/features/copilot/copilot-logo.svg" class="llm-icon" alt="Copilot">
-
             </div>
 
-            <p style="text-align: center; font-size: 12px; margin: 10px 0; font-weight: bold; color: #bbb;">
-                GLJA Core | Gemini | Claude 3.5 | Copilot
+            <div class="card card-trust">
+                <h2><span>🛡️</span> Federated Trust Analysis</h2>
+                <div class="engine-container">
+                    <div class="icon-stack">
+                        <div class="icon-box">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="GLJA Core">
+                            <span class="icon-label">GLJA CORE</span>
+                        </div>
+                        <div class="icon-box">
+                            <img src="https://www.gstatic.com/lamda/images/favicon_v1_150160d13936554c2.png" alt="Gemini">
+                            <span class="icon-label">GEMINI</span>
+                        </div>
+                        <div class="icon-box">
+                            <img src="https://anthropic.com/images/icons/apple-touch-icon.png" alt="Claude">
+                            <span class="icon-label">CLAUDE</span>
+                        </div>
+                        <div class="icon-box">
+                            <img src="https://github.githubassets.com/images/modules/site/features/copilot/copilot-logo.svg" alt="Copilot">
+                            <span class="icon-label">COPILOT</span>
+                        </div>
+                    </div>
+                    <div class="agreement-bar"><div class="agreement-fill"></div></div>
+                    <div class="agreement-text">99.9% CONSENSUS AGREEMENT</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="evidence-card">
+            <h2><span>📂</span> Evidence Layer & Anchor Points</h2>
+            <p style="color: var(--text-gray); font-size: 14px; line-height: 1.6;">
+                Digital audit trails are cryptographically anchored via eIDAS standards. 
+                Full legal fixation of the Znojmo Precedent is distributed across the verification network.
             </p>
-
-            <div class="status-success">
-                ● INTEGRITY: 99.9% AGREEMENT
+            <div class="evidence-grid">
+                <div class="node-box">
+                    <span class="node-count">48</span>
+                    <span class="node-text">Active Clones</span>
+                </div>
+                <div class="node-box">
+                    <span class="node-count">100%</span>
+                    <span class="node-text">Data Fixation</span>
+                </div>
+                <div class="node-box">
+                    <span class="node-count">AES-256</span>
+                    <span class="node-text">Encryption</span>
+                </div>
+                <div class="node-box" style="border-color: var(--neon-green);">
+                    <span class="node-count" style="font-size: 16px; padding: 5px 0;">[ ACCESS ]</span>
+                    <span class="node-text">Full Whitepaper</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="card" style="margin-top: 20px;">
-        <h3 style="margin-top: 0;">EVIDENCE LAYER & WHITEPAPER</h3>
-        <p style="font-size: 13px; color: #aaa;">
-            Digital audit trails anchored via eIDAS. Verification nodes active across 48 independent clones.
-        </p>
-        <div style="display: flex; gap: 10px;">
-            <div style="background: #222; border: 1px solid #444; padding: 6px 15px; border-radius: 5px; font-size: 11px; cursor: pointer;">[VIEW AUDIT.PDF]</div>
-            <div style="background: #222; border: 1px solid #444; padding: 6px 15px; border-radius: 5px; font-size: 11px; cursor: pointer;">[GITHUB REPO]</div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-line">ARCHITECT: ROMAN MUŽNÝ KAŠPAR | PROJECT GLJA | 24.03.2026</div>
+            <div class="footer-legal">No unauthorized dilution | eIDAS Compliant | Locked Narrative</div>
         </div>
-    </div>
-
-    <div class="footer">
-        DEPLOYMENT: 24.03.2026 | ARCHITECT: ROMAN MUŽNÝ KAŠPAR | NO UNAUTHORIZED DILUTION
-    </div>
-
-</div>
+    </footer>
 
 </body>
 </html>
