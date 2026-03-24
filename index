@@ -3,167 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLJA – Digital Shift | Diamond Baseline v1.0</title>
+    <title>PROJECT GLJA | Diamond Baseline v1.0</title>
 
     <style>
         :root {
-            --primary: #00d4ff;
-            --secondary: #9d50bb;
-            --bg: #0b0e14;
-            --card: #161b22;
-            --text: #c9d1d9;
-            --accent: #2ea043;
-            --danger: #ff4d4d;
+            --neon-green: #00ff41;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --soft-text: #c9d1d9;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--text);
             margin: 0;
+            padding: 40px 20px;
+            background-color: var(--dark-bg);
+            color: var(--soft-text);
+            font-family: "Segoe UI", sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            justify-content: center;
         }
 
         header {
             width: 100%;
-            padding: 25px 20px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            max-width: 900px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--neon-green);
         }
 
-        .container {
-            max-width: 1050px;
-            width: 92%;
-            margin-top: 30px;
+        header h1 {
+            margin: 0;
+            color: var(--neon-green);
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px rgba(0,255,65,0.35);
         }
 
-        h1, h2, h3 { margin: 0; }
+        header p {
+            margin-top: 6px;
+            color: #8b949e;
+            font-size: 12px;
+        }
 
         .status-badge {
-            background: var(--accent);
-            color: white;
-            padding: 6px 18px;
-            border-radius: 20px;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
             font-weight: bold;
+            border-radius: 4px;
+            padding: 6px 14px;
+            margin-bottom: 30px;
             display: inline-block;
-            margin-bottom: 25px;
+            font-size: 12px;
         }
 
-        .grid-2 {
+        .grid {
+            width: 100%;
+            max-width: 900px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin-bottom: 30px;
         }
 
         .card {
-            background: var(--card);
+            background: var(--card-bg);
             border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 22px;
-            transition: 0.3s;
+            border-radius: 8px;
+            padding: 25px;
+            transition: 0.25s ease;
         }
 
         .card:hover {
-            border-color: var(--primary);
-            transform: translateY(-4px);
+            border-color: var(--neon-green);
         }
 
-        .left-card {
-            border-left: 4px solid var(--danger);
-            padding-left: 14px;
+        .alert {
+            border-left: 4px solid #ff3e3e;
         }
 
-        .right-card {
-            border-left: 4px solid var(--accent);
-            padding-left: 14px;
+        .trust {
+            border-left: 4px solid var(--neon-green);
         }
 
-        .llm-logos {
+        .icon-row {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 14px;
-            margin: 14px 0;
+            gap: 20px;
+            background: rgba(255,255,255,0.04);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
         }
 
-        .llm-logos img {
-            width: 34px;
-            height: 34px;
-            border-radius: 6px;
+        .icon-row img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 6px rgba(0,255,65,0.25));
+        }
+
+        .agreement {
+            text-align: center;
+            color: var(--neon-green);
+            font-weight: bold;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.45; }
+            100% { opacity: 1; }
+        }
+
+        .discrepancy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .discrepancy-list li {
+            font-size: 14px;
+            padding-left: 18px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .discrepancy-list li::before {
+            content: "×";
+            color: #ff3e3e;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
 
         .footer {
-            margin-top: auto;
-            padding: 35px;
-            font-size: 0.8em;
-            opacity: 0.6;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 50px;
             text-align: center;
+            padding-top: 18px;
+            font-size: 11px;
+            color: #586069;
+            border-top: 1px solid #30363d;
         }
-
     </style>
 </head>
 
 <body>
 
 <header>
-    <h1>GLJA: Global Level of Justice Auditor</h1>
-    <p>Diamond Baseline v1.0 (LOCKED)</p>
+    <h1>PROJECT GLJA</h1>
+    <p>DIAMOND BASELINE v1.0 (LOCKED)</p>
 </header>
 
-<div class="container">
+<div class="status-badge">● STATUS: AUDIT ACTIVE & ENFORCED</div>
 
-    <div class="status-badge">STATUS: AUDIT AKTIVNÍ ✔</div>
+<div class="grid">
 
-    <div class="grid-2">
+    <!-- LEFT CARD – ZNOJMO CASE -->
+    <div class="card alert">
+        <h2 style="font-size: 16px; margin-top: 0; color: #fff;">ZNOJEMSKÝ PRECEDENT</h2>
+        <ul class="discrepancy-list">
+            <li>Systémová latence: 2,505,600 s</li>
+            <li>Rozpor: 186 CZK vs Zamítnutí</li>
+            <li>Procedurální nečinnost</li>
+        </ul>
+    </div>
 
-        <!-- LEVÁ KARTA -->
-        <div class="card left-card">
-            <h2>Identifikovaný Rozpor (Znojemský Precedent)</h2>
-            <p><strong>Příjem: 186 CZK vs. Zamítnutí podpory</strong></p>
-            <p>Detekovaná systémová chyba v rozhodném čase (§1).</p>
+    <!-- RIGHT CARD – TRIPLE LLM -->
+    <div class="card trust">
+        <h2 style="font-size: 16px; margin-top: 0; color: #fff; text-align: center;">TRUST ANALYSIS</h2>
+
+        <div class="icon-row">
+            <img src="https://www.gstatic.com/lamda/images/favicon_v1_150160d13936554c2.png" alt="Gemini">
+            <img src="https://anthropic.com/images/icons/apple-touch-icon.png" alt="Claude">
+            <img src="https://github.githubassets.com/images/modules/site/features/copilot/copilot-logo.svg" alt="Copilot">
         </div>
 
-        <!-- PRAVÁ KARTA – NOVÁ VERZE S LOGY -->
-        <div class="card right-card">
-            <h2>Federated Trust Graph Analysis</h2>
-
-            <!-- LOGA TŘÍ LLM -->
-            <div class="llm-logos">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Google_Gemini_logo.svg/256px-Google_Gemini_logo.svg.png" alt="Gemini logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Anthropic_logo.svg/256px-Anthropic_logo.svg.png" alt="Claude / Anthropic logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/240px-Microsoft_logo.svg.png" alt="Microsoft Copilot logo">
-            </div>
-
-            <p><strong>Gemini 1.5 Pro • Claude 3.5 Sonnet • Microsoft Copilot</strong></p>
-            <p>Shoda v právním posouzení: <strong>99.9%</strong></p>
-        </div>
-
+        <div class="agreement">AGREEMENT: 99.9%</div>
     </div>
+</div>
 
-    <div class="card">
-        <h3>📂 Evidence Layer</h3>
-        <p>Klíčové důkazy a právní fixace (Diamond Baseline v1.0).</p>
-    </div>
-
-    <div class="card" style="margin-top: 25px;">
-        <h3>💎 Whitepaper</h3>
-        <p>Technická dokumentace a investiční rámec verze 1.0.</p>
-    </div>
-
-    <div class="card" style="margin-top: 25px;">
-        <h3>🚀 Investiční Analýza (AI Synthesis)</h3>
-        <p>Global Impact Index: <strong>9.1 / 10</strong></p>
-        <p>SaaS Export Potential: <strong>9.3 / 10</strong></p>
-    </div>
-
+<div class="card" style="margin-top: 25px; max-width: 900px;">
+    <h3 style="margin-top: 0; color: #fff; font-size: 15px;">📂 EVIDENCE & WHITEPAPER</h3>
+    <p style="font-size: 13px; color: #8b949e;">Digitální stopa fixována přes eIDAS. 48 aktivních auditních uzlů.</p>
 </div>
 
 <div class="footer">
-    Powered by Federated Trust Graph | Architect: Roman Mužný Kašpar | 2026
+    ARCHITECT: ROMAN MUŽNÝ KAŠPAR | 24.03.2026 | NO UNAUTHORIZED DILUTION
 </div>
 
 </body>
