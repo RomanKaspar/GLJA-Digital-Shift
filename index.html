@@ -30,7 +30,7 @@
             padding: 30px;
             border-radius: 14px;
             border: 1px solid #333;
-            box-shadow: 0 0 32px rgba(0, 0, 0, 0.55);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
         }
 
         .header {
@@ -44,16 +44,18 @@
             color: var(--neon-green);
             margin: 0;
             letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
         }
 
         .header span {
             font-size: 12px;
             color: #888;
+            text-transform: uppercase;
         }
 
         .analysis-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 22px;
         }
 
@@ -66,7 +68,7 @@
 
         .green-border {
             border: 1px solid var(--neon-green);
-            box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.15);
+            box-shadow: inset 0 0 15px rgba(0, 255, 65, 0.1);
         }
 
         .llm-logos-container {
@@ -77,17 +79,28 @@
             margin: 18px 0;
         }
 
+        .llm-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+
         .glja-core {
             border: 1px solid var(--neon-green);
-            background: rgba(0, 255, 65, 0.12);
+            background: rgba(0, 255, 65, 0.15);
             padding: 8px;
             text-align: center;
             border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
         }
 
         .glja-core img {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             filter: drop-shadow(0 0 4px var(--neon-green));
         }
 
@@ -97,6 +110,7 @@
             font-size: 13px;
             font-weight: bold;
             animation: pulse 2s infinite;
+            letter-spacing: 1px;
         }
 
         @keyframes pulse {
@@ -113,13 +127,13 @@
         }
 
         .discrepancy-list li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             padding-left: 20px;
             position: relative;
         }
 
         .discrepancy-list li::before {
-            content: "×";
+            content: "✖";
             position: absolute;
             left: 0;
             color: #ff4141;
@@ -131,6 +145,7 @@
             text-align: center;
             font-size: 11px;
             color: #666;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -139,18 +154,15 @@
 
 <div class="dashboard-container">
 
-    <!-- HEADER -->
     <div class="header">
         <h1>PROJECT GLJA v1.0</h1>
         <span>Diamond Baseline Architecture (LOCKED)</span>
     </div>
 
-    <!-- GRID: LEFT (DISCREPANCY) + RIGHT (TRIPLE LLM FEDERATION) -->
     <div class="analysis-grid">
 
-        <!-- DISCREPANCY PANEL -->
         <div class="card">
-            <h3 style="color: #ff4141;">IDENTIFIED DISCREPANCY</h3>
+            <h3 style="color: #ff4141; margin-top: 0;">IDENTIFIED DISCREPANCY</h3>
             <ul class="discrepancy-list">
                 <li>Systemic Latency: 29 Days (Znojmo Precedent)</li>
                 <li>Income Mismatch: 186 CZK vs Support Rejection</li>
@@ -158,34 +170,31 @@
             </ul>
         </div>
 
-        <!-- TRIPLE LLM FEDERATED PANEL -->
         <div class="card green-border">
-            <h3 style="text-align: center; margin-top: 0; font-size: 16px;">
+            <h3 style="text-align: center; margin-top: 0; font-size: 16px; color: var(--neon-green);">
                 FEDERATED TRUST GRAPH
             </h3>
 
             <div class="llm-logos-container">
 
-                <!-- GLJA -->
                 <div class="glja-core">
-                    https://cdn-icons-png.flaticon.com/512/1055/1055687.png
-                    <div style="font-size: 9px; font-weight: bold; color: var(--neon-green); margin-top: 2px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="GLJA">
+                    <div style="font-size: 9px; font-weight: bold; color: var(--neon-green); margin-top: 4px;">
                         GLJA
                     </div>
                 </div>
 
-                <!-- GEMINI -->
-                https://www.gstatic.com/lamda/images/favicon_v1_150160d13936554c2.png
+                <span style="color: var(--neon-green); font-weight: bold; font-size: 18px;">+</span>
 
-                <!-- CLAUDE -->
-                https://anthropic.com/images/icons/apple-touch-icon.png
+                <img src="https://www.gstatic.com/lamda/images/favicon_v1_150160d13936554c2.png" class="llm-icon" alt="Gemini">
 
-                <!-- COPILOT -->
-                https://github.githubassets.com/images/modules/site/features/copilot/copilot-logo.svg
+                <img src="https://anthropic.com/images/icons/apple-touch-icon.png" class="llm-icon" alt="Claude">
+
+                <img src="https://github.githubassets.com/images/modules/site/features/copilot/copilot-logo.svg" class="llm-icon" alt="Copilot">
 
             </div>
 
-            <p style="text-align: center; font-size: 12px; margin: 10px 0; font-weight: bold;">
+            <p style="text-align: center; font-size: 12px; margin: 10px 0; font-weight: bold; color: #bbb;">
                 GLJA Core | Gemini | Claude 3.5 | Copilot
             </p>
 
@@ -195,15 +204,14 @@
         </div>
     </div>
 
-    <!-- EVIDENCE LAYER -->
     <div class="card" style="margin-top: 20px;">
-        <h3>EVIDENCE LAYER & WHITEPAPER</h3>
+        <h3 style="margin-top: 0;">EVIDENCE LAYER & WHITEPAPER</h3>
         <p style="font-size: 13px; color: #aaa;">
             Digital audit trails anchored via eIDAS. Verification nodes active across 48 independent clones.
         </p>
         <div style="display: flex; gap: 10px;">
-            <div style="background: #222; padding: 5px 15px; border-radius: 5px; font-size: 11px;">[VIEW AUDIT.PDF]</div>
-            <div style="background: #222; padding: 5px 15px; border-radius: 5px; font-size: 11px;">[GITHUB REPO]</div>
+            <div style="background: #222; border: 1px solid #444; padding: 6px 15px; border-radius: 5px; font-size: 11px; cursor: pointer;">[VIEW AUDIT.PDF]</div>
+            <div style="background: #222; border: 1px solid #444; padding: 6px 15px; border-radius: 5px; font-size: 11px; cursor: pointer;">[GITHUB REPO]</div>
         </div>
     </div>
 
