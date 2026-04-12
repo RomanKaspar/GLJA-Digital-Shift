@@ -149,6 +149,17 @@
         .tech-text h5 { font-weight:700; color:var(--navy); margin-bottom:3px; font-size:.9rem; }
         .tech-text p { font-size:.82rem; color:var(--slate); }
 
+        .mascot-section { background:linear-gradient(135deg, rgba(201,168,76,.08) 0%, rgba(201,168,76,.03) 100%); padding:60px 8%; text-align:center; }
+        .mascot-container { display:flex; justify-content:center; gap:40px; align-items:center; flex-wrap:wrap; margin:40px 0; }
+        .mascot-svg { width:200px; height:200px; animation:float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform:translateY(0px); } 50% { transform:translateY(-20px); } }
+        .mascot-text h3 { font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--navy); margin-bottom:12px; }
+        .mascot-text p { font-size:.95rem; color:var(--slate); max-width:400px; line-height:1.8; }
+        .mascot-story { background:var(--white); border-left:4px solid var(--gold); padding:24px; margin-top:24px; text-align:left; }
+        .bowls-metaphor { background:var(--gold-pale); padding:32px; border-radius:4px; margin:24px 0; }
+        .bowls-metaphor h4 { color:var(--navy); font-weight:700; margin-bottom:12px; }
+        .bowls-metaphor p { color:var(--slate); line-height:1.8; }
+
         .founders-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
         .founder-card { background:var(--white); border:1px solid var(--border); padding:36px; }
         .founder-title { font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
@@ -176,6 +187,7 @@
             nav{display:none;}
             .about-grid,.gov-grid,.founders-grid{grid-template-columns:1fr;}
             .solvit-banner{flex-direction:column;}
+            .mascot-container{flex-direction:column;}
         }
     </style>
 </head>
@@ -195,6 +207,7 @@
         <a href="#scale">Škálování</a>
         <a href="#pricing">Pricing</a>
         <a href="#tech">Cloud</a>
+        <a href="#mascot">Mravenecek</a>
         <a href="#contact">Kontakt</a>
     </nav>
     <span class="status-badge">Prime Ready</span>
@@ -455,6 +468,54 @@
     </div>
 </section>
 
+<section class="mascot-section" id="mascot">
+    <div class="section-eyebrow" style="justify-content:center;">Meet Our Guardian</div>
+    <h2 class="section-title">Mravenecek · The Ant of Justice</h2>
+    <p class="section-desc">Symbol kolaborace, vytrvalosti a spravedlnosti. Mravenečková architektura nese hodnoty GLJA do každého auditu.</p>
+    
+    <div class="mascot-container">
+        <div>
+            <svg class="mascot-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <circle cx="50" cy="30" r="12" fill="#C9A84C"/>
+                <!-- Eyes -->
+                <circle cx="46" cy="28" r="2" fill="#0A1628"/>
+                <circle cx="54" cy="28" r="2" fill="#0A1628"/>
+                <!-- Thorax -->
+                <ellipse cx="50" cy="50" rx="10" ry="15" fill="#C9A84C"/>
+                <!-- Abdomen -->
+                <circle cx="50" cy="70" r="12" fill="#C9A84C"/>
+                <!-- Legs -->
+                <line x1="42" y1="60" x2="30" y2="80" stroke="#C9A84C" stroke-width="2"/>
+                <line x1="50" y1="62" x2="50" y2="82" stroke="#C9A84C" stroke-width="2"/>
+                <line x1="58" y1="60" x2="70" y2="80" stroke="#C9A84C" stroke-width="2"/>
+                <!-- Antennae -->
+                <line x1="48" y1="18" x2="40" y2="5" stroke="#C9A84C" stroke-width="2"/>
+                <line x1="52" y1="18" x2="60" y2="5" stroke="#C9A84C" stroke-width="2"/>
+                <!-- Left Bowl -->
+                <path d="M 30 45 Q 25 50 30 55" stroke="#C9A84C" stroke-width="2" fill="none"/>
+                <!-- Right Bowl -->
+                <path d="M 70 45 Q 75 50 70 55" stroke="#C9A84C" stroke-width="2" fill="none"/>
+            </svg>
+        </div>
+        <div class="mascot-text">
+            <h3>Mravenečkova mise</h3>
+            <p>Jako mravenec, který nosí bremenem větší než on sám, tak i GLJA nese břemeno spravedlnosti pro všechny. Naše platforma pracuje bez oddechu, bez chyby, v kolektivu AI systémů, které jsou navzájem propojeny.</p>
+        </div>
+    </div>
+
+    <div class="bowls-metaphor">
+        <h4>⚖️ The Bowls of Truth — Znojmo Metaphor</h4>
+        <p>Mravenecek drží dvě misky v dokonalé rovnováze. Levá mísa obsahuje všechny prokázané pochybení (P-01 až P-08). Pravá mísa obsahuje právní precedenty a eskalační sílu. Rovnováha se nikdy neztratí — výsledkem je vždy SPRAVEDLNOST.</p>
+    </div>
+
+    <div class="mascot-story">
+        <h4>🐜 Příběh Mravenečka</h4>
+        <p><strong>Od roku 2015</strong> existuje v našem týmu skrytý archetyp — mravenečí odhodlání. Každý právní precedent, který jsme vytvořili, byl zrníčkem písku v mraveniště, které teď stavíme. Když se v roce 2026 zrodil případ GLJA-2026-001 (Znojmo Precedent), byl čas dát tomuto archetypu podobu.</p>
+        <p><strong>Mravenecek.cloud</strong> není jen doména — je to manifest. Je to vyhlášení, že spravedlnost pracuje skromně, vytrvale a kolektivně. Žádný jednotlivec, ale systém. Žádná selhání, jen synergické uzly.</p>
+    </div>
+</section>
+
 <section class="section">
     <div class="section-eyebrow">Founders Layer</div>
     <h2 class="section-title">Institucionální identifikace</h2>
@@ -504,13 +565,33 @@
     <div>
         <h5>Roman Mužný Kašpar</h5>
         <p>Founder &amp; CEO · GLJA EUROPE s.r.o.<br>mravenecek@zohomail.eu · mravenecek.cloud</p>
+        <p style="margin-top:12px;font-size:.75rem;opacity:.6;">Chráněno Mravenečkem · Síla v úsilí, bohatství v pravdě</p>
     </div>
     <div class="footer-right">
         <p class="hash-line">SHA-256: 5ff066c8...dffd1 · GLJA-Q1 · Node_12</p>
         <p>5-Node AI Quorum · eIDAS QES · SOLVIT 2362/26/CZ</p>
         <p>PRIME READY · 100% NEGOTIATION-SAFE · v3.4 · 2026</p>
+        <p style="margin-top:12px;color:var(--gold);">🐜 Mravenecek.cloud</p>
     </div>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll na navigaci
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
