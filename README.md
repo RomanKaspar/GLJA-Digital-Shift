@@ -3,7 +3,7 @@
 
 ![Status](https://img.shields.io/badge/Status-PRIME%20READY-brightgreen?style=flat-square)
 ![Version](https://img.shields.io/badge/Version-3.4-blue?style=flat-square)
-![License](https://img.shields.io/badge/License-Proprietary-red?style=flat-square)
+![License](https://img.shields.io/badge/License-GLJA_Community-red?style=flat-square)
 ![SOLVIT](https://img.shields.io/badge/SOLVIT-2362%2F26%2FCZ-gold?style=flat-square)
 
 ---
@@ -93,6 +93,32 @@ Struktura garantuje, že zakladatel **nikdy** neztratí strategickou kontrolu:
 | **Plus** | 2,490 CZK/měs | 5 auditů/měs, SOLVIT pipeline, DS integrace. |
 | **Pro ⭐** | 9,900 CZK/měs | ∞ audity, eIDAS QES, EU eskalace, SHA-256 řetěz. |
 | **Enterprise**| Custom | White-label, vládní integrace, SLA 99.9%. |
+
+---
+
+## 📜 LICENCE & POUŽITÍ — DŮLEŽITÉ PRO DAVIDA
+
+> **GitHub klon ≠ právo používat.** `git clone` znamená jen stažení kopie pro studium. O tom, co smíte, rozhoduje licence, ne tlačítko "Clone".
+
+### Náš model: Open-Core (nikoliv čisté open-source)
+
+**1. TOTO REPOZITÁŘ (ZDARMA - pro studium):**
+Toto je veřejný showcase. Dostáváte karoserii, ne motor.
+* **MŮŽETE:** číst kód, forkovat, studovat metodiku, testovat na fiktivních datech, učit se.
+* **NESMÍTE:** použít pro reálný případ, klienta, úřad, komerční poradnu, ani to vydávat za vlastní. 20 clonerů z našich grafů to zatím dělá správně - studují.
+
+**2. PLACENÁ VERZE (mravenecek.cloud):**
+Teprve zde dostanete MOTOR, STK a pojištění.
+* **Basic/Plus/Pro** obsahuje: 5-Node AI Quorum, eIDAS QES pipeline, SHA-256 důkazní řetěz, SOLVIT eskalaci, právní odpovědnost.
+* **Pro reálné použití v praxi (jako případ GLJA-2026-001) je vyžadována placená licence Pro nebo Enterprise.**
+
+### Právní základ
+Tento kód je chráněn licencí **GLJA Community License v1.0**. Není to MIT ani GPL.
+* Pokud v repozitáři není soubor LICENSE, platí automaticky český autorský zákon: **VŠECHNA PRÁVA VYHRAZENA**.
+* Veškeré know-how a metodika od roku 2015 zůstává **obchodním tajemstvím** GLJA EUROPE s.r.o.
+
+**Proč to tak děláme?**
+FREE verze je návnada. Těch 29 klonů není krádež, je to 29 leadů, kteří pochopili, že bez placeného motoru to v reálném sporu s ÚP nepoužijí. Chráníme IP a zároveň budujeme komunitu.
 
 ---
 
