@@ -7,6 +7,8 @@
 ![SHA256](https://img.shields.io/badge/SHA--256-Chained-brightgreen)
 ![License](https://img.shields.io/badge/License-Proprietary-red)
 
+**🌐 Web:** [www.glja.cz](https://www.glja.cz)
+
 ---
 
 ## Co je GLJA EUROPE?
@@ -41,7 +43,7 @@ GLJA EUROPE Ecosystem
 │   └── WORM úložiště (neměnné záznamy)
 │
 └── 🌐 Web3 identita
-    └── @glja.eu (institucionální uzel)
+    └── @glja.cz (institucionální uzel)
 ```
 
 ## Klíčové principy (Doktrinální konstanty)
@@ -103,12 +105,19 @@ Celý Corpus dokumentů je konsolidován v interním konsolidačním dokumentu (
 ```
 Zakladatel / Architekt:  Roman Mužný Kašpar
 IČO:                     04007689 (OSVČ → GLJA EUROPE s.r.o.)
-Institucionální uzel:    @glja.eu
+Institucionální uzel:    @glja.cz
+Primární web:            www.glja.cz
 Místo baseline:          Znojmo, Česká republika
 Datum baseline:          1. 5. 2026
 ```
 
-**Kontakt:** `glja-europe@seznam.cz`
+**Kontakt:**
+
+| Role | Jméno | E-mail |
+|---|---|---|
+| Zakladatel / Architekt | Roman Mužný Kašpar | `roman.muzny@glja.cz` |
+| Partner / Spolupodepisující | David Mužný | `david.muzny@glja.cz` |
+| Obecný kontakt | — | `glja-europe@seznam.cz` |
 
 ## Stav Corpusu (Roadmapa)
 
