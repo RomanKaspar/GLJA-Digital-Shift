@@ -1,713 +1,439 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GLJA EUROPE — Global Level of Justice Auditor</title>
+<link rel="canonical" href="https://www.glja.cz/">
+<meta property="og:title" content="GLJA EUROPE — Global Level of Justice Auditor">
+<meta property="og:url" content="https://www.glja.cz/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
-:root { --green: #00ff41; --green-dim: #00cc33; --green-ghost: rgba(0,255,65,0.07); --green-glow: rgba(0,255,65,0.35); --bg: #0a0a0a; --bg2: #111111; --bg3: #161616; --border: #1e1e1e; --border-bright: #2a2a2a; --text: #c8c8c8; --text-dim: #666; --text-bright: #ebebeb; --red: #ff3333; --amber: #ffaa00; --blue: #00aaff; }
-
-*, ::before, ::after { box-sizing: border-box; margin: 0px; padding: 0px; }
-
-html { scroll-behavior: smooth; }
-
-body { background: var(--bg); color: var(--text); font-family: Rajdhani, sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; cursor: default; }
-
-body::before { content: ""; position: fixed; inset: 0px; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px); pointer-events: none; z-index: 9999; }
-
-body::after { content: ""; position: fixed; inset: 0px; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9998; opacity: 0.4; }
-
-header { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 4rem 6vw; border-bottom: 1px solid var(--border-bright); overflow: hidden; }
-
-header::before { content: ""; position: absolute; inset: 0px; background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px); background-size: 60px 60px; animation: 8s ease-in-out 0s infinite normal none running gridPulse; }
-
-@keyframes gridPulse { 
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-.hero-tag { font-family: "Share Tech Mono", monospace; font-size: 0.75rem; color: var(--green); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: 0.6s ease 0.2s 1 normal forwards running fadeIn; }
-
-.hero-tag::before { content: "> "; }
-
-h1.hero-title { font-family: Orbitron, sans-serif; font-size: clamp(2.2rem, 6vw, 5rem); font-weight: 900; color: var(--text-bright); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.5rem; opacity: 0; animation: 0.8s ease 0.4s 1 normal forwards running fadeSlideUp; }
-
-h1.hero-title span { color: var(--green); text-shadow: 0 0 40px var(--green-glow); }
-
-.hero-sub { font-family: Orbitron, sans-serif; font-size: clamp(0.8rem, 2vw, 1.1rem); color: var(--text-dim); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 2.5rem; opacity: 0; animation: 0.8s ease 0.7s 1 normal forwards running fadeIn; }
-
-.hero-quote { font-family: "Share Tech Mono", monospace; font-size: 1rem; color: var(--green-dim); border-left: 2px solid var(--green); padding-left: 1.2rem; margin-bottom: 3rem; opacity: 0; animation: 0.8s ease 0.9s 1 normal forwards running fadeIn; }
-
-.transition-banner { display: inline-flex; align-items: center; gap: 1rem; background: rgba(255, 170, 0, 0.06); border: 1px solid rgba(255, 170, 0, 0.3); border-radius: 2px; padding: 0.8rem 1.5rem; margin-bottom: 3rem; opacity: 0; animation: 0.8s ease 1.1s 1 normal forwards running fadeIn; }
-
-.transition-banner .tb-icon { font-family: "Share Tech Mono", monospace; font-size: 1.2rem; color: var(--amber); }
-
-.transition-banner .tb-text { font-family: "Share Tech Mono", monospace; font-size: 0.8rem; color: var(--amber); letter-spacing: 0.08em; }
-
-.transition-banner .tb-text strong { display: block; font-size: 0.95rem; margin-bottom: 0.1rem; }
-
-.transition-banner .tb-arrow { font-size: 1.4rem; color: rgba(255, 170, 0, 0.5); }
-
-.badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; opacity: 0; animation: 0.8s ease 1.3s 1 normal forwards running fadeIn; }
-
-.badge { font-family: "Share Tech Mono", monospace; font-size: 0.7rem; padding: 0.3rem 0.8rem; border-radius: 2px; letter-spacing: 0.1em; text-transform: uppercase; }
-
-.badge-green { background: rgba(0, 255, 65, 0.08); border: 1px solid rgba(0, 255, 65, 0.4); color: var(--green); }
-
-.badge-blue { background: rgba(0, 170, 255, 0.08); border: 1px solid rgba(0, 170, 255, 0.4); color: var(--blue); }
-
-.badge-red { background: rgba(255, 51, 51, 0.08); border: 1px solid rgba(255, 51, 51, 0.4); color: var(--red); }
-
-.badge-amber { background: rgba(255, 170, 0, 0.08); border: 1px solid rgba(255, 170, 0, 0.4); color: var(--amber); }
-
-.corner-deco { position: absolute; top: 2rem; right: 6vw; font-family: "Share Tech Mono", monospace; font-size: 0.65rem; color: var(--text-dim); text-align: right; line-height: 1.8; opacity: 0; animation: 1s ease 1.5s 1 normal forwards running fadeIn; }
-
-.corner-deco .live-dot { display: inline-block; width: 6px; height: 6px; background: var(--green); border-radius: 50%; margin-right: 6px; animation: 1.2s step-end 0s infinite normal none running blink; vertical-align: middle; }
-
-@keyframes blink { 
-  50% { opacity: 0; }
-}
-
-section { padding: 5rem 6vw; border-bottom: 1px solid var(--border); position: relative; }
-
-.section-label { font-family: "Share Tech Mono", monospace; font-size: 0.7rem; color: var(--green); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.5rem; }
-
-.section-label::before { content: "["; }
-
-.section-label::after { content: "]"; }
-
-h2.section-title { font-family: Orbitron, sans-serif; font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 700; color: var(--text-bright); margin-bottom: 2.5rem; letter-spacing: -0.01em; }
-
-h2.section-title span { color: var(--green); }
-
-.transition-section { background: linear-gradient(135deg, rgba(255, 170, 0, 0.03) 0%, transparent 60%); }
-
-.transition-card { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; max-width: 900px; margin-bottom: 2.5rem; }
-
-.entity-box { background: var(--bg2); border: 1px solid var(--border-bright); padding: 1.5rem 2rem; position: relative; }
-
-.entity-box.active { border-color: rgba(0, 255, 65, 0.4); background: rgba(0, 255, 65, 0.03); }
-
-.entity-box.origin { border-color: rgba(255, 170, 0, 0.3); background: rgba(255, 170, 0, 0.03); }
-
-.entity-box .eb-label { font-family: "Share Tech Mono", monospace; font-size: 0.65rem; letter-spacing: 0.2em; margin-bottom: 0.6rem; }
-
-.entity-box.origin .eb-label { color: var(--amber); }
-
-.entity-box.active .eb-label { color: var(--green); }
-
-.entity-box .eb-name { font-family: Orbitron, sans-serif; font-size: 1rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.4rem; }
-
-.entity-box .eb-detail { font-family: "Share Tech Mono", monospace; font-size: 0.75rem; color: var(--text-dim); line-height: 1.6; }
-
-.entity-box .eb-status { position: absolute; top: -1px; right: 1rem; font-family: "Share Tech Mono", monospace; font-size: 0.6rem; padding: 0.15rem 0.5rem; letter-spacing: 0.1em; }
-
-.entity-box.origin .eb-status { background: rgba(255, 170, 0, 0.15); color: var(--amber); }
-
-.entity-box.active .eb-status { background: rgba(0, 255, 65, 0.12); color: var(--green); }
-
-.transition-arrow { text-align: center; }
-
-.arrow-svg { display: block; margin: 0px auto 0.5rem; }
-
-.arrow-label { font-family: "Share Tech Mono", monospace; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.15em; text-align: center; }
-
-.transition-note { font-family: "Share Tech Mono", monospace; font-size: 0.8rem; color: var(--text-dim); background: var(--bg2); border-top-color: ; border-top-style: ; border-top-width: ; border-right-color: ; border-right-style: ; border-right-width: ; border-bottom-color: ; border-bottom-style: ; border-bottom-width: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-left: 3px solid var(--amber); padding: 1rem 1.5rem; max-width: 900px; line-height: 1.8; }
-
-.transition-note strong { color: var(--amber); }
-
-.constants-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border-bright); border: 1px solid var(--border-bright); margin-bottom: 2rem; }
-
-.const-card { background: var(--bg2); padding: 1.5rem; transition: background 0.2s; }
-
-.const-card:hover { background: var(--bg3); }
-
-.const-id { font-family: "Share Tech Mono", monospace; font-size: 0.65rem; color: var(--green); letter-spacing: 0.15em; margin-bottom: 0.5rem; }
-
-.const-name { font-family: Orbitron, sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.6rem; line-height: 1.3; }
-
-.const-desc { font-family: Rajdhani, sans-serif; font-size: 0.9rem; color: var(--text-dim); line-height: 1.5; }
-
-.arch-block { background: var(--bg2); border: 1px solid var(--border-bright); padding: 2rem; font-family: "Share Tech Mono", monospace; font-size: 0.8rem; color: var(--text-dim); line-height: 2; overflow-x: auto; max-width: 800px; margin-bottom: 2rem; }
-
-.arch-block .arch-green { color: var(--green); }
-
-.arch-block .arch-bright { color: var(--text-bright); }
-
-.arch-block .arch-amber { color: var(--amber); }
-
-.arch-block .arch-blue { color: var(--blue); }
-
-.corpus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-
-.corpus-cat { background: var(--bg2); border: 1px solid var(--border-bright); padding: 1.5rem; }
-
-.corpus-cat-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-bright); }
-
-.corpus-cat-badge { font-family: "Share Tech Mono", monospace; font-size: 0.65rem; padding: 0.2rem 0.5rem; background: var(--green-ghost); border: 1px solid rgba(0, 255, 65, 0.2); color: var(--green); letter-spacing: 0.1em; }
-
-.corpus-cat-title { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 1rem; color: var(--text-bright); }
-
-.corpus-items { list-style: none; }
-
-.corpus-items li { font-family: "Share Tech Mono", monospace; font-size: 0.7rem; color: var(--text-dim); padding: 0.25rem 0px; border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
-
-.corpus-items li::before { content: "├ "; color: var(--green); }
-
-.corpus-items li:last-child::before { content: "└ "; color: var(--green); }
-
-.qgate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-
-.qgate-item { background: var(--bg2); border: 1px solid var(--border-bright); padding: 1.2rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
-
-.qgate-icon { font-family: "Share Tech Mono", monospace; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-
-.qgate-label { font-family: "Share Tech Mono", monospace; font-size: 0.65rem; letter-spacing: 0.15em; margin-bottom: 0.3rem; }
-
-.qgate-val { font-family: Rajdhani, sans-serif; font-size: 0.9rem; color: var(--text-dim); line-height: 1.4; }
-
-.status-unknown { color: var(--amber); }
-
-.status-present { color: var(--green); }
-
-.status-missing { color: var(--red); }
-
-.sig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--border-bright); border: 1px solid var(--border-bright); }
-
-.sig-card { background: var(--bg2); padding: 2rem; }
-
-.sig-role { font-family: "Share Tech Mono", monospace; font-size: 0.65rem; color: var(--green); letter-spacing: 0.2em; margin-bottom: 0.8rem; }
-
-.sig-name { font-family: Orbitron, sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-bright); margin-bottom: 1rem; }
-
-.sig-meta { font-family: "Share Tech Mono", monospace; font-size: 0.72rem; color: var(--text-dim); line-height: 2; }
-
-.sig-meta .meta-key { color: var(--green-dim); }
-
-.sig-meta .meta-val { color: var(--text); }
-
-.identity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 800px; }
-
-@media (max-width: 600px) {
-  .identity-grid { grid-template-columns: 1fr; }
-  .transition-card { grid-template-columns: 1fr; }
-  .transition-arrow { transform: rotate(90deg); }
-}
-
-.id-row { display: flex; gap: 0.8rem; font-family: "Share Tech Mono", monospace; font-size: 0.78rem; padding: 0.7rem 1rem; background: var(--bg2); border: 1px solid var(--border); align-items: baseline; }
-
-.id-key { color: var(--green-dim); flex-shrink: 0; }
-
-.id-val { color: var(--text-bright); word-break: break-all; }
-
-footer { padding: 3rem 6vw; border-top: 1px solid var(--border-bright); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; }
-
-.footer-left { font-family: "Share Tech Mono", monospace; font-size: 0.72rem; color: var(--text-dim); line-height: 1.8; }
-
-.footer-left .fl-name { color: var(--green); font-size: 0.85rem; }
-
-.footer-right { font-family: "Share Tech Mono", monospace; font-size: 0.65rem; color: var(--text-dim); text-align: right; }
-
-.footer-seal { font-family: Orbitron, sans-serif; font-size: 0.6rem; color: rgba(0, 255, 65, 0.25); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; }
-
-nav { position: fixed; top: 0px; left: 0px; right: 0px; z-index: 100; background: rgba(10, 10, 10, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-bright); padding: 0.8rem 6vw; display: flex; justify-content: space-between; align-items: center; }
-
-.nav-brand { font-family: Orbitron, sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--green); letter-spacing: 0.1em; }
-
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-
-.nav-links a { font-family: "Share Tech Mono", monospace; font-size: 0.7rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
-
-.nav-links a:hover { color: var(--green); }
-
-@media (max-width: 680px) {
-  .nav-links { display: none; }
-}
-
-@keyframes fadeIn { 
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes fadeSlideUp { 
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0px); }
-}
-
-.divider { width: 40px; height: 2px; background: var(--green); margin-bottom: 2rem; box-shadow: 0 0 12px var(--green-glow); }
-
-code { font-family: "Share Tech Mono", monospace; font-size: 0.85em; background: rgba(0, 255, 65, 0.06); border: 1px solid rgba(0, 255, 65, 0.15); padding: 0.1em 0.4em; color: var(--green-dim); }
-
-hr.section-rule { border-right-width: medium; border-bottom-width: medium; border-left-width: medium; border-right-style: none; border-bottom-style: none; border-left-style: none; border-right-color: currentcolor; border-bottom-color: currentcolor; border-left-color: currentcolor; border-image: none; border-top: 1px solid var(--border-bright); margin: 2rem 0px; }
-
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s, transform 0.6s; }
-
-.reveal.visible { opacity: 1; transform: translateY(0px); }
-
-
-/* PROJECT STATUS BADGE (nově přidáno) */
-.project-status {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  background: rgba(0,255,65,0.04);
-  border: 1px solid rgba(0,255,65,0.25);
-  border-radius: 2px;
-  padding: 0.7rem 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 640px;
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards 1.0s;
-}
-.ps-dot {
-  width: 7px; height: 7px;
-  background: var(--green);
-  border-radius: 50%;
-  margin-top: 0.4rem;
-  flex-shrink: 0;
-  box-shadow: 0 0 8px var(--green-glow);
-}
-.ps-text {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--text);
-  line-height: 1.6;
-}
-.ps-text strong { color: var(--green); }
-
-/* ARCHITECTURE INTRO SENTENCE */
-.arch-intro {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1rem;
-  color: var(--text-dim);
-  max-width: 700px;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-/* ABOUT AUTHOR SECTION */
-.about-text {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.05rem;
-  color: var(--text);
-  max-width: 720px;
-  line-height: 1.8;
-}
-
+  :root{
+    --navy-950:#08152B; --navy-900:#0A1F3D; --navy-800:#14294D; --navy-700:#22385F;
+    --slate:#5B6B85; --hair:#D8DEE8; --ivory:#FFFFFF; --paper:#F6F8FB; --gold:#B8944D; --radius:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--navy-900);background:var(--ivory);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(10,31,61,0.96);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--ivory);font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:0.01em;}
+  .brand span{color:var(--gold);}
+  .brand svg{flex-shrink:0;}
+  .navlinks{display:none;gap:28px;font-size:13.5px;}
+  .navlinks a{color:rgba(255,255,255,0.72);transition:color .15s;white-space:nowrap;}
+  .navlinks a:hover{color:var(--ivory);}
+  @media (min-width:960px){.navlinks{display:flex;}}
+  .cta-small{border:1px solid var(--gold);color:var(--gold);padding:9px 18px;font-size:13px;border-radius:var(--radius);transition:background .15s,color .15s;white-space:nowrap;}
+  .cta-small:hover{background:var(--gold);color:var(--navy-950);}
+
+  .hero{background:linear-gradient(180deg,var(--navy-950) 0%,var(--navy-900) 60%,var(--navy-800) 100%);color:var(--ivory);padding:96px 0 0;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:0.55;pointer-events:none;}
+  .hero-inner{display:grid;gap:24px;max-width:820px;position:relative;z-index:1;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:600;text-transform:uppercase;font-size:clamp(32px,4.6vw,52px);line-height:1.12;color:var(--gold);letter-spacing:0.01em;}
+  .hero p.lead{font-size:16.5px;color:rgba(255,255,255,0.8);max-width:640px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;}
+  .btn-gold{background:var(--gold);color:var(--navy-950);font-weight:600;font-size:14px;padding:13px 26px;border-radius:var(--radius);display:inline-block;}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.35);color:var(--ivory);font-size:14px;padding:13px 26px;border-radius:var(--radius);display:inline-block;}
+  .not-box{border:1px solid rgba(184,148,77,0.4);background:rgba(184,148,77,0.08);padding:16px 20px;border-radius:var(--radius);font-size:13.5px;color:rgba(255,255,255,0.75);max-width:640px;position:relative;z-index:1;}
+  .not-box strong{color:var(--gold);}
+
+  .icon-strip{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:28px;padding:56px 0 80px;}
+  @media (min-width:760px){.icon-strip{grid-template-columns:1fr 1fr 1fr;}}
+  .icon-item{display:flex;gap:16px;align-items:flex-start;}
+  .icon-item svg{flex-shrink:0;margin-top:2px;}
+  .icon-item h5{font-size:15px;color:var(--ivory);margin-bottom:6px;letter-spacing:0.01em;}
+  .icon-item p{font-size:13px;color:rgba(255,255,255,0.6);}
+
+  .ledger{margin-top:64px;border-top:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.02);}
+  .ledger-row{display:grid;grid-template-columns:140px 1fr 220px;gap:20px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(255,255,255,0.55);}
+  .ledger-row span:first-child{color:var(--gold);}
+  .ledger-row span:last-child{color:rgba(255,255,255,0.35);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  @media (max-width:640px){.ledger-row{grid-template-columns:90px 1fr;}.ledger-row span:last-child{display:none;}}
+
+  section{padding:88px 0;}
+  .section-head{max-width:680px;margin-bottom:52px;}
+  .section-head .eyebrow{color:var(--navy-700);}
+  .section-head h2{font-size:clamp(26px,3.4vw,36px);color:var(--navy-900);margin-top:10px;}
+  .section-head p{color:var(--slate);margin-top:14px;font-size:15.5px;}
+
+  .pillars{background:var(--paper);}
+  .pillar-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  @media (min-width:760px){.pillar-grid{grid-template-columns:1fr 1fr 1fr;}}
+  .pillar{background:var(--ivory);padding:36px 32px;}
+  .pillar .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);}
+  .pillar h3{font-size:20px;margin:14px 0 12px;color:var(--navy-900);}
+  .pillar p{color:var(--slate);font-size:14px;}
+  .pillar .tag{display:inline-block;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--hair);padding:5px 10px;color:var(--navy-700);}
+
+  .pipeline{display:grid;grid-template-columns:1fr;gap:0;border-left:2px solid var(--hair);margin-left:6px;}
+  .pipe-step{position:relative;padding:0 0 36px 32px;}
+  .pipe-step:last-child{padding-bottom:0;}
+  .pipe-step::before{content:attr(data-tier);position:absolute;left:-15px;top:0;width:28px;height:28px;border-radius:50%;background:var(--navy-900);color:var(--ivory);font-family:'IBM Plex Mono',monospace;font-size:10px;display:flex;align-items:center;justify-content:center;}
+  .pipe-step h4{font-size:16px;color:var(--navy-900);margin-bottom:4px;}
+  .pipe-step p{font-size:14px;color:var(--slate);max-width:520px;}
+
+  .law-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media (min-width:760px){.law-grid{grid-template-columns:1fr 1fr;}}
+  .law-card{border:1px solid var(--hair);padding:24px 26px;border-radius:var(--radius);background:var(--ivory);}
+  .law-card .eyebrow{font-size:10.5px;}
+  .law-card h4{font-size:16px;margin:8px 0 8px;color:var(--navy-900);}
+  .law-card p{font-size:13.5px;color:var(--slate);}
+
+  .expansion{background:var(--navy-900);color:var(--ivory);}
+  .expansion .section-head p{color:rgba(255,255,255,0.65);}
+  .expansion .section-head .eyebrow{color:var(--gold);}
+  .expansion .section-head h2{color:var(--ivory);}
+  .exp-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media (min-width:760px){.exp-grid{grid-template-columns:1fr 1fr;}}
+  .exp-card{border:1px solid rgba(255,255,255,0.14);padding:26px 28px;border-radius:var(--radius);background:rgba(255,255,255,0.03);}
+  .exp-card .num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);}
+  .exp-card h4{font-size:16px;letter-spacing:0.01em;color:var(--ivory);margin:10px 0 8px;}
+  .exp-card p{font-size:13.5px;color:rgba(255,255,255,0.62);}
+
+  .structure{background:var(--paper);}
+  .gov-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media (min-width:760px){.gov-grid{grid-template-columns:1fr 1fr;}}
+  .gov-card{border:1px solid var(--hair);padding:26px 28px;border-radius:var(--radius);background:var(--ivory);}
+  .gov-card h4{font-size:14px;letter-spacing:0.02em;color:var(--navy-900);margin-bottom:8px;}
+  .gov-card p{font-size:13.5px;color:var(--slate);}
+  .disclaimer-line{margin-top:44px;padding-top:24px;border-top:1px solid var(--hair);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);line-height:1.7;}
+
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  @media (min-width:760px){.contact-grid{grid-template-columns:1fr 1fr;}}
+  .contact-card{background:var(--ivory);padding:32px;}
+  .contact-card .role{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;}
+  .contact-card h4{font-size:19px;margin:8px 0 6px;}
+  .contact-card a.email{font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--navy-700);border-bottom:1px solid var(--hair);padding-bottom:1px;}
+
+  footer{background:var(--navy-950);color:rgba(255,255,255,0.45);padding:56px 0 32px;font-size:13px;}
+  .footer-grid{display:grid;grid-template-columns:1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.08);}
+  @media (min-width:760px){.footer-grid{grid-template-columns:1fr 1fr 1fr auto;align-items:start;}}
+  .footer-col h6{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .footer-col a,.footer-col div.item{display:block;color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:8px;}
+  .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:12px;}
+  .seal{opacity:0.85;}  .flow{background:var(--ivory);}
+  .flow-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);counter-reset:flowstep;}
+  @media (min-width:900px){.flow-grid{grid-template-columns:repeat(5,1fr);}}
+  .flow-step{background:var(--paper);padding:26px 22px;position:relative;}
+  .flow-step.audit{background:var(--navy-900);color:var(--ivory);}
+  .flow-step .k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}
+  .flow-step h4{font-size:15px;margin:10px 0 8px;}
+  .flow-step.audit h4{color:var(--ivory);}
+  .flow-step:not(.audit) h4{color:var(--navy-900);}
+  .flow-step p{font-size:12.5px;color:var(--slate);}
+  .flow-step.audit p{color:rgba(255,255,255,0.65);}
+  .flow-arrow{display:none;}
+  @media (min-width:900px){
+    .flow-step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:2;color:var(--slate);font-size:14px;background:var(--ivory);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--hair);}
+  }
 </style>
 </head>
-<!DOCTYPE html><html lang="cs"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLJA EUROPE — Global Level of Justice Auditor</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=Rajdhani:wght@300;400;600;700&amp;family=Orbitron:wght@400;700;900&amp;display=swap" rel="stylesheet">
-  
-</head>
 <body>
- 
-<!-- NAV -->
-<nav>
-  <div class="nav-brand">GLJA EUROPE</div>
-  <ul class="nav-links">
-    <li><a href="https://romankaspar.github.io/GLJA-EUROPE/#prechod">Přechod</a></li>
-    <li><a href="https://romankaspar.github.io/GLJA-EUROPE/#konstanty">Konstanty</a></li>
-    <li><a href="https://romankaspar.github.io/GLJA-EUROPE/#architektura">Architektura</a></li>
-    <li><a href="https://romankaspar.github.io/GLJA-EUROPE/#corpus">Corpus</a></li>
-    <li><a href="https://romankaspar.github.io/GLJA-EUROPE/#podpisy">Podpisy</a></li>
-    <li><a href="https://romankaspar.github.io/GLJA-EUROPE/#identita">Identita</a></li>
-  </ul>
-</nav>
- 
-<!-- HERO -->
+
 <header>
-  <div class="corner-deco">
-    <span class="live-dot"></span>BASELINE ACTIVE<br>01.05.2026 / 09:09:13 UTC<br>
-    RMK-512 :: provenance/brand only<br>
-    CORPUS STATUS :: RATIFIED<br>
-    PAdES-BASELINE-T :: VERIFIED
-  </div>
- 
-  <div class="hero-tag">GLJA EUROPE — AI QUORUM ANALYTICAL CORE</div>
- 
-  <h1 class="hero-title">
-    Global Level of<br>
-    <span>Justice Auditor</span>
-  </h1>
- 
-  <div class="hero-sub">LegalTech · Audit · Resocializace · Due Diligence</div>
- 
-  <div class="hero-quote">"V bohatství je pokora."</div>
- 
-  <div class="project-status">
-    <span class="ps-dot"></span>
-    <span class="ps-text"><strong>PROJECT STATUS :: IN-DEVELOPMENT</strong> (Alpha State). Focus: Methodology Validation &amp; MVP Architecture.</span>
-  </div>
- 
-  <!-- PŘECHODNÉ OBDOBÍ BADGE -->
-  <div class="transition-banner">
-    <div class="tb-icon">⚡</div>
-    <div class="tb-text">
-      <strong>PŘECHODNÉ OBDOBÍ — PRÁVNÍ FORMA</strong>
-      Roman Mužný Kašpar, OSVČ (IČO: 04007689) → GLJA EUROPE s.r.o.
+  <div class="wrap nav">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="#B8944D" stroke-width="1.2"/>
+        <path d="M20 8v6M12 22l8-8 8 8M12 22a4 4 0 108 0M20 22a4 4 0 108 0M20 14v14M15 32h10" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      GLJA <span>EUROPE</span>
     </div>
-    <div class="tb-arrow">→</div>
-    <div class="tb-text">
-      <strong>PROCESNÍ KONTINUITA ZAJIŠTĚNA</strong>
-      Corpus zůstává nepřerušen · Baseline neměnná
-    </div>
-  </div>
- 
-  <div class="badges">
-    <span class="badge badge-green">Master Protocol 1.5.2026</span>
-    <span class="badge badge-green">PAdES-BASELINE-T Verified</span>
-    <span class="badge badge-green">SHA-256 Chained</span>
-    <span class="badge badge-blue">Corpus Ratified</span>
-    <span class="badge badge-amber">Přechodné období OSVČ → s.r.o.</span>
-    <span class="badge badge-red">Proprietary</span>
+    <nav class="navlinks">
+      <a href="#proces">Procesní Audit</a>
+      <a href="#prava">Právní Integrita</a>
+      <a href="#piliere">Specializované Sektory</a>
+      <a href="#struktura">O nás</a>
+    </nav>
+    <a class="cta-small" href="#kontakt">Domluvit Konzultaci</a>
   </div>
 </header>
- 
-<!-- PŘECHODNÉ OBDOBÍ -->
-<section id="prechod" class="transition-section">
-  <div class="section-label">PŘECHODNÉ OBDOBÍ</div>
-  <h2 class="section-title">Změna právní formy<br><span>OSVČ → GLJA EUROPE s.r.o.</span></h2>
-  <div class="divider"></div>
- 
-  <div class="transition-card reveal">
-    <div class="entity-box origin">
-      <span class="eb-status">PŮVODNÍ FORMA</span>
-      <div class="eb-label">OSVČ / Fyzická osoba</div>
-      <div class="eb-name">Roman Mužný Kašpar</div>
-      <div class="eb-detail">
-        IČO: 04007689<br>
-        Identita: mravenecek.x<br>
-        Znojmo, Česká republika
-      </div>
+
+<section class="hero">
+  <svg class="hero-bg" viewBox="0 0 1120 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0A1F3D" stop-opacity="0"/>
+        <stop offset="1" stop-color="#0A1F3D" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+    <g opacity="0.5" font-family="IBM Plex Mono, monospace" font-size="11" fill="#B8944D">
+      <text x="0" y="30">0317 0501 0893 0095 5010 0186 7010 6701</text>
+      <text x="0" y="60">0158 0631 8231 0248 3591 0703 1011 8938</text>
+      <text x="0" y="90">0009 5501 0870 0158 0631 8231 0248 3591</text>
+    </g>
+    <g stroke="#3A5885" stroke-width="1.2" fill="none" opacity="0.55">
+      <path d="M700 480 V300 M700 300 L730 260 M730 260 V150 M730 150 L700 110 M760 480 V320 M820 480 V260 M820 260 L850 220 V150 M880 480 V300 M940 480 V340 M940 340 L970 300 V180"/>
+      <circle cx="960" cy="150" r="70"/>
+      <circle cx="1020" cy="200" r="46"/>
+      <circle cx="1000" cy="90" r="30"/>
+    </g>
+    <rect x="0" y="380" width="1120" height="140" fill="url(#fade)"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Nezávislý procesní auditor · LegalTech / GovTech</div>
+    <h1>Precizní audit procesní integrity.</h1>
+    <p class="lead">GLJA EUROPE (Global Level of Justice Auditor) prověřuje správnost postupů v celém životním cyklu komunikace a sporu — od neformálního e-mailu, výzvy či varování před žalobou přes civilní žaloby, korporátní smlouvy, usnesení a rozhodnutí až po rozsudky a exekuční tituly. Každý úkon podléhá platnému právu a procesním pravidlům, a proto může být podroben auditu.</p>
+    <div class="not-box">
+      <strong>Co nejsme:</strong> Nejsme advokátní kancelář ani soud. Nevydáváme právní stanoviska ani nenahrazujeme soudní moc — poskytujeme exaktní, matematicky doložitelný audit procesní integrity.
     </div>
- 
-    <div class="transition-arrow">
-      <svg class="arrow-svg" width="48" height="24" viewBox="0 0 48 24" fill="none">
-        <line x1="0" y1="12" x2="38" y2="12" stroke="#ffaa00" stroke-width="1.5" stroke-dasharray="4 2"></line>
-        <polyline points="32,4 44,12 32,20" stroke="#ffaa00" stroke-width="1.5" fill="none"></polyline>
-      </svg>
-      <div class="arrow-label">PROCESNÍ<br>KONTINUITA</div>
-    </div>
- 
-    <div class="entity-box active">
-      <span class="eb-status">CÍLOVÁ FORMA</span>
-      <div class="eb-label">Právnická osoba / s.r.o.</div>
-      <div class="eb-name">GLJA EUROPE s.r.o.</div>
-      <div class="eb-detail">
-        Zakladatel: Roman Mužný Kašpar<br>
-        Uzel: @glja.eu<br>
-        Baseline: 1. 5. 2026 (neměnná)
-      </div>
+    <div class="hero-actions">
+      <a class="btn-gold" href="#piliere">Jak audit funguje</a>
+      <a class="btn-ghost" href="#kontakt">Domluvit konzultaci</a>
     </div>
   </div>
- 
-  <div class="transition-note reveal">
-    <strong>DOKTRINÁLNÍ FIXACE:</strong> Přechod z režimu OSVČ na GLJA EUROPE s.r.o. je definován jako 
-    procesní změna, která <strong>nezakládá osobní ani zpětnou odpovědnost</strong> za zjištění systému 
-    (Master Deed §6 — Anti-Personalization Clause). Corpus, baseline a všechny ratifikované dokumenty 
-    zůstávají <strong>nepřerušeny a v plné platnosti</strong>. Interpretační hierarchie ani doktrinální 
-    konstanty nejsou změnou právní formy dotčeny.
-  </div>
-</section>
- 
-<!-- DOKTRINÁLNÍ KONSTANTY -->
-<section id="konstanty">
-  <div class="section-label">MASTER DEED §3</div>
-  <h2 class="section-title">Doktrinální konstanty<br><span>Absolutní · Neměnné</span></h2>
-  <div class="divider"></div>
- 
-  <div class="constants-grid reveal">
-    <div class="const-card">
-      <div class="const-id">CONST-001</div>
-      <div class="const-name">AUTORSTVÍ ≠ PODPIS ≠ ODPOVĚDNOST</div>
-      <div class="const-desc">Architektonický autor metodiky nebo dokumentu nedrží podpisovou autoritu nad její provozní exekucí, ani nenese právní, finanční či procesní odpovědnost za výstupy odvozené ze systému.</div>
+  <div class="wrap icon-strip">
+    <div class="icon-item">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M8 26h10M6 12l6-4 6 4M8 12v8a2 2 0 104 0v-8M16 12v8a2 2 0 104 0v-8M12 8v18" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><h5>Procesní audit</h5><p>Korporace, občané, orgány — ověřujeme procesní vady, asymetrie a logické rozpory.</p></div>
     </div>
-    <div class="const-card">
-      <div class="const-id">CONST-002 / RMK-512</div>
-      <div class="const-name">RMK-512 = provenance / brand only</div>
-      <div class="const-desc">Identifikátor je výlučně označením architektonického původu (origin mark / memory seal). V žádném případě se nejedná o kryptografický runtime klíč, osobní právní podpis, pečeť ani převzetí odpovědnosti.</div>
+    <div class="icon-item">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="8" y="15" width="18" height="13" rx="1.5" stroke="#B8944D" stroke-width="1.3"/><path d="M12 15v-4a5 5 0 0110 0v4" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round"/><circle cx="17" cy="21" r="1.6" fill="#B8944D"/></svg>
+      <div><h5>Kryptografické pečetění</h5><p>Výsledek auditu je matematicky neodvolatelně uzamčen a zapečetěn.</p></div>
     </div>
-    <div class="const-card">
-      <div class="const-id">CONST-003 / EVIDENCE RULE</div>
-      <div class="const-name">Audit Trail vs. Signature Artifact</div>
-      <div class="const-desc">Striktní oddělení procesní stopy od podpisového artefaktu. Absence binárních dat (raw bytes) = stav <code>UNKNOWN</code>. Jakákoliv extrapolace je zakázána.</div>
-    </div>
-    <div class="const-card">
-      <div class="const-id">CONST-004 / LEGAL STATUS</div>
-      <div class="const-name">GLJA NENÍ ADVOKACIE</div>
-      <div class="const-desc">GLJA EUROPE funguje výhradně jako neadvokátní, logiku vymáhající a auditní (LegalTech) infrastruktura. Měří procesní konzistenci, nikoli právo. Neposkytuje právní zastoupení.</div>
-    </div>
-    <div class="const-card">
-      <div class="const-id">CONST-005 / ANTI-PERSONALIZATION</div>
-      <div class="const-name">Ochrana fyzických osob zakladatelů</div>
-      <div class="const-desc">Jakýkoli pokus o uplatnění regresní odpovědnosti vůči zakladatelům za zjištění logických rozporů v institucionálních procesech je neplatný. Platí i pro přechodné období OSVČ → s.r.o.</div>
-    </div>
-    <div class="const-card">
-      <div class="const-id">CONST-006 / CONFLICT RESOLUTION</div>
-      <div class="const-name">Hierarchie výkladu Corpusu</div>
-      <div class="const-desc">Při rozporu: (1) Manifesty, (2) Governance a právní rámec, (3) Memoranda, (4) Protokoly a manuály. Hierarchie slouží výhradně k výkladu, nikoli k přepisu dokumentů.</div>
+    <div class="icon-item">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 6l9 4v7c0 7-4.5 10.5-9 12-4.5-1.5-9-5-9-12v-7l9-4z" stroke="#B8944D" stroke-width="1.3" stroke-linejoin="round"/><path d="M17 15.5c-1.4-2-4.7-1.6-4.7 1 0 2 2.3 3.3 4.7 5.3 2.4-2 4.7-3.3 4.7-5.3 0-2.6-3.3-3-4.7-1z" stroke="#B8944D" stroke-width="1.1" stroke-linejoin="round"/></svg>
+      <div><h5>Resocializační a společenský pilíř</h5><p>Rozvojový a charitativní rozměr — podpora návratu jedinců do rovnovážného právního prostředí.</p></div>
     </div>
   </div>
 </section>
- 
-<!-- ARCHITEKTURA -->
-<section id="architektura">
-  <div class="section-label">SYSTEM ARCHITECTURE</div>
-  <h2 class="section-title">Architektura<br><span>Ekosystému</span></h2>
-  <div class="divider"></div>
- 
-  <p class="arch-intro">Projekt je postaven na logické validaci procesů. Aktuálně probíhá technická optimalizace a testování integrity dat.</p>
- 
-  <div class="arch-block reveal">
-<span class="arch-green">GLJA EUROPE Ecosystem</span> <span class="arch-bright">:: Baseline 1.5.2026</span>
-│
-├── <span class="arch-amber">📋 Corpus (Konsolidované dokumenty)</span>
-│   ├── CATEGORY A – Manifesty (Zakládající dokumenty)
-│   ├── CATEGORY B – Governance &amp; Právní rámec
-│   ├── CATEGORY C – Audit &amp; Interní dokumentace
-│   ├── CATEGORY D – Protokoly &amp; Manuály
-│   └── CATEGORY E – Web &amp; Dashboard
-│
-├── <span class="arch-green">🔐 Kryptografická vrstva</span>
-│   ├── SHA-256 / SHA-512 Hash Registry (Annex B)
-│   ├── Merkle Tree – řetězení důkazů
-│   ├── PAdES-BASELINE-T časová razítka
-│   └── Offline verifikace (air-gapped endpoint)
-│
-├── <span class="arch-blue">☁️  Cloudová infrastruktura</span>
-│   ├── Microsoft Azure (AI orchestrace, datová integrace)
-│   ├── Microsoft 365 (compliance, auditní logy)
-│   └── WORM úložiště (neměnné záznamy)
-│
-├── <span class="arch-bright">🤖 AI QUORUM NODE (Claude Strategy &amp; Audit)</span>
-│   ├── Procesní logika &amp; konzistence dat
-│   ├── Auditní výstupy (technické, neosobní)
-│   └── Interpretace dle Master Protokolu
-│
-└── <span class="arch-green">🌐 Web3 identita</span>
-    ├── mravenecek.x (decentralizovaná identita)
-    └── @glja.eu (institucionální uzel)
-  </div>
- 
-  <div class="arch-block reveal" style="max-width:600px;">
-<span class="arch-green">SHA-256 Důkazní řetězení</span>
-│
-├── Krok N
-│   ├── data_N + hash(N-1)
-│   ├── SHA-256(data_N + hash_{N-1})
-│   └── → Merkle Node
-│
-├── Ukotvení
-│   └── Decentralizované úložiště (on-chain)
-│       mravenecek.x
-│
-└── Offline audit
-    └── Air-gapped endpoint
-        Nezávislá verifikace bez přístupu
-        k provozovateli systému
-  </div>
-</section>
- 
-<!-- CORPUS -->
-<section id="corpus">
-  <div class="section-label">ANNEX A — CORPUS INDEX</div>
-  <h2 class="section-title">Struktura Corpusu<br><span>Master Ratification &amp; Consolidation Deed</span></h2>
-  <div class="divider"></div>
- 
-  <div class="corpus-grid reveal">
-    <div class="corpus-cat">
-      <div class="corpus-cat-header">
-        <div class="corpus-cat-badge">CAT A</div>
-        <div class="corpus-cat-title">Manifesty / Zakládající dokumenty</div>
-      </div>
-      <ul class="corpus-items">
-        <li>GLJA EUROPE – Souhrnný dokument (2v1)</li>
-        <li>Manifest v6.0</li>
-        <li>Zakládající memorandum v2</li>
-        <li>Manifest GLJA EUROPE v5 (1) + (2)</li>
-        <li>Dodatek k manifestu GLJA EUROPE v5</li>
-        <li>Sjednocená doktrína GLJA 1</li>
-        <li>Manifest GLJA EUROPE: Provozní principy</li>
-        <li>Manifest Mužný Kašpar</li>
-      </ul>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Kde GLJA vstupuje do procesu</div>
+      <h2>Od podání po zapečetěný audit</h2>
+      <p>GLJA nevstupuje do samotného řízení ani jej nenahrazuje — nezávisle přezkoumává, zda byl dodržen procesní postup, poté co je řízení uzavřeno.</p>
     </div>
- 
-    <div class="corpus-cat">
-      <div class="corpus-cat-header">
-        <div class="corpus-cat-badge">CAT B</div>
-        <div class="corpus-cat-title">Governance &amp; Právní rámec</div>
+    <div class="flow-grid">
+      <div class="flow-step">
+        <div class="k">01</div>
+        <h4>Úkon</h4>
+        <p>E-mail, výzva, žaloba, korporátní smlouva nebo jiný právní úkon.</p>
       </div>
-      <ul class="corpus-items">
-        <li>Zakládací listina GLJA EUROPE</li>
-        <li>Ochranný protokol C <span style="color:var(--green)">✓ AUDIT TRAIL PRESENT</span></li>
-        <li>Interní bezpečnostní protokol</li>
-        <li>Protokol ověření identity (2026)</li>
-        <li>Interní rodinně-právní dokumentace (neveřejná)</li>
-        <li>Interní provozní dokument — prioritní fixace</li>
-      </ul>
-    </div>
- 
-    <div class="corpus-cat">
-      <div class="corpus-cat-header">
-        <div class="corpus-cat-badge">CAT C</div>
-        <div class="corpus-cat-title">Audit &amp; Interní dokumentace</div>
+      <div class="flow-step">
+        <div class="k">02</div>
+        <h4>Zpracování</h4>
+        <p>Protistrana, orgán nebo soud na úkon reaguje dle procesních pravidel.</p>
       </div>
-      <ul class="corpus-items">
-        <li>GLJA-2026-001 — Souhrnný záznam v3 (final)</li>
-        <li>GLJA-2026-001 — Souhrnný záznam v3 (podepsáno)</li>
-        <li>Strategická datová zpráva v2.1 (výchozí datový stav)</li>
-        <li>Pracovní poznámky k ocenění (neauditované)</li>
-        <li>Pracovní podklad k obchodnímu modelu</li>
-        <li>GLJA_v2.1 — Zpráva o stavu</li>
-        <li>GLJA_v1.0 — Interní audit</li>
-        <li>Prezentační materiál (pracovní verze)</li>
-      </ul>
-    </div>
- 
-    <div class="corpus-cat">
-      <div class="corpus-cat-header">
-        <div class="corpus-cat-badge">CAT D</div>
-        <div class="corpus-cat-title">Protokoly &amp; Manuály</div>
+      <div class="flow-step">
+        <div class="k">03</div>
+        <h4>Usnesení, rozhodnutí, rozsudek</h4>
+        <p>Výrok je vydán jménem republiky — včetně exekučního titulu vydaného exekutorem.</p>
       </div>
-      <ul class="corpus-items">
-        <li>Provozní manuál v1 + v2.2</li>
-        <li>Protokol o zapečetění projektu (výchozí stav)</li>
-        <li>Monitorovací modul — technická specifikace</li>
-        <li>GLJA Whitepaper v1.1a / v1.0 / v1.1</li>
-        <li>Strategické memorandum v2 + memorandum č. 3</li>
-        <li>Verifikační protokol v1.0</li>
-        <li>Výzkumná zpráva 24. 4. 2026</li>
-        <li>eIDAS dokumentace</li>
-      </ul>
-    </div>
- 
-    <div class="corpus-cat">
-      <div class="corpus-cat-header">
-        <div class="corpus-cat-badge">CAT E</div>
-        <div class="corpus-cat-title">Web &amp; Dashboard</div>
+      <div class="flow-step audit">
+        <div class="k">04</div>
+        <h4>GLJA audit</h4>
+        <p>Nezávislé ověření procesní správnosti postupu, který k rozhodnutí vedl.</p>
       </div>
-      <ul class="corpus-items">
-        <li>GLJA EUROPE | Global Level of Justice Auditor</li>
-        <li>GLJA EUROPE | Institutional Dashboard v3.4</li>
-        <li>index.pdf</li>
-        <li>Dokument bez názvu (web artefakt)</li>
-      </ul>
-    </div>
- 
-    <!-- ROADMAP -->
-    <div class="corpus-cat" style="border-color: rgba(0,255,65,0.2);">
-      <div class="corpus-cat-header">
-        <div class="corpus-cat-badge">ROADMAP</div>
-        <div class="corpus-cat-title">Fáze vývoje</div>
-      </div>
-      <ul class="corpus-items" style="font-size:0.72rem;">
-        <li><span class="status-present">Phase 1: Foundations &amp; Architecture</span> — Ratified · core methodology, structural design</li>
-        <li><span class="status-unknown">Phase 2: Data Validation &amp; Integration</span> — In Progress · binary verification, hash registry completion</li>
-        <li><span class="status-unknown">Phase 3: Institutional Pilot</span> — Planned · external legal &amp; technical review, first partner engagement</li>
-        <li><span class="status-present">Audit Trail: GLJA-LEG-002</span> — dostupný (Podpisovna.cz str. 6–7)</li>
-      </ul>
-    </div>
-  </div>
-</section>
- 
-<!-- PODPISOVÝ BLOK -->
-<section id="podpisy">
-  <div class="section-label">MASTER DEED §7 — EXECUTION BLOCK</div>
-  <h2 class="section-title">Podpisový blok<br><span>30. 4. 2026 · Znojmo, ČR</span></h2>
-  <div class="divider"></div>
- 
-  <div class="sig-grid reveal">
-    <div class="sig-card">
-      <div class="sig-role">PODEPISUJÍCÍ A — ZAKLADATEL / ARCHITEKT</div>
-      <div class="sig-name">Roman Mužný Kašpar</div>
-      <div class="sig-meta">
-        <span class="meta-key">IČO .............</span> <span class="meta-val">04007689 (OSVČ)</span><br>
-        <span class="meta-key">Identifikace ......</span> <span class="meta-val">Bankovní Identita</span><br>
-        <span class="meta-key">Čas identifikace ..</span> <span class="meta-val">2026-05-01T08:47:56Z</span><br>
-        <span class="meta-key">Platforma .........</span> <span class="meta-val">Podpisovna.cz</span><br>
-        <span class="meta-key">Provenance ........</span> <span class="meta-val">RMK-512 (brand only)</span>
-      </div>
-    </div>
-    <div class="sig-card">
-      <div class="sig-role">PODEPISUJÍCÍ B — PARTNER / SPOLUPODEPISUJÍCÍ</div>
-      <div class="sig-name">David Mužný</div>
-      <div class="sig-meta">
-        <span class="meta-key">Role .............</span> <span class="meta-val">acknowledgement</span><br>
-        <span class="meta-key">Identifikace ......</span> <span class="meta-val">Bankovní Identita</span><br>
-        <span class="meta-key">Čas identifikace ..</span> <span class="meta-val">2026-05-01T08:51:43Z</span><br>
-        <span class="meta-key">Platforma .........</span> <span class="meta-val">Podpisovna.cz</span><br>
-        <span class="meta-key">Status ............</span> <span class="meta-val">Ratifikováno</span>
+      <div class="flow-step">
+        <div class="k">05</div>
+        <h4>Zapečetění</h4>
+        <p>Výsledek auditu je podepsán a zřetězen SHA-256 do neměnného záznamu.</p>
       </div>
     </div>
   </div>
 </section>
- 
-<!-- IDENTITA -->
-<section id="identita">
-  <div class="section-label">INSTITUCIONÁLNÍ IDENTITA</div>
-  <h2 class="section-title">Identita &amp; Kontakt</h2>
-  <div class="divider"></div>
- 
-  <div class="identity-grid reveal">
-    <div class="id-row"><span class="id-key">ARCHITECT</span><span class="id-val">Roman Mužný Kašpar</span></div>
-    <div class="id-row"><span class="id-key">IČO</span><span class="id-val">04007689 (OSVČ → s.r.o.)</span></div>
-    <div class="id-row"><span class="id-key">WEB3</span><span class="id-val">mravenecek.x</span></div>
-    <div class="id-row"><span class="id-key">NODE</span><span class="id-val">@glja.eu</span></div>
-    <div class="id-row"><span class="id-key">BASELINE</span><span class="id-val">1. 5. 2026 · Znojmo, CZ</span></div>
-    <div class="id-row"><span class="id-key">SEAL</span><span class="id-val">PAdES-BASELINE-T</span></div>
-    <div class="id-row"><span class="id-key">EMAIL A</span><span class="id-val">mravenecek@zohomail.eu</span></div>
-    <div class="id-row"><span class="id-key">EMAIL B</span><span class="id-val">mravenecekx@gmail.com</span></div>
+
+<section class="pillars" id="piliere">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tři piliře</div>
+      <h2>Co GLJA EUROPE staví</h2>
+      <p>Platforma je rozdělena na jádrový auditní systém, který je dnes v provozu, a dva další koncepty ve fázi rozvahy a přípravy.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="num">Pilíř 01</div>
+        <h3>Procesní audit</h3>
+        <p>Auditujeme postup subjektů v soukromém i veřejném sektoru — korporace, občané, orgány. Ověřujeme, zda při vzniku nároků, výzev nebo rozhodnutí nedošlo k procesním vadám, asymetriím či logickým rozporům.</p>
+        <div class="tag">V provozu</div>
+      </div>
+      <div class="pillar">
+        <div class="num">Pilíř 02</div>
+        <h3>Kryptografické pečetění</h3>
+        <p>Výsledek každého auditu matematicky neodvolatelně uzamyká a pečetí. Vzniká tak nezpochybnitelný důkazní podklad pro vyjednávání, soudní přezkum nebo napadení vadného úkonu.</p>
+        <div class="tag">V provozu</div>
+      </div>
+      <div class="pillar">
+        <div class="num">Pilíř 03</div>
+        <h3>Resocializační a společenský pilíř</h3>
+        <p>Rozvojový a charitativní rozměr platformy — monitorování procesní spravedlnosti a podpora systémové resocializace pro návrat jedinců do rovnovážného právního prostředí.</p>
+        <div class="tag">Připravuje se</div>
+      </div>
+    </div>
   </div>
 </section>
- 
-<!-- ARCHITECT'S NOTE -->
-<section id="autor">
-  <div class="section-label">ARCHITECT'S NOTE</div>
-  <h2 class="section-title">About the Architect</h2>
-  <div class="divider"></div>
- 
-  <p class="about-text">GLJA EUROPE je mým profesním startem v oblasti LegalTech. Jako začínající architekt projektu kladu důraz na transparentní vývoj, procesní logiku a postupné budování důvěryhodného systému. Tento web je živým dokumentem mého pokroku.</p>
+
+<section id="prava">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Oblasti práva</div>
+      <h2>Napříč jakým řízením auditujeme</h2>
+      <p>GLJA EUROPE není advokátní kancelář ani soud — nevydáváme právní stanoviska, neradíme a nerozhodujeme spory. Auditujeme procesní správnost rozhodnutí a rozsudků napříč těmito oblastmi:</p>
+    </div>
+    <div class="law-grid">
+      <div class="law-card"><div class="eyebrow mono">01</div><h4>Správní právo</h4><p>Rozhodování orgánů veřejné správy — lhůty, doručování, odůvodnění, opravné prostředky.</p></div>
+      <div class="law-card"><div class="eyebrow mono">02</div><h4>Rodinné právo</h4><p>Procesní postup v řízeních o péči, výživném a dalších rodinněprávních věcech.</p></div>
+      <div class="law-card"><div class="eyebrow mono">03</div><h4>Korporátní právo</h4><p>Procesní správnost rozhodnutí orgánů obchodních korporací a souvisejících řízení.</p></div>
+      <div class="law-card"><div class="eyebrow mono">04</div><h4>Trestní právo</h4><p>Procesní postup orgánů činných v trestním řízení a soudů — v úzké návaznosti na Pilíř 02.</p></div>
+      <div class="law-card"><div class="eyebrow mono">05</div><h4>Majetkové a občanské právo</h4><p>Řízení týkající se vlastnických a jiných občanskoprávních nároků.</p></div>
+      <div class="law-card"><div class="eyebrow mono">06</div><h4>Pracovní právo</h4><p>Procesní postup v pracovněprávních sporech a řízeních.</p></div>
+      <div class="law-card"><div class="eyebrow mono">07</div><h4>Patentové právo a duševní vlastnictví</h4><p>Řízení před příslušnými úřady v oblasti patentů a duševního vlastnictví.</p></div>
+      <div class="law-card"><div class="eyebrow mono">08+</div><h4>Další procesní oblasti</h4><p>Metodika se postupně rozšiřuje na další typy řízení dle poptávky a právní rozvahy.</p></div>
+    </div>
+  </div>
 </section>
- 
-<!-- FOOTER -->
+
+<section id="proces">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Jak to funguje</div>
+      <h2>Auditní pipeline TIER-0 → TIER-3</h2>
+      <p>Každý podklad prochází čtyřmi na sobě závislými stupni, než je výsledek zapečetěn do auditního řetězce.</p>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step" data-tier="0"><h4>Příjem a normalizace</h4><p>Vstupní dokumentace je strukturována do jednotného formátu pro strojové zpracování.</p></div>
+      <div class="pipe-step" data-tier="1"><h4>Procesní ověření</h4><p>Nezávislé modely posuzují dodržení procesního postupu podle platných pravidel.</p></div>
+      <div class="pipe-step" data-tier="2"><h4>Kvórum a shoda</h4><p>Výstupy jednotlivých modelů jsou porovnány; rozpory jsou vyhodnoceny podle definovaného protokolu.</p></div>
+      <div class="pipe-step" data-tier="3"><h4>Zapečetění</h4><p>Finální výstup je kryptograficky zřetězen a uložen jako neměnný auditní záznam.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="expansion" id="expanze">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Růst platformy</div>
+      <h2>Vstup na evropský a globální trh</h2>
+      <p>GLJA EUROPE vzniká jako český projekt s ambicí evropského a následně globálního dosahu.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="num">EU</div>
+        <h4>Evropský trh</h4>
+        <p>Architektura je od počátku stavěná na standardech eIDAS 2.0 / EUDI Wallet, aby audit fungoval napříč jurisdikcemi členských států EU.</p>
+      </div>
+      <div class="exp-card">
+        <div class="num">GLOBAL</div>
+        <h4>World marketplace</h4>
+        <p>Připravovaný vstup na globální trh procesního auditu a GovTech řešení, navazující na ověření metodiky v evropském prostředí.</p>
+      </div>
+      <div class="exp-card">
+        <div class="num">STÁT</div>
+        <h4>Partner pro stát — tuzemsko i zahraničí</h4>
+        <p>Podpora nejen na domácí scéně před soudy a orgány veřejné správy, ale i při evropských a celosvětových arbitrážích.</p>
+      </div>
+      <div class="exp-card">
+        <div class="num">01=01</div>
+        <h4>Okresní soud i Štrasburk — stejný princip</h4>
+        <p>Ať jde o okresní soud, mezinárodní arbitráž nebo Evropský soud pro lidská práva ve Štrasburku, dokazování a rozhodování se vždy řídí jasně danými procesními pravidly. GLJA audituje dodržení těchto pravidel bez ohledu na úroveň nebo typ fóra.</p>
+      </div>
+    </div>
+    <div class="disclaimer-line" style="color:rgba(255,255,255,0.55);border-top-color:rgba(255,255,255,0.14);">
+      Upozornění: GLJA EUROPE není advokátní kancelář ani jiný poskytovatel právních služeb ve smyslu zákona — a to v žádném státě světa. Neposkytujeme právní zastoupení ani právní poradenství; ověřujeme procesní správnost postupu a rozhodnutí.
+    </div>
+  </div>
+</section>
+
+<section class="structure" id="struktura">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Struktura projektu</div>
+      <h2>Kdo za GLJA EUROPE stojí</h2>
+      <p>GLJA EUROPE vzniká transformací činnosti zakladatelů do společnosti s ručením omezeným.</p>
+    </div>
+    <div class="gov-grid">
+      <div class="gov-card">
+        <h4>Zakladatel a architekt</h4>
+        <p>Roman Mužný Kašpar vede vývoj metodiky a technické architektury procesního auditu.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Spoluzakladatel</h4>
+        <p>David Mužný se podílí na strategickém směřování, řízení a partnerských vztazích projektu.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Rodinný a poradní okruh</h4>
+        <p>Úzký rodinný a poradní okruh zakladatelů se na projektu podílí na smluvním základě; nabývá právní účinnosti samostatnými smlouvami.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Licenční partner (hledáme)</h4>
+        <p>Vyhrazený prostor pro strategického partnera formou licenčního ujednání k technologii a metodice GLJA.</p>
+      </div>
+    </div>
+    <div class="disclaimer-line">
+      Vlastnická struktura zohledňuje společné jmění manželů zakladatelů. · Menšinová participace rodinného okruhu vzniká samostatnými právními jednáními, nikoli touto webovou prezentací.
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Kontakt</div>
+      <h2>Domluvit konzultaci</h2>
+      <p>Pro dotazy k procesnímu auditu, partnerství nebo médiím nás kontaktujte přímo.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="role">Zakladatel</div>
+        <h4>Roman Mužný Kašpar</h4>
+        <a class="email" href="mailto:roman.muzny@glja.cz">roman.muzny@glja.cz</a>
+      </div>
+      <div class="contact-card">
+        <div class="role">Spoluzakladatel</div>
+        <h4>David Mužný</h4>
+        <a class="email" href="mailto:david.muzny@glja.cz">david.muzny@glja.cz</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <div class="footer-left">
-    <div class="fl-name">GLJA EUROPE</div>
-    Global Level of Justice Auditor<br>
-    AI QUORUM Analytical Core<br>
-    Project Architect: Roman Mužný Kašpar
-  </div>
-  <div class="footer-right">
-    Baseline: 1. 5. 2026 · Znojmo, ČR<br>
-    Master Deed ratifikován: 30. 4. 2026<br>
-    GLJA EUROPE není advokacie<br>
-    Výstupy systému jsou procesní povahy
-    <div class="footer-seal">V BOHATSTVÍ JE POKORA · RMK-512 · CORPUS SEALED</div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h6>Právní</h6>
+        <a href="#kontakt">Právní upozornění</a>
+        <a href="#prava">Oblasti práva</a>
+      </div>
+      <div class="footer-col">
+        <h6>Zabezpečení dat</h6>
+        <div class="item">Kryptografické pečetění SHA-256</div>
+        <div class="item">Kompatibilita s eIDAS 2.0 / EUDI Wallet</div>
+      </div>
+      <div class="footer-col">
+        <h6>Kontakt</h6>
+        <a href="https://www.glja.cz">www.glja.cz</a>
+        <a href="mailto:roman.muzny@glja.cz">roman.muzny@glja.cz</a>
+        <a href="mailto:david.muzny@glja.cz">david.muzny@glja.cz</a>
+      </div>
+      <div class="footer-col seal">
+        <svg width="56" height="56" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" stroke="#B8944D" stroke-width="1"/>
+          <circle cx="20" cy="20" r="15.5" stroke="#B8944D" stroke-width="0.6"/>
+          <path d="M20 10v6M13 22l7-7 7 7M13 22a3.2 3.2 0 106.4 0M20.6 22a3.2 3.2 0 106.4 0M20 16v13M16 30h8" stroke="#B8944D" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 GLJA EUROPE — Global Level of Justice Auditor</div>
+      <div>Nezávislý procesní auditor · nikoli advokátní kancelář ani soud, a to v žádném státě světa</div>
+    </div>
   </div>
 </footer>
- 
 
- 
-
-
- 
-</body></html>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.15 });
-  reveals.forEach(el => obs.observe(el));
-});
-</script>
+</body>
 </html>
