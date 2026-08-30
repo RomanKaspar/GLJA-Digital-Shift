@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLJA EUROPE — Global Level of Justice Auditor</title>
+<title>GLJA EUROPE — nezávislý audit procesní integrity</title>
 <link rel="canonical" href="https://www.glja.cz/">
-<meta property="og:title" content="GLJA EUROPE — Global Level of Justice Auditor">
+<meta name="description" content="GLJA EUROPE nezávisle ověřuje, zda byl při rozhodnutí, usnesení nebo rozsudku dodržen správný procesní postup, a výsledek kryptograficky zapečetí. LegalTech / GovTech procesní audit — ne advokátní kancelář, ne soud.">
+<meta property="og:title" content="GLJA EUROPE — nezávislý audit procesní integrity">
+<meta property="og:description" content="Nezávislé ověření procesní správnosti postupů a rozhodnutí, kryptograficky zapečetěné. Ne advokátní kancelář, ne soud.">
 <meta property="og:url" content="https://www.glja.cz/">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='19' fill='%230A1F3D'/%3E%3Cpath d='M20 10v6M13 22l7-7 7 7M13 22a3.2 3.2 0 106.4 0M20.6 22a3.2 3.2 0 106.4 0M20 16v13M16 30h8' stroke='%23B8944D' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,78 +21,97 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
   body{font-family:'Inter',sans-serif;color:var(--navy-900);background:var(--ivory);line-height:1.6;-webkit-font-smoothing:antialiased;}
   h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
   .mono{font-family:'IBM Plex Mono',monospace;}
   a{color:inherit;text-decoration:none;}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
   .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
   @media (max-width:640px){.wrap{padding:0 20px;}}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
 
   header{position:sticky;top:0;z-index:50;background:rgba(10,31,61,0.96);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.08);}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px;}
   .brand{display:flex;align-items:center;gap:12px;color:var(--ivory);font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:0.01em;}
   .brand span{color:var(--gold);}
   .brand svg{flex-shrink:0;}
-  .navlinks{display:none;gap:28px;font-size:13.5px;}
+  .navlinks{display:none;gap:22px;font-size:13px;}
   .navlinks a{color:rgba(255,255,255,0.72);transition:color .15s;white-space:nowrap;}
   .navlinks a:hover{color:var(--ivory);}
-  @media (min-width:960px){.navlinks{display:flex;}}
-  .cta-small{border:1px solid var(--gold);color:var(--gold);padding:9px 18px;font-size:13px;border-radius:var(--radius);transition:background .15s,color .15s;white-space:nowrap;}
+  @media (min-width:1080px){.navlinks{display:flex;}}
+  .cta-small{border:1px solid var(--gold);color:var(--gold);padding:9px 16px;font-size:12.5px;font-weight:600;border-radius:var(--radius);transition:background .15s,color .15s;white-space:nowrap;text-transform:uppercase;letter-spacing:0.04em;}
   .cta-small:hover{background:var(--gold);color:var(--navy-950);}
 
-  .hero{background:linear-gradient(180deg,var(--navy-950) 0%,var(--navy-900) 60%,var(--navy-800) 100%);color:var(--ivory);padding:96px 0 0;position:relative;overflow:hidden;}
-  .hero-bg{position:absolute;inset:0;z-index:0;opacity:0.55;pointer-events:none;}
-  .hero-inner{display:grid;gap:24px;max-width:820px;position:relative;z-index:1;}
+  .hero{background:linear-gradient(180deg,var(--navy-950) 0%,var(--navy-900) 60%,var(--navy-800) 100%);color:var(--ivory);padding:80px 0 0;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:0.5;pointer-events:none;}
+  .hero-inner{display:grid;gap:22px;max-width:700px;position:relative;z-index:1;}
   .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;}
-  .hero h1{font-family:'Fraunces',serif;font-weight:600;text-transform:uppercase;font-size:clamp(32px,4.6vw,52px);line-height:1.12;color:var(--gold);letter-spacing:0.01em;}
-  .hero p.lead{font-size:16.5px;color:rgba(255,255,255,0.8);max-width:640px;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,4.4vw,48px);line-height:1.15;color:var(--ivory);letter-spacing:-0.01em;}
+  .hero p.lead{font-size:16.5px;color:rgba(255,255,255,0.78);max-width:560px;}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;}
   .btn-gold{background:var(--gold);color:var(--navy-950);font-weight:600;font-size:14px;padding:13px 26px;border-radius:var(--radius);display:inline-block;}
   .btn-ghost{border:1px solid rgba(255,255,255,0.35);color:var(--ivory);font-size:14px;padding:13px 26px;border-radius:var(--radius);display:inline-block;}
-  .not-box{border:1px solid rgba(184,148,77,0.4);background:rgba(184,148,77,0.08);padding:16px 20px;border-radius:var(--radius);font-size:13.5px;color:rgba(255,255,255,0.75);max-width:640px;position:relative;z-index:1;}
+  .not-box{border:1px solid rgba(184,148,77,0.4);background:rgba(184,148,77,0.08);padding:16px 20px;border-radius:var(--radius);font-size:13.5px;color:rgba(255,255,255,0.75);max-width:560px;position:relative;z-index:1;}
   .not-box strong{color:var(--gold);}
 
-  .icon-strip{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:28px;padding:56px 0 80px;}
+  .icon-strip{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:28px;padding:52px 0 76px;}
   @media (min-width:760px){.icon-strip{grid-template-columns:1fr 1fr 1fr;}}
   .icon-item{display:flex;gap:16px;align-items:flex-start;}
   .icon-item svg{flex-shrink:0;margin-top:2px;}
   .icon-item h5{font-size:15px;color:var(--ivory);margin-bottom:6px;letter-spacing:0.01em;}
   .icon-item p{font-size:13px;color:rgba(255,255,255,0.6);}
 
-  .ledger{margin-top:64px;border-top:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.02);}
-  .ledger-row{display:grid;grid-template-columns:140px 1fr 220px;gap:20px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(255,255,255,0.55);}
-  .ledger-row span:first-child{color:var(--gold);}
-  .ledger-row span:last-child{color:rgba(255,255,255,0.35);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  @media (max-width:640px){.ledger-row{grid-template-columns:90px 1fr;}.ledger-row span:last-child{display:none;}}
-
-  section{padding:88px 0;}
-  .section-head{max-width:680px;margin-bottom:52px;}
+  section{padding:84px 0;}
+  .section-head{max-width:680px;margin-bottom:48px;}
   .section-head .eyebrow{color:var(--navy-700);}
-  .section-head h2{font-size:clamp(26px,3.4vw,36px);color:var(--navy-900);margin-top:10px;}
+  .section-head h2{font-size:clamp(24px,3.2vw,34px);color:var(--navy-900);margin-top:10px;}
   .section-head p{color:var(--slate);margin-top:14px;font-size:15.5px;}
 
   .pillars{background:var(--paper);}
+  .group-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy-700);margin:36px 0 14px;}
+  .group-label:first-child{margin-top:0;}
   .pillar-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);}
-  @media (min-width:760px){.pillar-grid{grid-template-columns:1fr 1fr 1fr;}}
-  .pillar{background:var(--ivory);padding:36px 32px;}
+  @media (min-width:760px){.pillar-grid{grid-template-columns:1fr 1fr;}}
+  .pillar-grid.trio{grid-template-columns:1fr;}
+  @media (min-width:760px){.pillar-grid.trio{grid-template-columns:1fr 1fr 1fr;}}
+  .pillar{background:var(--ivory);padding:32px 30px;}
   .pillar .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);}
-  .pillar h3{font-size:20px;margin:14px 0 12px;color:var(--navy-900);}
+  .pillar h3{font-size:19px;margin:14px 0 10px;color:var(--navy-900);}
   .pillar p{color:var(--slate);font-size:14px;}
+  .pillar ul{margin:14px 0 0;padding-left:18px;color:var(--slate);font-size:13.5px;}
+  .pillar ul li{margin-bottom:6px;}
   .pillar .tag{display:inline-block;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--hair);padding:5px 10px;color:var(--navy-700);}
+  .pillar .cta-line{display:inline-block;margin-top:18px;font-size:13px;font-weight:600;color:var(--navy-800);border-bottom:1px solid var(--gold);}
 
   .pipeline{display:grid;grid-template-columns:1fr;gap:0;border-left:2px solid var(--hair);margin-left:6px;}
-  .pipe-step{position:relative;padding:0 0 36px 32px;}
+  .pipe-step{position:relative;padding:0 0 32px 32px;}
   .pipe-step:last-child{padding-bottom:0;}
   .pipe-step::before{content:attr(data-tier);position:absolute;left:-15px;top:0;width:28px;height:28px;border-radius:50%;background:var(--navy-900);color:var(--ivory);font-family:'IBM Plex Mono',monospace;font-size:10px;display:flex;align-items:center;justify-content:center;}
+  .pipe-step.status-progress::before{background:var(--gold);color:var(--navy-950);}
+  .pipe-step.status-next::before{background:var(--ivory);color:var(--navy-900);border:1.5px solid var(--hair);}
   .pipe-step h4{font-size:16px;color:var(--navy-900);margin-bottom:4px;}
+  .pipe-step .status{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px;}
   .pipe-step p{font-size:14px;color:var(--slate);max-width:520px;}
 
   .law-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   @media (min-width:760px){.law-grid{grid-template-columns:1fr 1fr;}}
+  .law-grid.trio{grid-template-columns:1fr;}
+  @media (min-width:760px){.law-grid.trio{grid-template-columns:1fr 1fr 1fr;}}
   .law-card{border:1px solid var(--hair);padding:24px 26px;border-radius:var(--radius);background:var(--ivory);}
   .law-card .eyebrow{font-size:10.5px;}
   .law-card h4{font-size:16px;margin:8px 0 8px;color:var(--navy-900);}
   .law-card p{font-size:13.5px;color:var(--slate);}
+
+  .compare{background:var(--paper);}
+  .compare-table{border:1px solid var(--hair);background:var(--hair);display:grid;gap:1px;}
+  .compare-head{display:grid;grid-template-columns:1fr 1fr;background:var(--navy-900);}
+  .compare-head div{padding:14px 20px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
+  .compare-head div:last-child{color:var(--gold);}
+  .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;}
+  @media (max-width:640px){.compare-head,.compare-row{grid-template-columns:1fr;}}
+  .compare-cell{background:var(--ivory);padding:18px 20px;font-size:14px;color:var(--slate);}
+  .compare-cell.glja{background:#FBF9F4;color:var(--navy-900);font-weight:500;}
 
   .expansion{background:var(--navy-900);color:var(--ivory);}
   .expansion .section-head p{color:rgba(255,255,255,0.65);}
@@ -110,6 +132,58 @@
   .gov-card p{font-size:13.5px;color:var(--slate);}
   .disclaimer-line{margin-top:44px;padding-top:24px;border-top:1px solid var(--hair);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate);line-height:1.7;}
 
+  .deliverable-list{list-style:none;display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:760px){.deliverable-list{grid-template-columns:1fr 1fr;}}
+  .deliverable-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--navy-900);padding:16px 18px;border:1px solid var(--hair);background:var(--ivory);}
+  .deliverable-list li svg{flex-shrink:0;margin-top:2px;}
+
+  .mockup-wrap{margin-top:44px;border:1px solid var(--hair);background:var(--navy-950);border-radius:var(--radius);overflow:hidden;}
+  .mockup-label{background:rgba(184,148,77,0.12);color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .mockup-body{padding:24px 28px 28px;}
+  .mockup-row{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-family:'IBM Plex Mono',monospace;font-size:12px;}
+  .mockup-row:last-child{border-bottom:none;}
+  .mockup-row span:first-child{color:var(--gold);}
+  .mockup-row span:last-child{color:rgba(255,255,255,0.75);}
+  @media (max-width:600px){.mockup-row{grid-template-columns:1fr;gap:4px;}}
+
+  .usecase-card{border:1px solid var(--hair);padding:26px 28px;background:var(--ivory);border-radius:var(--radius);}
+  .usecase-card .eyebrow{font-size:10.5px;}
+  .usecase-card h4{font-size:17px;margin:10px 0 14px;color:var(--navy-900);}
+  .usecase-step{font-size:13.5px;color:var(--slate);margin-bottom:8px;padding-left:16px;position:relative;}
+  .usecase-step::before{content:"→";position:absolute;left:0;color:var(--gold);}
+  .usecase-step strong{color:var(--navy-900);font-weight:600;}
+
+  .journey-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);counter-reset:j;}
+  @media (min-width:900px){.journey-grid{grid-template-columns:repeat(5,1fr);}}
+  .journey-step{background:var(--ivory);padding:24px 20px;position:relative;}
+  .journey-step .k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:var(--gold);}
+  .journey-step h4{font-size:14.5px;margin:10px 0 6px;color:var(--navy-900);}
+  .journey-step p{font-size:12.5px;color:var(--slate);}
+  @media (min-width:900px){.journey-step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:2;color:var(--slate);font-size:14px;background:var(--ivory);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--hair);}}
+
+  .tech-list{display:flex;flex-direction:column;gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  .tech-item{background:var(--ivory);padding:20px 24px;}
+  .tech-item summary{cursor:pointer;list-style:none;font-family:'Fraunces',serif;font-weight:500;font-size:15.5px;color:var(--navy-900);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .tech-item summary::-webkit-details-marker{display:none;}
+  .tech-item summary .term{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);margin-right:10px;}
+  .tech-item summary::after{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--gold);font-size:18px;flex-shrink:0;}
+  .tech-item[open] summary::after{content:"–";}
+  .tech-item .tech-body{margin-top:14px;display:grid;gap:8px;font-size:13.5px;color:var(--slate);max-width:640px;}
+  .tech-item .tech-body b{color:var(--navy-900);}
+
+  .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  .faq-item{background:var(--ivory);padding:20px 24px;}
+  .faq-item summary{cursor:pointer;list-style:none;font-family:'Fraunces',serif;font-weight:500;font-size:16px;color:var(--navy-900);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--gold);font-size:18px;flex-shrink:0;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{margin-top:12px;font-size:14px;color:var(--slate);max-width:640px;}
+
+  .final-cta{background:var(--navy-900);color:var(--ivory);text-align:left;}
+  .final-cta h2{color:var(--ivory);font-size:clamp(26px,3.4vw,38px);}
+  .final-cta p{color:rgba(255,255,255,0.68);margin-top:14px;font-size:15.5px;max-width:560px;}
+  .final-cta .hero-actions{margin-top:26px;}
+
   .contact-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);}
   @media (min-width:760px){.contact-grid{grid-template-columns:1fr 1fr;}}
   .contact-card{background:var(--ivory);padding:32px;}
@@ -118,13 +192,15 @@
   .contact-card a.email{font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--navy-700);border-bottom:1px solid var(--hair);padding-bottom:1px;}
 
   footer{background:var(--navy-950);color:rgba(255,255,255,0.45);padding:56px 0 32px;font-size:13px;}
+  .footer-intro{max-width:420px;color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:8px;}
   .footer-grid{display:grid;grid-template-columns:1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.08);}
-  @media (min-width:760px){.footer-grid{grid-template-columns:1fr 1fr 1fr auto;align-items:start;}}
+  @media (min-width:760px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr auto;align-items:start;}}
   .footer-col h6{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
   .footer-col a,.footer-col div.item{display:block;color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:8px;}
   .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:12px;}
-  .seal{opacity:0.85;}  .flow{background:var(--ivory);}
-  .flow-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);counter-reset:flowstep;}
+  .seal{opacity:0.85;}
+  .flow{background:var(--ivory);}
+  .flow-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);}
   @media (min-width:900px){.flow-grid{grid-template-columns:repeat(5,1fr);}}
   .flow-step{background:var(--paper);padding:26px 22px;position:relative;}
   .flow-step.audit{background:var(--navy-900);color:var(--ivory);}
@@ -134,78 +210,130 @@
   .flow-step:not(.audit) h4{color:var(--navy-900);}
   .flow-step p{font-size:12.5px;color:var(--slate);}
   .flow-step.audit p{color:rgba(255,255,255,0.65);}
-  .flow-arrow{display:none;}
-  @media (min-width:900px){
-    .flow-step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:2;color:var(--slate);font-size:14px;background:var(--ivory);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--hair);}
-  }
+  @media (min-width:900px){.flow-step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:2;color:var(--slate);font-size:14px;background:var(--ivory);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--hair);}}
 </style>
 </head>
 <body>
 
+<a href="#obsah" class="visually-hidden">Přejít na obsah</a>
+
 <header>
   <div class="wrap nav">
     <div class="brand">
-      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="20" cy="20" r="19" stroke="#B8944D" stroke-width="1.2"/>
         <path d="M20 8v6M12 22l8-8 8 8M12 22a4 4 0 108 0M20 22a4 4 0 108 0M20 14v14M15 32h10" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       GLJA <span>EUROPE</span>
     </div>
-    <nav class="navlinks">
-      <a href="#proces">Procesní Audit</a>
-      <a href="#prava">Právní Integrita</a>
-      <a href="#piliere">Specializované Sektory</a>
+    <nav class="navlinks" aria-label="Hlavní navigace">
+      <a href="#proc-glja">Proč GLJA</a>
+      <a href="#jak-funguje">Jak funguje</a>
+      <a href="#co-ziskate">Co získáte</a>
+      <a href="#sluzby">Služba</a>
+      <a href="#pro-koho">Pro koho</a>
+      <a href="#metodika">Metodika</a>
       <a href="#struktura">O nás</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a class="cta-small" href="#kontakt">Domluvit Konzultaci</a>
+    <a class="cta-small" href="#kontakt">Požádat o audit</a>
   </div>
 </header>
 
+<main id="obsah">
+
 <section class="hero">
-  <svg class="hero-bg" viewBox="0 0 1120 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <svg class="hero-bg" viewBox="0 0 1120 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#0A1F3D" stop-opacity="0"/>
         <stop offset="1" stop-color="#0A1F3D" stop-opacity="1"/>
       </linearGradient>
     </defs>
-    <g opacity="0.5" font-family="IBM Plex Mono, monospace" font-size="11" fill="#B8944D">
-      <text x="0" y="30">0317 0501 0893 0095 5010 0186 7010 6701</text>
-      <text x="0" y="60">0158 0631 8231 0248 3591 0703 1011 8938</text>
-      <text x="0" y="90">0009 5501 0870 0158 0631 8231 0248 3591</text>
+    <g stroke="#3A5885" stroke-width="1.1" fill="none" opacity="0.6">
+      <rect x="760" y="90" width="150" height="200" rx="2"/>
+      <rect x="800" y="120" width="150" height="200" rx="2"/>
+      <rect x="840" y="150" width="150" height="200" rx="2"/>
+      <line x1="860" y1="180" x2="960" y2="180"/>
+      <line x1="860" y1="200" x2="960" y2="200"/>
+      <line x1="860" y1="220" x2="940" y2="220"/>
+      <line x1="860" y1="250" x2="960" y2="250"/>
+      <line x1="860" y1="270" x2="930" y2="270"/>
     </g>
-    <g stroke="#3A5885" stroke-width="1.2" fill="none" opacity="0.55">
-      <path d="M700 480 V300 M700 300 L730 260 M730 260 V150 M730 150 L700 110 M760 480 V320 M820 480 V260 M820 260 L850 220 V150 M880 480 V300 M940 480 V340 M940 340 L970 300 V180"/>
-      <circle cx="960" cy="150" r="70"/>
-      <circle cx="1020" cy="200" r="46"/>
-      <circle cx="1000" cy="90" r="30"/>
+    <g stroke="#B8944D" stroke-width="1.2" fill="none" opacity="0.55">
+      <circle cx="900" cy="230" r="34"/>
+      <path d="M888 230l8 8 16-16" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     <rect x="0" y="380" width="1120" height="140" fill="url(#fade)"/>
   </svg>
   <div class="wrap hero-inner">
     <div class="eyebrow">Nezávislý procesní auditor · LegalTech / GovTech</div>
-    <h1>Precizní audit procesní integrity.</h1>
-    <p class="lead">GLJA EUROPE (Global Level of Justice Auditor) prověřuje správnost postupů v celém životním cyklu komunikace a sporu — od neformálního e-mailu, výzvy či varování před žalobou přes civilní žaloby, korporátní smlouvy, usnesení a rozhodnutí až po rozsudky a exekuční tituly. Každý úkon podléhá platnému právu a procesním pravidlům, a proto může být podroben auditu.</p>
+    <h1>Nezávislý audit procesní integrity.</h1>
+    <p class="lead">GLJA EUROPE ověřuje, zda byl při vydání rozhodnutí, usnesení nebo rozsudku dodržen správný procesní postup, a výsledek kryptograficky zapečetí do neměnného záznamu.</p>
     <div class="not-box">
-      <strong>Co nejsme:</strong> Nejsme advokátní kancelář ani soud. Nevydáváme právní stanoviska ani nenahrazujeme soudní moc — poskytujeme exaktní, matematicky doložitelný audit procesní integrity.
+      <strong>Co GLJA není:</strong> advokátní kancelář ani soud. Neposkytujeme právní zastoupení ani poradenství a nerozhodujeme, kdo má ve věci pravdu — ověřujeme dodržení procesního postupu.
     </div>
     <div class="hero-actions">
-      <a class="btn-gold" href="#piliere">Jak audit funguje</a>
-      <a class="btn-ghost" href="#kontakt">Domluvit konzultaci</a>
+      <a class="btn-gold" href="#kontakt">Požádat o audit</a>
+      <a class="btn-ghost" href="#jak-funguje">Jak GLJA funguje</a>
     </div>
   </div>
   <div class="wrap icon-strip">
     <div class="icon-item">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M8 26h10M6 12l6-4 6 4M8 12v8a2 2 0 104 0v-8M16 12v8a2 2 0 104 0v-8M12 8v18" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div><h5>Procesní audit</h5><p>Korporace, občané, orgány — ověřujeme procesní vady, asymetrie a logické rozpory.</p></div>
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M8 26h10M6 12l6-4 6 4M8 12v8a2 2 0 104 0v-8M16 12v8a2 2 0 104 0v-8M12 8v18" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><h5>Nezávislé</h5><p>Audit posuzuje postup, ne to, kdo má ve sporu pravdu.</p></div>
     </div>
     <div class="icon-item">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="8" y="15" width="18" height="13" rx="1.5" stroke="#B8944D" stroke-width="1.3"/><path d="M12 15v-4a5 5 0 0110 0v4" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round"/><circle cx="17" cy="21" r="1.6" fill="#B8944D"/></svg>
-      <div><h5>Kryptografické pečetění</h5><p>Výsledek auditu je matematicky neodvolatelně uzamčen a zapečetěn.</p></div>
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="7" y="9" width="14" height="18" rx="1.5" stroke="#B8944D" stroke-width="1.3"/><line x1="10" y1="14" x2="18" y2="14" stroke="#B8944D" stroke-width="1.2"/><line x1="10" y1="18" x2="18" y2="18" stroke="#B8944D" stroke-width="1.2"/><line x1="10" y1="22" x2="15" y2="22" stroke="#B8944D" stroke-width="1.2"/></svg>
+      <div><h5>Strukturované</h5><p>Podklady jsou zpracovány jednotnou, opakovatelnou metodikou.</p></div>
     </div>
     <div class="icon-item">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 6l9 4v7c0 7-4.5 10.5-9 12-4.5-1.5-9-5-9-12v-7l9-4z" stroke="#B8944D" stroke-width="1.3" stroke-linejoin="round"/><path d="M17 15.5c-1.4-2-4.7-1.6-4.7 1 0 2 2.3 3.3 4.7 5.3 2.4-2 4.7-3.3 4.7-5.3 0-2.6-3.3-3-4.7-1z" stroke="#B8944D" stroke-width="1.1" stroke-linejoin="round"/></svg>
-      <div><h5>Resocializační a společenský pilíř</h5><p>Rozvojový a charitativní rozměr — podpora návratu jedinců do rovnovážného právního prostředí.</p></div>
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="8" y="15" width="18" height="13" rx="1.5" stroke="#B8944D" stroke-width="1.3"/><path d="M12 15v-4a5 5 0 0110 0v4" stroke="#B8944D" stroke-width="1.3" stroke-linecap="round"/><circle cx="17" cy="21" r="1.6" fill="#B8944D"/></svg>
+      <div><h5>Kryptograficky zapečetěné</h5><p>Výsledek je zřetězen a uložen jako neměnný auditní záznam.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proc-glja">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Proč GLJA EUROPE vzniká</div>
+      <h2>Procesní vady se snadno ztrácejí</h2>
+      <p>Postup, kterým se orgán, protistrana nebo exekutor dopracuje ke svému výroku, se dnes ověřuje jen výjimečně — často až u odvolacího orgánu, dlouho po škodě. GLJA EUROPE přidává nezávislou vrstvu, která tento postup ověřuje samostatně.</p>
+    </div>
+    <div class="law-grid trio">
+      <div class="law-card">
+        <div class="eyebrow mono">Problém</div>
+        <h4>Postup je těžké nezávisle ověřit</h4>
+        <p>Asymetrie, opomenuté lhůty či rozpory v postupu se snadno přehlédnou bez systematické a nezávislé kontroly.</p>
+      </div>
+      <div class="law-card">
+        <div class="eyebrow mono">Idea</div>
+        <h4>Audit procesu, ne rozhodnutí o právu</h4>
+        <p>GLJA neposuzuje, kdo má pravdu — měří, zda byl dodržen daný procesní postup (metodika CONST-004: procesní konzistence, nikoli právo).</p>
+      </div>
+      <div class="law-card">
+        <div class="eyebrow mono">Řešení</div>
+        <h4>Strukturovaný, zapečetěný výsledek</h4>
+        <p>Podklady projdou definovanou pipeline a výsledek je kryptograficky zřetězen do podoby, kterou lze předložit dál.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare" id="co-dela">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Co GLJA skutečně dělá</div>
+      <h2>Bez ověření vs. s procesním auditem</h2>
+      <p>GLJA nevstupuje do řízení ani je nenahrazuje. Pracuje až s tím, co už proběhlo.</p>
+    </div>
+    <div class="compare-table">
+      <div class="compare-head"><div>Běžný proces</div><div>S GLJA auditem</div></div>
+      <div class="compare-row"><div class="compare-cell">Postup proběhne, ověření je nahodilé.</div><div class="compare-cell glja">GLJA jej nezávisle přezkoumá po jeho ukončení.</div></div>
+      <div class="compare-row"><div class="compare-cell">Dokumentace existuje roztříštěně.</div><div class="compare-cell glja">GLJA ji strukturuje do jednotného formátu.</div></div>
+      <div class="compare-row"><div class="compare-cell">Případné nesrovnalosti mohou zůstat bez povšimnutí.</div><div class="compare-cell glja">GLJA je vyhledává podle definované metodiky.</div></div>
+      <div class="compare-row"><div class="compare-cell">Výsledek přezkumu nemá pevnou formu.</div><div class="compare-cell glja">Výsledek je kryptograficky zapečetěn a zaznamenán.</div></div>
     </div>
   </div>
 </section>
@@ -214,64 +342,118 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Kde GLJA vstupuje do procesu</div>
-      <h2>Od podání po zapečetěný audit</h2>
-      <p>GLJA nevstupuje do samotného řízení ani jej nenahrazuje — nezávisle přezkoumává, zda byl dodržen procesní postup, poté co je řízení uzavřeno.</p>
+      <h2>Od úkonu po zapečetěný audit</h2>
+      <p>GLJA vstupuje až poté, co je řízení uzavřeno — nezávisle přezkoumává, zda byl dodržen procesní postup.</p>
     </div>
     <div class="flow-grid">
-      <div class="flow-step">
-        <div class="k">01</div>
-        <h4>Úkon</h4>
-        <p>E-mail, výzva, žaloba, korporátní smlouva nebo jiný právní úkon.</p>
-      </div>
-      <div class="flow-step">
-        <div class="k">02</div>
-        <h4>Zpracování</h4>
-        <p>Protistrana, orgán nebo soud na úkon reaguje dle procesních pravidel.</p>
-      </div>
-      <div class="flow-step">
-        <div class="k">03</div>
-        <h4>Usnesení, rozhodnutí, rozsudek</h4>
-        <p>Výrok je vydán jménem republiky — včetně exekučního titulu vydaného exekutorem.</p>
-      </div>
-      <div class="flow-step audit">
-        <div class="k">04</div>
-        <h4>GLJA audit</h4>
-        <p>Nezávislé ověření procesní správnosti postupu, který k rozhodnutí vedl.</p>
-      </div>
-      <div class="flow-step">
-        <div class="k">05</div>
-        <h4>Zapečetění</h4>
-        <p>Výsledek auditu je podepsán a zřetězen SHA-256 do neměnného záznamu.</p>
+      <div class="flow-step"><div class="k">01</div><h4>Úkon</h4><p>E-mail, výzva, žaloba, smlouva nebo jiný právní úkon.</p></div>
+      <div class="flow-step"><div class="k">02</div><h4>Zpracování</h4><p>Protistrana, orgán nebo soud na úkon reaguje dle procesních pravidel.</p></div>
+      <div class="flow-step"><div class="k">03</div><h4>Usnesení, rozhodnutí, rozsudek</h4><p>Výrok je vydán — včetně exekučního titulu vydaného exekutorem.</p></div>
+      <div class="flow-step audit"><div class="k">04</div><h4>GLJA audit</h4><p>Nezávislé ověření procesní správnosti postupu, který k rozhodnutí vedl.</p></div>
+      <div class="flow-step"><div class="k">05</div><h4>Zapečetění</h4><p>Výsledek auditu je zřetězen do neměnného záznamu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="jak-funguje">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Jak GLJA funguje</div>
+      <h2>Pět kroků od podkladů k výstupu</h2>
+      <p>Technické detaily jednotlivých kroků najdete v sekci Metodika níže.</p>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step" data-tier="1"><h4>Podklady</h4><p>Zašlete dokumentaci, kterou chcete nechat prověřit.</p></div>
+      <div class="pipe-step" data-tier="2"><h4>Strukturování</h4><p>Vstupní dokumentace je strukturována do jednotného formátu pro zpracování.</p></div>
+      <div class="pipe-step" data-tier="3"><h4>Procesní analýza</h4><p>Dodržení procesního postupu je posouzeno podle definované metodiky.</p></div>
+      <div class="pipe-step" data-tier="4"><h4>Kontrola a shoda</h4><p>Dílčí zjištění jsou porovnána a rozpory vyhodnoceny podle definovaného protokolu.</p></div>
+      <div class="pipe-step" data-tier="5"><h4>Výstup a zapečetění</h4><p>Finální výstup je kryptograficky zřetězen a uložen jako neměnný auditní záznam.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" id="co-ziskate">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Co klient dostane</div>
+      <h2>Konkrétní výstup, ne slib</h2>
+      <p>Po dokončení auditu obdržíte:</p>
+    </div>
+    <ul class="deliverable-list">
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9l4 4 8-9" stroke="#B8944D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Strukturovaný výsledek auditu v přehledné podobě</li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9l4 4 8-9" stroke="#B8944D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Identifikovaná procesní zjištění k posouzenému postupu</li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9l4 4 8-9" stroke="#B8944D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Odůvodnění, jak k výsledku audit dospěl</li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9l4 4 8-9" stroke="#B8944D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Kryptografickou pečeť (SHA-256/SHA-512 zřetězení) a identifikátor auditu</li>
+    </ul>
+    <div class="mockup-wrap">
+      <div class="mockup-label">Ilustrační příklad — ne skutečný výstup</div>
+      <div class="mockup-body">
+        <div class="mockup-row"><span>AUDIT ID</span><span>GLJA-2026-XXXX</span></div>
+        <div class="mockup-row"><span>STAV</span><span>Audit dokončen</span></div>
+        <div class="mockup-row"><span>ROZSAH</span><span>Procesní postup od podání po rozhodnutí</span></div>
+        <div class="mockup-row"><span>ZJIŠTĚNÍ</span><span>Strukturovaný seznam procesních zjištění</span></div>
+        <div class="mockup-row"><span>DŮKAZNÍ PODKLAD</span><span>Odkaz na posuzované podklady</span></div>
+        <div class="mockup-row"><span>PEČEŤ</span><span>SHA-256/SHA-512 zřetězení, časové razítko</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="pillars" id="piliere">
+<section id="use-cases">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Tři piliře</div>
-      <h2>Co GLJA EUROPE staví</h2>
-      <p>Platforma je rozdělena na jádrový auditní systém, který je dnes v provozu, a dva další koncepty ve fázi rozvahy a přípravy.</p>
+      <div class="eyebrow">Typické situace</div>
+      <h2>Kdy GLJA dává smysl</h2>
     </div>
-    <div class="pillar-grid">
-      <div class="pillar">
-        <div class="num">Pilíř 01</div>
-        <h3>Procesní audit</h3>
-        <p>Auditujeme postup subjektů v soukromém i veřejném sektoru — korporace, občané, orgány. Ověřujeme, zda při vzniku nároků, výzev nebo rozhodnutí nedošlo k procesním vadám, asymetriím či logickým rozporům.</p>
-        <div class="tag">V provozu</div>
+    <div class="law-grid trio">
+      <div class="usecase-card">
+        <div class="eyebrow mono">Jednotlivec</div>
+        <h4>Řešíte rozhodnutí, kterému nerozumíte</h4>
+        <div class="usecase-step"><strong>Problém:</strong> potřebujete prověřit proces, který vedl k rozhodnutí.</div>
+        <div class="usecase-step"><strong>GLJA prověří:</strong> zda byl dodržen procesní postup.</div>
+        <div class="usecase-step"><strong>Dostanete:</strong> strukturovaný, zapečetěný výsledek auditu.</div>
       </div>
-      <div class="pillar">
-        <div class="num">Pilíř 02</div>
-        <h3>Kryptografické pečetění</h3>
-        <p>Výsledek každého auditu matematicky neodvolatelně uzamyká a pečetí. Vzniká tak nezpochybnitelný důkazní podklad pro vyjednávání, soudní přezkum nebo napadení vadného úkonu.</p>
-        <div class="tag">V provozu</div>
+      <div class="usecase-card">
+        <div class="eyebrow mono">Firma</div>
+        <h4>Potřebujete nezávislou kontrolu</h4>
+        <div class="usecase-step"><strong>Problém:</strong> chybí nezávislá kontrola procesní integrity rozhodnutí nebo smlouvy.</div>
+        <div class="usecase-step"><strong>GLJA prověří:</strong> procesní správnost daného postupu.</div>
+        <div class="usecase-step"><strong>Dostanete:</strong> podklad využitelný ve vyjednávání či dalším řízení.</div>
       </div>
-      <div class="pillar">
-        <div class="num">Pilíř 03</div>
-        <h3>Resocializační a společenský pilíř</h3>
-        <p>Rozvojový a charitativní rozměr platformy — monitorování procesní spravedlnosti a podpora systémové resocializace pro návrat jedinců do rovnovážného právního prostředí.</p>
-        <div class="tag">Připravuje se</div>
+      <div class="usecase-card">
+        <div class="eyebrow mono">Právní zástupce</div>
+        <h4>Hledáte podpůrný podklad</h4>
+        <div class="usecase-step"><strong>Problém:</strong> potřebujete audit jako podklad k zastoupení klienta.</div>
+        <div class="usecase-step"><strong>GLJA prověří:</strong> procesní postup relevantní k případu.</div>
+        <div class="usecase-step"><strong>Dostanete:</strong> strukturovaný a zapečetěný výstup k dalšímu použití.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pro-koho">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pro koho GLJA pracuje</div>
+      <h2>Komu audit procesní integrity slouží</h2>
+      <p>Metodika je neutrální vůči stranám sporu — auditujeme postup, ne to, kdo má pravdu.</p>
+    </div>
+    <div class="gov-grid">
+      <div class="gov-card">
+        <h4>Jednotlivci a občané</h4>
+        <p>Kdo čelí rozhodnutí, výzvě, žalobě nebo exekučnímu titulu a potřebuje nezávisle ověřit dodržení procesního postupu.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Firmy a korporace</h4>
+        <p>Ověření procesní správnosti korporátních rozhodnutí, smluv a souvisejících řízení.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Orgány veřejné správy</h4>
+        <p>Podpora při přezkumu vlastního postupu i postupu jiných orgánů v domácích i přeshraničních řízeních.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Advokáti a poradci (připravuje se)</h4>
+        <p>Vyhrazený prostor pro spolupráci s právními zástupci, kteří audit využijí jako podklad v zastoupení klienta.</p>
       </div>
     </div>
   </div>
@@ -288,27 +470,135 @@
       <div class="law-card"><div class="eyebrow mono">01</div><h4>Správní právo</h4><p>Rozhodování orgánů veřejné správy — lhůty, doručování, odůvodnění, opravné prostředky.</p></div>
       <div class="law-card"><div class="eyebrow mono">02</div><h4>Rodinné právo</h4><p>Procesní postup v řízeních o péči, výživném a dalších rodinněprávních věcech.</p></div>
       <div class="law-card"><div class="eyebrow mono">03</div><h4>Korporátní právo</h4><p>Procesní správnost rozhodnutí orgánů obchodních korporací a souvisejících řízení.</p></div>
-      <div class="law-card"><div class="eyebrow mono">04</div><h4>Trestní právo</h4><p>Procesní postup orgánů činných v trestním řízení a soudů — v úzké návaznosti na Pilíř 02.</p></div>
+      <div class="law-card"><div class="eyebrow mono">04</div><h4>Trestní právo</h4><p>Procesní postup orgánů činných v trestním řízení a soudů.</p></div>
       <div class="law-card"><div class="eyebrow mono">05</div><h4>Majetkové a občanské právo</h4><p>Řízení týkající se vlastnických a jiných občanskoprávních nároků.</p></div>
       <div class="law-card"><div class="eyebrow mono">06</div><h4>Pracovní právo</h4><p>Procesní postup v pracovněprávních sporech a řízeních.</p></div>
       <div class="law-card"><div class="eyebrow mono">07</div><h4>Patentové právo a duševní vlastnictví</h4><p>Řízení před příslušnými úřady v oblasti patentů a duševního vlastnictví.</p></div>
-      <div class="law-card"><div class="eyebrow mono">08+</div><h4>Další procesní oblasti</h4><p>Metodika se postupně rozšiřuje na další typy řízení dle poptávky a právní rozvahy.</p></div>
+      <div class="law-card"><div class="eyebrow mono">08+</div><h4>Další procesní oblasti</h4><p>Metodika se postupně rozšiřuje dle poptávky a právní rozvahy.</p></div>
     </div>
   </div>
 </section>
 
-<section id="proces">
+<section class="pillars" id="sluzby">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Jak to funguje</div>
-      <h2>Auditní pipeline TIER-0 → TIER-3</h2>
-      <p>Každý podklad prochází čtyřmi na sobě závislými stupni, než je výsledek zapečetěn do auditního řetězce.</p>
+      <div class="eyebrow">Služby</div>
+      <h2>Co GLJA EUROPE nabízí</h2>
+      <p>Jasně odděleno mezi tím, co je dostupné dnes, a tím, co se připravuje.</p>
     </div>
-    <div class="pipeline">
-      <div class="pipe-step" data-tier="0"><h4>Příjem a normalizace</h4><p>Vstupní dokumentace je strukturována do jednotného formátu pro strojové zpracování.</p></div>
-      <div class="pipe-step" data-tier="1"><h4>Procesní ověření</h4><p>Nezávislé modely posuzují dodržení procesního postupu podle platných pravidel.</p></div>
-      <div class="pipe-step" data-tier="2"><h4>Kvórum a shoda</h4><p>Výstupy jednotlivých modelů jsou porovnány; rozpory jsou vyhodnoceny podle definovaného protokolu.</p></div>
-      <div class="pipe-step" data-tier="3"><h4>Zapečetění</h4><p>Finální výstup je kryptograficky zřetězen a uložen jako neměnný auditní záznam.</p></div>
+    <div class="group-label">K dispozici nyní</div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="num">Služba</div>
+        <h3>GLJA procesní audit</h3>
+        <p>Nezávislé ověření, zda byl při daném postupu — od e-mailu po exekuční titul — dodržen správný procesní postup.</p>
+        <ul>
+          <li>Co analyzuje: dodanou dokumentaci a průběh postupu</li>
+          <li>Pro koho: jednotlivci, firmy, orgány veřejné správy</li>
+          <li>Výstup: strukturovaný a kryptograficky zapečetěný audit</li>
+          <li>Cena: individuálně, viz sekce Cena níže</li>
+        </ul>
+        <a class="cta-line" href="#kontakt">Jak začít</a>
+      </div>
+      <div class="pillar">
+        <div class="num">Součást služby</div>
+        <h3>Kryptografické pečetění</h3>
+        <p>Výsledek každého auditu je kryptograficky zřetězen (SHA-256/SHA-512), takže vzniká matematicky ověřitelný a neměnný záznam.</p>
+        <ul>
+          <li>Zahrnuto v ceně procesního auditu</li>
+          <li>Technický detail: viz sekce Metodika</li>
+        </ul>
+      </div>
+    </div>
+    <div class="group-label">Ve vývoji</div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="num">Připravuje se</div>
+        <h3>Resocializační a společenský pilíř</h3>
+        <p>Rozvojový a charitativní rozměr platformy — monitorování procesní spravedlnosti a podpora systémové resocializace pro návrat jedinců do rovnovážného právního prostředí.</p>
+        <div class="tag">Připravuje se</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cena">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Cena</div>
+      <h2>Cena auditu</h2>
+      <p>GLJA aktuálně nenabízí paušální ceník — cena se odvíjí od konkrétního případu a stanovuje se před zahájením auditu, nikoli po něm.</p>
+    </div>
+    <div class="law-grid">
+      <div class="law-card">
+        <h4>Cena závisí na</h4>
+        <p>Rozsahu podkladů, počtu dokumentů, délce posuzovaného procesu a počtu procesních úkonů, které je třeba prověřit.</p>
+      </div>
+      <div class="law-card">
+        <h4>Jak probíhá odhad ceny</h4>
+        <p>Po zaslání základních informací o případu obdržíte navržený rozsah a cenu ještě před zahájením samotného auditu — bez závazku.</p>
+      </div>
+    </div>
+    <div class="disclaimer-line">[CONTENT NEEDED]: ceník / cenové pásmo — bude doplněno, jakmile bude k dispozici.</div>
+  </div>
+</section>
+
+<section class="pillars" id="postup">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Jak probíhá spolupráce</div>
+      <h2>Od prvního kontaktu k výstupu</h2>
+    </div>
+    <div class="journey-grid">
+      <div class="journey-step"><div class="k">01</div><h4>Pošlete informace</h4><p>Stručný popis případu a dostupné podklady.</p></div>
+      <div class="journey-step"><div class="k">02</div><h4>Posoudíme rozsah</h4><p>Zjistíme, co vše bude potřeba prověřit.</p></div>
+      <div class="journey-step"><div class="k">03</div><h4>Navrhneme cenu</h4><p>Obdržíte rozsah a cenovou nabídku bez závazku.</p></div>
+      <div class="journey-step"><div class="k">04</div><h4>Provedeme audit</h4><p>Podklady projdou auditní pipeline popsanou výše.</p></div>
+      <div class="journey-step"><div class="k">05</div><h4>Předáme výstup</h4><p>Obdržíte strukturovaný, zapečetěný výsledek.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="metodika">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Metodika a technologie</div>
+      <h2>Jak GLJA dosahuje výsledku</h2>
+      <p>Technické detaily pro ty, kteří chtějí vědět víc.</p>
+    </div>
+    <div class="tech-list">
+      <details class="tech-item">
+        <summary><span><span class="term">AI_QUORUM</span>Jádro procesního posouzení</span></summary>
+        <div class="tech-body">
+          <div><b>Co to je:</b> logické jádro, které posuzuje soulad postupu s definovanými procesními pravidly.</div>
+          <div><b>Proč to existuje:</b> jednotlivé dílčí posouzení je potřeba porovnat a vyhodnotit shodu či rozpor.</div>
+          <div><b>Přínos:</b> opakovatelné a konzistentní vyhodnocení napříč případy.</div>
+        </div>
+      </details>
+      <details class="tech-item">
+        <summary><span><span class="term">SHA-256 / SHA-512</span>Kryptografické zřetězení</span></summary>
+        <div class="tech-body">
+          <div><b>Co to je:</b> kryptografické zřetězení výstupu do neměnného záznamu (WORM úložiště).</div>
+          <div><b>Proč to existuje:</b> jakákoli dodatečná úprava výsledku je matematicky zjistitelná.</div>
+          <div><b>Přínos:</b> integrita záznamu je ověřitelná — to je jiná vlastnost než jeho právní účinek, který posuzuje vždy relevantní orgán nebo soud.</div>
+        </div>
+      </details>
+      <details class="tech-item">
+        <summary><span><span class="term">TIER-0 → TIER-3</span>Auditní pipeline</span></summary>
+        <div class="tech-body">
+          <div><b>Co to je:</b> čtyři na sobě závislé stupně zpracování — normalizace, procesní ověření, kvórum a shoda, zapečetění.</div>
+          <div><b>Proč to existuje:</b> rozděluje zpracování na kontrolovatelné, opakovatelné kroky.</div>
+          <div><b>Přínos:</b> transparentní a sledovatelný postup od podkladu k výstupu.</div>
+        </div>
+      </details>
+      <details class="tech-item">
+        <summary><span><span class="term">eIDAS 2.0 / EUDI Wallet</span>Návrh pro evropskou interoperabilitu</span></summary>
+        <div class="tech-body">
+          <div><b>Co to je:</b> architektura je navrhována s ohledem na standardy eIDAS 2.0 / EUDI Wallet.</div>
+          <div><b>Proč to existuje:</b> cílem je, aby audit fungoval napříč jurisdikcemi členských států EU.</div>
+          <div><b>Přínos:</b> [CONTENT NEEDED] — certifikace ani formální soulad zatím nejsou deklarovány, jde o návrhový cíl architektury.</div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -317,14 +607,14 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Růst platformy</div>
-      <h2>Vstup na evropský a globální trh</h2>
+      <h2>Ambice evropského a globálního dosahu</h2>
       <p>GLJA EUROPE vzniká jako český projekt s ambicí evropského a následně globálního dosahu.</p>
     </div>
     <div class="exp-grid">
       <div class="exp-card">
         <div class="num">EU</div>
         <h4>Evropský trh</h4>
-        <p>Architektura je od počátku stavěná na standardech eIDAS 2.0 / EUDI Wallet, aby audit fungoval napříč jurisdikcemi členských států EU.</p>
+        <p>Architektura je navrhována s ohledem na standardy eIDAS 2.0 / EUDI Wallet, aby audit mohl fungovat napříč jurisdikcemi členských států EU.</p>
       </div>
       <div class="exp-card">
         <div class="num">GLOBAL</div>
@@ -333,13 +623,13 @@
       </div>
       <div class="exp-card">
         <div class="num">STÁT</div>
-        <h4>Partner pro stát — tuzemsko i zahraničí</h4>
-        <p>Podpora nejen na domácí scéně před soudy a orgány veřejné správy, ale i při evropských a celosvětových arbitrážích.</p>
+        <h4>Podpora před orgány a soudy</h4>
+        <p>Podpora nejen na domácí scéně před soudy a orgány veřejné správy, s ambicí využití i v přeshraničním kontextu.</p>
       </div>
       <div class="exp-card">
         <div class="num">01=01</div>
-        <h4>Okresní soud i Štrasburk — stejný princip</h4>
-        <p>Ať jde o okresní soud, mezinárodní arbitráž nebo Evropský soud pro lidská práva ve Štrasburku, dokazování a rozhodování se vždy řídí jasně danými procesními pravidly. GLJA audituje dodržení těchto pravidel bez ohledu na úroveň nebo typ fóra.</p>
+        <h4>Stejný princip napříč úrovněmi řízení</h4>
+        <p>Dokazování a rozhodování se řídí jasně danými procesními pravidly bez ohledu na úroveň řízení. To je princip, na kterém je metodika GLJA postavena — nikoli tvrzení o současném rozsahu působení.</p>
       </div>
     </div>
     <div class="disclaimer-line" style="color:rgba(255,255,255,0.55);border-top-color:rgba(255,255,255,0.14);">
@@ -348,21 +638,39 @@
   </div>
 </section>
 
+<section id="pribeh">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Jak GLJA vzniká</div>
+      <h2>Od myšlenky k platformě</h2>
+      <p>GLJA EUROPE je od počátku budována jako český projekt s dokumentovaným technickým i právním vývojem.</p>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step"><span class="status">Dokončeno</span><h4>Genesis — 15. 4. 2026</h4><p>Založena základní procesní a metodická architektura projektu (CONST-004).</p></div>
+      <div class="pipe-step"><span class="status">Dokončeno</span><h4>WHITE_PRINT MVP</h4><p>První Python skeleton auditní logiky (jádro AI_QUORUM) vyvinut v polovině roku 2026.</p></div>
+      <div class="pipe-step"><span class="status">Dokončeno</span><h4>Veřejná prezentace</h4><p>Spuštěna GitHub Pages prezentace projektu.</p></div>
+      <div class="pipe-step"><span class="status">Dokončeno</span><h4>Vlastní doména — 29. 8. 2026</h4><p>Repozitář propojen s doménou www.glja.cz.</p></div>
+      <div class="pipe-step status-progress"><span class="status">Probíhá</span><h4>Transformace na GLJA EUROPE s.r.o.</h4><p>Připravuje se transformace činnosti zakladatelů do společnosti s ručením omezeným.</p></div>
+      <div class="pipe-step status-next"><span class="status">Další krok</span><h4>Rozšíření o další právní oblasti</h4><p>[CONTENT NEEDED] — přesný harmonogram bude upřesněn.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="structure" id="struktura">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Struktura projektu</div>
+      <div class="eyebrow">O nás</div>
       <h2>Kdo za GLJA EUROPE stojí</h2>
       <p>GLJA EUROPE vzniká transformací činnosti zakladatelů do společnosti s ručením omezeným.</p>
     </div>
     <div class="gov-grid">
       <div class="gov-card">
-        <h4>Zakladatel a architekt</h4>
-        <p>Roman Mužný Kašpar vede vývoj metodiky a technické architektury procesního auditu.</p>
+        <h4>Roman Mužný Kašpar — CEO &amp; zakladatel</h4>
+        <p>Vede vývoj metodiky a technické architektury procesního auditu.</p>
       </div>
       <div class="gov-card">
-        <h4>Spoluzakladatel</h4>
-        <p>David Mužný se podílí na strategickém směřování, řízení a partnerských vztazích projektu.</p>
+        <h4>David Mužný — CSO &amp; spoluzakladatel</h4>
+        <p>Podílí se na strategickém směřování, řízení a partnerských vztazích projektu.</p>
       </div>
       <div class="gov-card">
         <h4>Rodinný a poradní okruh</h4>
@@ -379,21 +687,110 @@
   </div>
 </section>
 
+<section class="pillars" id="duvera">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Transparentnost</div>
+      <h2>Na čem stojí důvěra v GLJA</h2>
+      <p>Žádná loga partnerů, certifikace ani reference zatím nejsou k dispozici — místo toho zveřejňujeme, co ověřit můžete už dnes.</p>
+    </div>
+    <div class="gov-grid">
+      <div class="gov-card">
+        <h4>Registrační údaje</h4>
+        <p>GLJA EUROPE je aktuálně provozována jako OSVČ (IČO 04007689) s připravovanou transformací na GLJA EUROPE s.r.o.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Veřejná prezentace projektu</h4>
+        <p>Vývoj probíhá veřejně na GitHubu, propojeném s doménou www.glja.cz.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Metodika</h4>
+        <p>Auditní pipeline TIER-0 → TIER-3 a princip procesní konzistence jsou popsány v sekci Metodika výše.</p>
+      </div>
+      <div class="gov-card">
+        <h4>Certifikace a reference</h4>
+        <p>[CONTENT NEEDED] — GLJA zatím nedeklaruje žádné certifikace, partnery ani reference třetích stran.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Časté dotazy</div>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Co je GLJA EUROPE?</summary>
+        <p>Nezávislý procesní auditor typu LegalTech / GovTech (Global Level of Justice Auditor), který ověřuje procesní správnost postupů a rozhodnutí — nikoli to, kdo má ve sporu pravdu.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Pro koho je GLJA určena?</summary>
+        <p>Pro jednotlivce, firmy a korporace i orgány veřejné správy — kdokoli potřebuje nezávisle ověřit procesní správnost postupu, který vedl k rozhodnutí.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Co GLJA audituje?</summary>
+        <p>Postup napříč životním cyklem komunikace a sporu — od e-mailu či výzvy přes žaloby a smlouvy až po usnesení, rozsudky a exekuční tituly.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Co jako klient dostanu?</summary>
+        <p>Strukturovaný výsledek auditu s identifikovanými procesními zjištěními a kryptografickou pečetí. Podrobnosti viz sekce „Co klient dostane".</p>
+      </details>
+      <details class="faq-item">
+        <summary>Jak audit probíhá?</summary>
+        <p>Podklady projdou pěti kroky (podklady → strukturování → procesní analýza → kontrola a shoda → výstup a zapečetění) — viz sekce „Jak GLJA funguje".</p>
+      </details>
+      <details class="faq-item">
+        <summary>Kolik audit stojí?</summary>
+        <p>Cena je individuální podle rozsahu případu. Před zahájením auditu obdržíte cenový odhad bez závazku — viz sekce Cena.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Je GLJA advokátní kancelář?</summary>
+        <p>Ne. GLJA EUROPE není advokátní kancelář ani soud v žádném státě světa.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Poskytuje GLJA právní poradenství?</summary>
+        <p>Ne. GLJA neposkytuje právní poradenství ani zastoupení — ověřuje procesní správnost postupu podle vlastní metodiky.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Může GLJA zaručit výsledek sporu?</summary>
+        <p>Ne. Kryptografická pečeť potvrzuje integritu záznamu výsledku auditu, nikoli jeho právní účinek nebo výsledek jakéhokoli řízení — o tom vždy rozhoduje příslušný orgán nebo soud.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Jak si mohu audit objednat?</summary>
+        <p>Napište na kontaktní e-mail níže se stručným popisem případu — ozveme se s návrhem rozsahu a ceny.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Chcete prověřit konkrétní případ?</h2>
+    <p>Popište nám stručně, o jaký postup jde a jaké podklady máte k dispozici — ozveme se s návrhem dalšího postupu.</p>
+    <div class="hero-actions">
+      <a class="btn-gold" href="#kontakt">Požádat o audit</a>
+    </div>
+  </div>
+</section>
+
 <section id="kontakt">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Kontakt</div>
       <h2>Domluvit konzultaci</h2>
-      <p>Pro dotazy k procesnímu auditu, partnerství nebo médiím nás kontaktujte přímo.</p>
+      <p>Pro dotazy k procesnímu auditu, partnerství nebo médiím nás kontaktujte přímo e-mailem. Formulář zde zatím nenabízíme, aby nedošlo k nedorozumění o tom, že bylo Vaše podání skutečně doručeno.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-card">
-        <div class="role">Zakladatel</div>
+        <div class="role">CEO &amp; zakladatel</div>
         <h4>Roman Mužný Kašpar</h4>
         <a class="email" href="mailto:roman.muzny@glja.cz">roman.muzny@glja.cz</a>
       </div>
       <div class="contact-card">
-        <div class="role">Spoluzakladatel</div>
+        <div class="role">CSO &amp; spoluzakladatel</div>
         <h4>David Mužný</h4>
         <a class="email" href="mailto:david.muzny@glja.cz">david.muzny@glja.cz</a>
       </div>
@@ -401,18 +798,20 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-col">
+        <div class="footer-intro"><span class="serif" style="color:var(--ivory);font-size:16px;">GLJA <span style="color:var(--gold);">EUROPE</span></span></div>
+        <div class="footer-intro">Nezávislý procesní auditor. Ověřujeme dodržení procesního postupu — neposkytujeme právní zastoupení ani poradenství.</div>
+      </div>
+      <div class="footer-col">
         <h6>Právní</h6>
         <a href="#kontakt">Právní upozornění</a>
         <a href="#prava">Oblasti práva</a>
-      </div>
-      <div class="footer-col">
-        <h6>Zabezpečení dat</h6>
-        <div class="item">Kryptografické pečetění SHA-256</div>
-        <div class="item">Kompatibilita s eIDAS 2.0 / EUDI Wallet</div>
+        <div class="item">[CONTENT NEEDED]: zásady zpracování osobních údajů</div>
       </div>
       <div class="footer-col">
         <h6>Kontakt</h6>
@@ -421,7 +820,7 @@
         <a href="mailto:david.muzny@glja.cz">david.muzny@glja.cz</a>
       </div>
       <div class="footer-col seal">
-        <svg width="56" height="56" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="56" height="56" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="20" cy="20" r="19" stroke="#B8944D" stroke-width="1"/>
           <circle cx="20" cy="20" r="15.5" stroke="#B8944D" stroke-width="0.6"/>
           <path d="M20 10v6M13 22l7-7 7 7M13 22a3.2 3.2 0 106.4 0M20.6 22a3.2 3.2 0 106.4 0M20 16v13M16 30h8" stroke="#B8944D" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
